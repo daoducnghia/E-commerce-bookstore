@@ -1,0 +1,18 @@
+.inpt{
+    height: 36px;
+    min-width: 100px;
+    padding-left: 12px;
+    padding-right: 8px;
+    border-radius: 8px;
+    outline: none;
+    border: 1px solid #9f9f9f;
+}
+.inpt:hover{
+    background-color: #F5F5F5;
+}
+.inpt:focus{
+    border-color: #000;
+}
+.inpt--icon{
+    padding-right: 36px;
+}

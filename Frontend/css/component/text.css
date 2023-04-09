@@ -1,0 +1,46 @@
+@font-face {
+    font-family: 'notosans-bold';
+    src: url('../../assets/fonts/notosans-bold.3ede5aff.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'notosans-italic';
+    src: url('../../assets/fonts/notosans-italic.1c1aaac9.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'notosans-regular';
+    src: url('../../assets/fonts/notosans-regular.2cb88a13.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'notosans-semibold';
+    src: url('../../assets/fonts/notosans-semibold.df3e6dc4.woff2') format('woff2');
+}
+.font--heading__1 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+}
+.font--heading__2 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+}
+.font--heading__3 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+}
+.font--subheader {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+}
+.font--body__1 {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+}
+.font--body__2 {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+}

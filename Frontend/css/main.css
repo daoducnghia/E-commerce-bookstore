@@ -1,0 +1,136 @@
+@import url(./component/text.css);
+@import url(./component/icon.css);
+@import url(./component/textfield.css);
+* {
+    font-family: 'notosans-regular', notosans-regular;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 17px;
+}
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+a{
+    text-decoration: none;
+    color: unset;
+}
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #b8bcc3;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-track-piece {
+    background-color: #f1f1f1;
+    width: 10px;
+}
+
+.header{
+    display: flex;
+    height: 100px;
+    align-items: center;
+    justify-content: space-between;
+}
+.header--logo{
+    width: 100px;
+    height: 100px;
+    background-image: url(../assets/icon/Logo.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: 36px;
+}
+
+.header--navBar{
+    display: flex;
+    /* min-width: 500px; */
+    justify-content: space-between;
+}
+.header--navBar--item{
+    color: #9f9f9f;
+    cursor: pointer;
+    padding: 24px;
+}
+.header--navBar--item__active,
+.header--navBar--item:hover{
+    color: #555555;
+}
+
+.header--tool{
+    margin-right: 36px;
+    display: flex;
+    align-items: center;
+}
+.header--tool--item{
+    width: 24px;
+    height: 24px;
+    margin-left: 12px;
+    cursor: pointer;
+}
+.header--tool--item i{
+    color: #9f9f9f;
+    font-size: 24px;
+}
+.header--tool--item i:hover{
+    color: #000;
+}
+.header--tool--item i:hover ~ .header--tool__cart__number{
+    color: #000;
+}
+.header--tool__search{
+    position: relative;
+    margin-right: 24px;
+}
+.header--tool__search--icon{
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+.header--tool__search--icon i{
+    font-size: 20px;
+    color: #9f9f9f;
+}
+.header--tool__cart{
+    width: auto;
+    display: flex;
+    color: #9f9f9f;
+}
+.header--tool__user{
+    position: relative;
+}
+.header--tool__user--items{
+    box-shadow: #555555 5px 5px 20px;
+    border-radius: 8px;
+    margin-top: 24px;
+    right: -8px;
+    width: 150px;
+    position: absolute;
+    background-color: #fff;
+    padding: 0px 24px;
+}
+.header--tool__user--item{
+    min-height: 36px;
+    border-bottom: 1px solid #9f9f9f;
+    /* justify-content: center; */
+    display: flex;
+    align-items: center;
+}
+.header--tool__user--item:hover{
+    color: #9f9f9f;
+}
+/* Phần boby */
+.content{
+    height: 300px;
+    background-color: red;
+}
+/* Phần footer */
+.footer{
+    height: 200px;
+    background-color: blue;
+}

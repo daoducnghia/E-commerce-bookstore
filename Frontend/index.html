@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="shortcut icon" href="./assets/icon/Logo.svg">
+    <title>Bán sách</title>
+    <link rel="stylesheet" href="./css/main.css">
 </head>
+
 <body>
-    <div class="header"></div>
+    <div class="header">
+        <div class="header--logo"></div>
+        <!-- <div class="header--title font--heading__1">Bán sách</div> -->
+        <div class="header--navBar">
+            <div class="header--navBar--item header--navBar--item__active"><a href="" class="font--heading__2">Trang chủ</a></div>
+            <div class="header--navBar--item"><a href="" class="font--heading__2">Sản phẩm</a></div>
+            <div class="header--navBar--item"><a href="" class="font--heading__2">Thông tin bansach.com</a></div>
+            <div class="header--navBar--item"><a href="" class="font--heading__2">Liên hệ</a></div>
+            
+        </div>
+        <div class="header--tool">
+            <div class="header--tool__search">
+                <input type="text" class="inpt inpt--icon" placeholder="Bạn muốn mua gì?">
+                <div class="header--tool__search--icon"><i class="fa-light fa-magnifying-glass"></i></div>
+            </div>
+            <div class="header--tool--item header--tool__user">
+                <i class="fa-light fa-user"></i>
+                <div class="header--tool__user--items" style="display: block;">
+                    <a href=""><div class="header--tool__user--item">Đăng nhập</div></a>
+                    <a href=""><div class="header--tool__user--item">Đăng ký</div></a>
+                </div>
+            </div>
+            <div class="header--tool--item header--tool__favorite"><i class="fa-light fa-heart"></i></div>
+            <div class="header--tool--item header--tool__cart">
+                <i class="fa-light fa-cart-minus"></i>
+                <div class="header--tool__cart__number">10</div>
+            </div>
+        </div>
+    </div>
+    <div class="content"></div>
+    <div class="footer"></div>
 </body>
+
 </html>
