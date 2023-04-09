@@ -2,7 +2,8 @@
 @import url(./component/icon.css);
 @import url(./component/textfield.css);
 * {
-    font-family: 'notosans-regular', notosans-regular;
+    /* font-family: 'notosans-regular', notosans-regular; */
+    font-family: 'Inter-regular', Arial, Helvetica, sans-serif;
     font-size: 13px;
     font-weight: 400;
     line-height: 17px;
@@ -37,6 +38,7 @@ a{
     height: 100px;
     align-items: center;
     justify-content: space-between;
+    padding: 24px 64px;
 }
 .header--logo{
     width: 100px;
@@ -44,13 +46,14 @@ a{
     background-image: url(../assets/icon/Logo.svg);
     background-size: contain;
     background-repeat: no-repeat;
-    margin-left: 36px;
+    /* margin-left: 64px; */
 }
 
 .header--navBar{
     display: flex;
     /* min-width: 500px; */
     justify-content: space-between;
+    width: auto;
 }
 .header--navBar--item{
     color: #9f9f9f;
@@ -61,16 +64,64 @@ a{
 .header--navBar--item:hover{
     color: #555555;
 }
+.header--navBar__product{
+    position: relative;
+}
+.navBar__product--items{
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: #555555 5px 5px 20px;
+    border-radius: 8px;
+    width: 900px;
+    margin-top: 12px;
+    left: -24px;
+    z-index: 999;
+    padding: 36px;
+}
+.header--navBar__product:hover .navBar__product--items{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+.navBar__product--module{
+    padding: 12px;
+    color: #000;
+}
+.navBar__product--module--title{
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    margin-bottom: 12px;
+}
+.navBar__product--module--item{
+    margin-bottom: 8px;
+    padding-left: 8px;
+}
+.navBar__product--module--item:hover{
+    color: #9f9f9f;
+}
+.navBar__product--module--item a{
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+}
+.navBar__product--module--item__light{
+    color: #555555;
+    font-style: italic;
+}
 
 .header--tool{
-    margin-right: 36px;
+    /* margin-right: 64px; */
     display: flex;
     align-items: center;
 }
 .header--tool--item{
     width: 24px;
-    height: 24px;
-    margin-left: 12px;
+    height: 56px;
+    margin-left: 24px;
+    display: flex;
+    align-items: center;
     cursor: pointer;
 }
 .header--tool--item i{
@@ -85,7 +136,7 @@ a{
 }
 .header--tool__search{
     position: relative;
-    margin-right: 24px;
+    margin-right: 36px;
 }
 .header--tool__search--icon{
     position: absolute;
@@ -105,32 +156,39 @@ a{
     position: relative;
 }
 .header--tool__user--items{
+    display: none;
     box-shadow: #555555 5px 5px 20px;
     border-radius: 8px;
-    margin-top: 24px;
-    right: -8px;
+    top: 56px;
+    right: -16px;
     width: 150px;
     position: absolute;
     background-color: #fff;
-    padding: 0px 24px;
+    padding: 24px;
+    z-index: 999;
 }
 .header--tool__user--item{
-    min-height: 36px;
-    border-bottom: 1px solid #9f9f9f;
-    /* justify-content: center; */
+    min-height: 40px;
     display: flex;
     align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
 }
 .header--tool__user--item:hover{
     color: #9f9f9f;
 }
+.header--tool__user:hover .header--tool__user--items{
+    display: block;
+}
 /* Phần boby */
 .content{
-    height: 300px;
-    background-color: red;
+    /*  */
+    display: block;
 }
 /* Phần footer */
 .footer{
-    height: 200px;
-    background-color: blue;
+    height: 250px;
+    background-color: #F2F2F2;
+    padding: 64px;
 }

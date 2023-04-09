@@ -1,18 +1,18 @@
 @font-face {
-    font-family: 'notosans-bold';
-    src: url('../../assets/fonts/notosans-bold.3ede5aff.woff2') format('woff2');
+    font-family: 'Inter-bold';
+    src: url('../../assets/fonts/Inter-Bold.ttf');
 }
 @font-face {
-    font-family: 'notosans-italic';
-    src: url('../../assets/fonts/notosans-italic.1c1aaac9.woff2') format('woff2');
+    font-family: 'Inter-light';
+    src: url('../../assets/fonts/Inter-Light.ttf');
 }
 @font-face {
-    font-family: 'notosans-regular';
-    src: url('../../assets/fonts/notosans-regular.2cb88a13.woff2') format('woff2');
+    font-family: 'Inter-regular';
+    src: url('../../assets/fonts/Inter-Regular.ttf');
 }
 @font-face {
-    font-family: 'notosans-semibold';
-    src: url('../../assets/fonts/notosans-semibold.df3e6dc4.woff2') format('woff2');
+    font-family: 'Inter-semibold';
+    src: url('../../assets/fonts/Inter-SemiBold.ttf');
 }
 .font--heading__1 {
     font-size: 20px;
