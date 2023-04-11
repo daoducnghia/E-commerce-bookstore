@@ -1,6 +1,7 @@
 @import url(./component/text.css);
 @import url(./component/icon.css);
 @import url(./component/textfield.css);
+@import url(./component/button.css);
 
 * {
     /* font-family: 'notosans-regular', notosans-regular; */
@@ -126,7 +127,7 @@ a {
 }
 
 .navBar__product--module--item__light {
-    color: #555555;
+    color: #2489F4;
     font-style: italic;
 }
 
@@ -217,10 +218,9 @@ a {
 /* Phần boby */
 .content {
     /*  */
-    display: block;
     width: 100%;
-    height: 100vh;
-    background-color: #ced0d2;
+    height: auto;
+    background-color: #fff;
 }
 
 /* Phần footer */
@@ -246,9 +246,11 @@ a {
     font-weight: 700;
     text-decoration: underline;
 } */
-
+.footer{
+    font-size: 14px;
+}
 .footer-distributed {
-    background: #666;
+    background: #757575;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
     box-sizing: border-box;
     width: 100%;
@@ -298,6 +300,9 @@ a {
     text-decoration: none;
     color: inherit;
 }
+.footer-distributed .footer-links a:hover{
+    color: #000;
+}
 
 .footer-distributed .footer-company-name {
     color: #222;
@@ -346,9 +351,12 @@ a {
 }
 
 .footer-distributed .footer-center p a {
-    color: lightseagreen;
+    color: #fff;
     text-decoration: none;
     ;
+}
+.footer-distributed .footer-center p a:hover{
+    color: #000;
 }
 
 .footer-distributed .footer-links a:before {
@@ -378,17 +386,26 @@ a {
     font-weight: normal;
     margin: 0;
 }
+.footer-distributed .footer-company-about p{
+    display: flex;
+    justify-content: right;
+    color: #ffffff;
+}
 
 .footer-distributed .footer-company-about span {
     display: block;
     color: #ffffff;
     font-size: 14px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
 }
 
 .footer-distributed .footer-icons {
     margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
 }
 
 .icon {
@@ -396,24 +413,23 @@ a {
 }
 
 .footer-distributed .footer-icons a {
-    display: inline-block;
+    /* display: inline-block; */
     width: 35px;
     height: 35px;
     cursor: pointer;
     background-color: #33383b;
-    border-radius: 2px;
+    border-radius: 4px;
 
     font-size: 20px;
     color: #ffffff;
     text-align: center;
     line-height: 35px;
 
-    margin-right: 3px;
-    margin-bottom: 5px;
-
-
+    margin-right: 8px;
 }
-
+.footer-distributed .footer-icons a:hover{
+    background-color: #9f9f9f;
+}
 @media (max-width: 880px) {
 
     .footer-distributed {

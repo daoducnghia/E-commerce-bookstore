@@ -1,0 +1,18 @@
+.btn{
+    min-width: 80px;
+    height: 40px;
+    cursor: pointer;
+    background-color: #1F1F1F;
+    border-radius: 20px;
+    outline: unset;
+    border: unset;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 14px;
+}
+.btn:hover{
+    background-color: #616161;
+}
+.btn:active{
+    background-color: #424242;
+}

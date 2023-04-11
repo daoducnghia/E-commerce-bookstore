@@ -1,0 +1,196 @@
+.content--slider{
+    background: url(https://cdn0.fahasa.com/media/magentothem/banner7/SLIVER_NCCMOREPRODUCTION_T42023_Slide_840x320.png) top center / cover no-repeat;
+    height: calc(100vW * 0.381);
+    cursor: pointer;
+}
+.content--slider:active{
+    -webkit-filter: grayscale(1);    
+    filter: grayscale(1); 
+}
+/* Danh mục sp */
+.content--catalog{
+    padding: 48px 64px;
+}
+.content--catalog--title{
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+}
+.content--catalog--items{
+    padding: 12px 0px;
+    /* display: flex;
+    justify-content: space-between; */
+    width: 100%;
+    overflow: auto;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto;
+}
+.content--catalog--item{
+    padding: 24px;
+    margin: 8px;
+}
+.content--catalog--item:hover{
+    /* border: 1px solid #000; */
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 4px;
+}
+.content--catalog--item:hover .content--catalog-item__title{
+    font-weight: 700;
+}
+.content--catalog--item a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+.content--catalog--item__img{
+    width: 100px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+.content--catalog--item__img img{
+    height: 150px;
+    width: auto;
+}
+.content--catalog-item__title{
+    margin-top: 16px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+}
+/* List các sản phẩm */
+.content--product{
+    padding: 48px 64px;
+    padding-top: 0px;
+}
+.content--product--listTitle{
+    display: flex;
+    justify-content: center;
+}
+.content--product--listTitle--item{
+    padding: 0 16px;
+}
+.content--product--listTitle--item__active,
+.content--product--listTitle--item:hover{
+    color: #9f9f9f;
+}
+.content--product--listTitle--item a{
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+}
+.content--product--items{
+    margin-top: 16px;
+    overflow: auto;
+    width: 100%;
+    display: grid;
+    grid-gap: 12px;
+    grid-template-columns: auto auto auto auto auto;
+}
+.content--product--item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 440px;
+    cursor: pointer;
+}
+.content--product--item:hover{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 4px;
+}
+.content--product--item:hover .content--product--item--like,
+.content--product--item:hover .content--product--item--btn{
+    display: block;
+}
+.content--product--item--sale{
+    position: absolute;
+    top: 16px;
+    left: 0px;
+    height: 20px;
+    width: 20%;
+    background-color: red;
+    text-align: center;
+    color: #fff;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 20px;
+}
+.content--product--item--sale--flag{
+    top: 0px;
+    left: 100%;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-bottom: 20px solid transparent;
+    border-left: 16px solid red;
+}
+.content--product--item--like{
+    display: none;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    color: #9f9f9f;
+    animation: runLeft 0.5s;
+}
+.content--product--item--like:hover{
+    color: #000;
+}
+.content--product--item--like__active{
+    color: red;
+}
+.content--product--item--like i{
+    font-size: 20px;
+}
+.content--product--item--like:active{
+    color: red;
+}
+.content--product--item--img{
+    width: 100%;
+}
+.content--product--item--img img{
+    width: 100%;
+}
+.content--product--item--title{
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: capitalize;
+    padding: 16px;
+    padding-top: 4px;
+}
+.content--product--item--price__old{
+    color: #555555;
+    text-decoration: line-through;
+    padding-bottom: 4px;
+}
+.content--product--item--price{
+    padding-bottom: 8px;
+    color: red;
+    font-size: 16px;
+}
+.content--product--item--point{
+    font-size: 16px;
+    padding-bottom: 8px;
+}
+.content--product--item--btn{
+    display: none;
+}
+@keyframes runLeft{
+    0%{
+        top: 8px;
+        right: 0px;
+        color: #fff;
+    }
+    50%{
+        color: #d3d3d3;
+    }
+    100%{
+        top: 16px;
+        right: 16px;
+    }
+}
