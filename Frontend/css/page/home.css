@@ -1,9 +1,47 @@
 .content--slider{
-    background: url(https://cdn0.fahasa.com/media/magentothem/banner7/SLIVER_NCCMOREPRODUCTION_T42023_Slide_840x320.png) top center / cover no-repeat;
-    height: calc(100vW * 0.381);
-    cursor: pointer;
+    position: relative;
+    width: 100%;
+    height: min-content;
 }
-.content--slider:active{
+.content--slider--arrow__right{
+    position: absolute;
+    z-index: 500;
+    right: 16px;
+    top: calc(50% - 40px);
+}
+.content--slider--arrow__left{
+    position: absolute;
+    z-index: 500;
+    left: 16px;
+    top: calc(50% - 40px);
+    
+}
+.content--slider--arrow__right i,
+.content--slider--arrow__left i{
+    font-size: 80px;
+    cursor: pointer;
+    color: #ffffff70;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.05) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.05) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.05) 0px 2px 1px, rgba(0, 0, 0, 0.05) 0px 4px 2px, rgba(0, 0, 0, 0.05) 0px 8px 4px, rgba(0, 0, 0, 0.05) 0px 16px 8px, rgba(0, 0, 0, 0.05) 0px 32px 16px;
+}
+.content--slider--arrow__right i:hover,
+.content--slider--arrow__left i:hover{
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+    color: #00000050;
+}
+.content--slider--items{
+    width: 100%;
+    height: min-content;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 100% 100% 100%;
+}
+.content--slider--item{
+    width: 100%;
+}
+.content--slider--item img{
+    width: 100%;
+}
+.content--slider--item:active{
     -webkit-filter: grayscale(1);    
     filter: grayscale(1); 
 }
@@ -94,16 +132,18 @@
     grid-template-columns: auto auto auto auto auto;
 }
 .content--product--item{
+    margin: 10px;
+    padding: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-    width: 100%;
-    height: 440px;
+    width: 230px;
+    min-height: 400px;
     cursor: pointer;
 }
 .content--product--item:hover{
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;
     border-radius: 4px;
 }
 .content--product--item:hover .content--product--item--like,
@@ -115,7 +155,7 @@
     top: 16px;
     left: 0px;
     height: 20px;
-    width: 20%;
+    width: 48px;
     background-color: red;
     text-align: center;
     color: #fff;
