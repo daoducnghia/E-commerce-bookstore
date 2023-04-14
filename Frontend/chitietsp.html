@@ -8,21 +8,159 @@
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="shortcut icon" href="./assets/icon/Logo.svg" />
+    <link rel="stylesheet" href="css/page/chititesp.css" />
   </head>
   <body>
+    <!-- HEADER -->
     <div id="nav"></div>
-
     <script>
       $(function () {
         $("#nav").load("nav.html");
       });
     </script>
-    <div class="content"></div>
+    <!-- END HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+      <div class="wrapper">
+        <h1>Chi tiết sản phẩm</h1>
+        <div class="product">
+          <div class="small-container single-product">
+            <div class="row">
+              <div class="col-2">
+                <img
+                  src="assets/image/img1.jpg"
+                  alt=""
+                  width="100%"
+                  id="ProductImg"
+                />
+                <div class="small-img-row">
+                  <div class="small-img-col">
+                    <img
+                      src="assets/image/img1(1).jpg"
+                      alt=""
+                      class="small-img"
+                      width="100%"
+                    />
+                  </div>
+                  <div class="small-img-col">
+                    <img
+                      src="assets/image/img2(1).jpg"
+                      width="100%"
+                      alt=""
+                      class="small-img"
+                    />
+                  </div>
+                  <div class="small-img-col">
+                    <img
+                      src="assets/image/img3(1).jpg"
+                      width="100%"
+                      alt=""
+                      class="small-img"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-2">
+                <h1>Trăm năm cô đơn</h1>
+                <h4>100.000 VNĐ</h4>
+                <input
+                  type="number"
+                  name=""
+                  id="input-number-product"
+                  value="1"
+                />
+                <a href="#" class="btn">Thêm vào giỏ hàng</a>
+                <h3>Thông tin sản phẩm</h3>
+                <table>
+                  <tr>
+                    <th style="width: 35%"></th>
+                    <th></th>
+                  </tr>
+                  <tr>
+                    <td>Công ty phát hành:</td>
+                    <td>Nhã nam</td>
+                  </tr>
+                  <tr>
+                    <td>Ngày xuất bản:</td>
+                    <td>2018-08-10 14:03:30</td>
+                  </tr>
+                  <tr>
+                    <td>Kích thước:</td>
+                    <td>15 x 24 cm</td>
+                  </tr>
+                  <tr>
+                    <td>Dịch Giả:</td>
+                    <td>Nguyễn Trung Đức , Phạm Đình Lợi , Nguyễn Quốc Dũng</td>
+                  </tr>
+                  <tr>
+                    <td>Loại bìa:</td>
+                    <td>Bìa mềm</td>
+                  </tr>
+                  <tr>
+                    <td>Loại bìa:</td>
+                    <td>496</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="description-product">
+              <hr />
+              <h2>Chi tiết sách</h2>
+              <p>
+                Trăm năm cô đơn (tiếng Tây Ban Nha: Cien años de soledad) là
+                cuốn tiểu thuyết nổi tiếng nhất của nhà văn người Colombia
+                Gabriel Garcia Marquez. Tác phẩm được nhà xuất bản Sudamericana
+                xuất bản lần đầu bằng tiếng Tây Ban Nha vào năm 1967 tại Buenos
+                Aires (Argentina). Đến năm 1970, truyện đã được in bằng tiếng
+                Tây Ban Nha hơn nửa triệu bản, chưa kể hai lần in ở Cuba là một
+                trăm nghìn bản. Khi đó còn có 17 hợp đồng xin phép tác giả được
+                dịch tác phẩm này ra các thứ tiếng khác.
+              </p>
+              <br />
+              <p>
+                Cho đến nay, tác phẩm đã chuyển dịch qua hơn 30 ngôn ngữ trên
+                thế giới trong đó có Việt Nam, được tặng giải Chianchiano của Ý,
+                được Pháp công nhận là cuốn sách hay nhất trong năm và được giới
+                phê bình văn học Mỹ đánh giá là một trong 12 cuốn sách hay nhất
+                trong thập niên 1960. Đây được coi là một kiệt tác của Gabriel
+                Garcia Marquez, cùng với những tác phẩm Ngài đại tá chờ thư (El
+                coronel no tiene quien le escriba, 1959), Mùa thu của ngài
+                trưởng lão (El otoño del patriarca, 1975), Trăm năm cô đơn đã
+                mang đến cho tác giả vinh dự đoạt giải Nobel Văn học vào năm
+                1982.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var ProductImg = document.getElementById("ProductImg");
+      var SmallImg = document.getElementsByClassName("small-img");
+
+      SmallImg[0].onclick = function () {
+        ProductImg.src = SmallImg[0].src;
+      };
+      SmallImg[1].onclick = function () {
+        ProductImg.src = SmallImg[1].src;
+      };
+      SmallImg[2].onclick = function () {
+        ProductImg.src = SmallImg[2].src;
+      };
+      // SmallImg[0].onclick = function(){
+      //   ProductImg.src = SmallImg[3].src;
+      // }
+    </script>
+    <!-- END CONTENT -->
+
+    <!-- FOOTER -->
     <div id="footer"></div>
     <script>
       $(function () {
         $("#footer").load("footer.html");
       });
     </script>
+    <!-- END FOOTER -->
   </body>
 </html>

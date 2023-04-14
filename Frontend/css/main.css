@@ -214,16 +214,16 @@ a {
     display: block;
 }
 
-/* Phần boby */
+/* Phần boby ------------------------------------------------------------------------*/
 .content {
-    /*  */
     display: block;
     width: 100%;
     height: 100vh;
     background-color: #ced0d2;
+    height: fit-content;
 }
 
-/* Phần footer */
+/* Phần footer ----------------------------------------------------------------------*/
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
 
 .footer-distributed {
