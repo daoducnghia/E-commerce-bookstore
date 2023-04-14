@@ -2,6 +2,7 @@
 @import url(./component/icon.css);
 @import url(./component/textfield.css);
 @import url(./component/button.css);
+@import url(./component/dropdownlist.css);
 
 * {
     /* font-family: 'notosans-regular', notosans-regular; */
