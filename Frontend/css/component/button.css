@@ -27,3 +27,9 @@
 .btn__gray:active{
     background-color: #e4e4e4;
 }
+.btn__rad4{
+    border-radius: 4px;
+}
+.btn__rad8{
+    border-radius: 8px;
+}
