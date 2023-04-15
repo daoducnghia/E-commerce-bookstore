@@ -1,5 +1,5 @@
 @import url(../main.css);
-.content-lsmh{
+.content{
     width: calc(100% - 64px - 64px);
     padding: 24px 64px;
     height: max-content;
