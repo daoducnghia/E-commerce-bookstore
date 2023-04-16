@@ -3,6 +3,7 @@
 @import url(./component/textfield.css);
 @import url(./component/button.css);
 @import url(./component/dropdownlist.css);
+@import url(./component/popup.css);
 
 * {
     /* font-family: 'notosans-regular', notosans-regular; */
