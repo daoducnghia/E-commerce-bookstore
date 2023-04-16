@@ -12,10 +12,28 @@
     <!-- <link rel="stylesheet" href="css/component/footer.css" /> -->
   </head>
   <body>
-    <div id="footer"></div>
+    <label for="my-file" id="file-label" class="file-label">
+      <span class="file-icon"></span>
+      <span class="file-name">Chọn tệp</span>
+    </label>
+    <input type="file" id="my-file" name="my-file" style="display: none" />
     <script>
-      $(function () {
-        $("#footer").load("footer.html");
+      var fileInput = document.getElementById("my-file");
+      var fileLabel = document.getElementById("file-label");
+      var fileIcon = fileLabel.querySelector(".file-icon");
+      var fileName = fileLabel.querySelector(".file-name");
+
+      fileInput.addEventListener("change", function () {
+        var selectedFile = fileInput.files[0];
+        if (selectedFile) {
+          fileName.textContent = selectedFile.name;
+        } else {
+          fileName.textContent = "Chọn tệp";
+        }
+      });
+
+      fileLabel.addEventListener("click", function () {
+        fileInput.click();
       });
     </script>
   </body>

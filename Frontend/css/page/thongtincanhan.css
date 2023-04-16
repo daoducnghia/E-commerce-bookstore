@@ -1,0 +1,155 @@
+@import url(../main.css);
+
+.content {
+    width: calc(100% - 64px - 64px);
+    padding: 24px 64px;
+    height: max-content;
+    display: flex;
+    background-color: #f2f2f2;
+}
+
+/* Phần sidebar trái */
+.content--sidebar {
+    width: 208px;
+    height: max-content;
+    padding-left: 64px;
+}
+
+.content--sidebar--user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.content--sidebar--user--img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #f2f2f2;
+    margin-right: 12px;
+}
+
+.content--sidebar--user--img img {
+    max-height: 100%;
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+.content--sidebar--item {
+    margin: 12px 0;
+}
+
+.content--sidebar--item a {
+    font-size: 14px;
+    color: #9f9f9f;
+}
+
+.content--sidebar--item__active a,
+.content--sidebar--item:hover a {
+    font-weight: 600;
+    color: #000;
+}
+
+.content--sidebar--item i {
+    font-size: 18px;
+    margin-right: 8px;
+}
+
+/* Phần nội dung chính -----------------------------------------------------*/
+.content--main {
+    width: calc(100vw - 208px - 64px - 64px);
+    background-color: #ffffff;
+    padding: 30px;
+}
+
+.user-profile .title h2 {
+    font-size: 25px;
+    margin-bottom: 15px;
+    margin-top: 0px;
+}
+
+.user-profile .title h3 {
+    font-size: 15px;
+    margin-top: 0px;
+}
+
+.user-profile .title {
+    margin-bottom: 40px;
+}
+
+.noidung-chinh {
+    display: flex;
+}
+
+.noidung-text {
+    flex: 60%;
+}
+
+.noidung-img {
+    flex: 40%;
+}
+
+.table-text {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.td-label {
+    text-align: right;
+    color: rgba(85, 85, 85, .8);
+    overflow: hidden;
+    padding-bottom: 30px;
+    white-space: nowrap;
+    min-width: 20%;
+}
+
+.td-label label,
+.td-input input {
+    font-size: 15px;
+}
+
+.td-input {
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-bottom: 30px;
+}
+
+.td-input input {
+    background: none;
+    padding: 12px;
+    border: 1px solid #9f9f9f;
+    width: 90%;
+    height: 100%;
+    /* border-color: #9f9f9f; */
+    color: #484848;
+    border-radius: 6px;
+}
+
+/* Phần thêm ảnh ------------------------------------------------------*/
+.noidung-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-left: #484848 solid;
+}
+
+.noidung-img .btn {
+    width: 45%;
+    margin: auto;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    height: max-content;
+}
+
+.noidung-img i {
+    /* width: 100%;
+    height: 90%; */
+    font-size: 100px;
+    margin-bottom: 20px;
+}
+
+#user-ava {
+    display: none;
+}
