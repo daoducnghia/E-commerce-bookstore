@@ -217,13 +217,13 @@ a {
 }
 
 /* Phần boby ------------------------------------------------------------------------*/
-.content {
+/* .content {
     display: block;
     width: 100%;
     height: 100vh;
     background-color: #ced0d2;
     height: fit-content;
-}
+} */
 
 /* Phần footer ----------------------------------------------------------------------*/
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
@@ -242,9 +242,10 @@ a {
     font-weight: 700;
     text-decoration: underline;
 } */
-.footer{
+.footer {
     font-size: 14px;
 }
+
 .footer-distributed {
     background: #757575;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
@@ -296,7 +297,8 @@ a {
     text-decoration: none;
     color: inherit;
 }
-.footer-distributed .footer-links a:hover{
+
+.footer-distributed .footer-links a:hover {
     color: #000;
 }
 
@@ -351,7 +353,8 @@ a {
     text-decoration: none;
     ;
 }
-.footer-distributed .footer-center p a:hover{
+
+.footer-distributed .footer-center p a:hover {
     color: #000;
 }
 
@@ -382,7 +385,8 @@ a {
     font-weight: normal;
     margin: 0;
 }
-.footer-distributed .footer-company-about p{
+
+.footer-distributed .footer-company-about p {
     display: flex;
     justify-content: right;
     color: #ffffff;
@@ -401,7 +405,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
 }
 
 .icon {
@@ -423,9 +427,11 @@ a {
 
     margin-right: 8px;
 }
-.footer-distributed .footer-icons a:hover{
+
+.footer-distributed .footer-icons a:hover {
     background-color: #9f9f9f;
 }
+
 @media (max-width: 880px) {
 
     .footer-distributed {
