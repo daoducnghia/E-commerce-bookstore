@@ -1,6 +1,6 @@
-@import url(./component/text.css);
-@import url(./component/icon.css);
-@import url(./component/textfield.css);
+@import url(/Frontend/css/component/text.css);
+@import url(/Frontend/css/component/icon.css);
+@import url(/Frontend/css/component/textfield.css);
 
 * {
     font-family: 'Inter-regular', Arial, Helvetica, sans-serif;
