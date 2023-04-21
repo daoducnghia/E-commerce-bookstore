@@ -29,4 +29,5 @@ public class AccountEntity implements Serializable {
     private int accountId;
     private String username;
     private String password;
+    private String accountType;
 }
