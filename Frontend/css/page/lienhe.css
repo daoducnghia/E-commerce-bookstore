@@ -1,0 +1,142 @@
+@import url(./component/text.css);
+@import url(./component/icon.css);
+@import url(./component/textfield.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter-regular', Arial, Helvetica, sans-serif;
+}
+
+.content {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    background-color: #f2f2f2;
+    height: fit-content;
+}
+
+.wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.wrapper h1 {
+    padding: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.main-label {
+    padding-bottom: 32px;
+}
+
+.main-label h3 {
+    text-align: center;
+}
+
+.main-label h3 a:hover {
+    text-decoration: underline;
+    font-size: 13px;
+}
+
+.first-content {
+    display: flex;
+    background-color: #fff;
+    padding: 80px;
+    height: fit-content;
+    line-height: 1.5;
+}
+
+.first-content-left,
+.first-content-right {
+    flex: 50%;
+}
+
+.first-content-left {
+    padding: 20px;
+}
+
+.first-content h2 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.first-content-left-1 p {
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.first-content-right {
+    padding: 20px;
+}
+
+.first-content-left-1 {
+    font-size: 14px;
+    padding-bottom: 20px;
+    border-bottom: solid;
+}
+
+.first-content-left-2 {
+    padding-top: 10px;
+}
+
+.first-content-left-2 ul {
+    list-style-type: none;
+}
+
+.first-content-left-2 i,
+.first-content-left-2 p {
+    display: inline-block;
+
+}
+
+.first-content-left-2 li {
+    line-height: 4;
+
+}
+
+.first-content-left-2 i {
+    padding-right: 20px;
+}
+
+.first-content-left-2 p {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.first-content-right form {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    max-width: 500px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+
+.first-content-right div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.first-content-right label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 16px;
+}
+
+.first-content-right input,
+.first-content-right textarea {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ccc;
+}

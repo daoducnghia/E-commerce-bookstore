@@ -16,7 +16,7 @@ import ptit.tmdt.bansach.repository.UserRepository;
 @CrossOrigin
 @RequestMapping("/api")
 @RestController
-public class accountController {
+public class AccountController {
     // @Autowired
     // AccountService accountService;
 
@@ -32,12 +32,12 @@ public class accountController {
             AccountEntity account1 = accountRepository.findByUsername(account.getUsername());
 
             if (account1 == null) {
-                System.out.println("Không tìm thấy tài khoản");
+                // System.out.println("Không tìm thấy tài khoản");
                 return "Không tìm thấy tài khoản";
             }
             if (account1.getPassword().equals(account1.getPassword())) {
-                System.out.println("Đăng nhập thành công");
-                return "Đăng nhập thành công";
+                // System.out.println("Đăng nhập thành công");
+                return account.getUsername();
             }
 
         } catch (Exception e) {

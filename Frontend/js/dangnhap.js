@@ -8,7 +8,7 @@ form.addEventListener("submit", function (event) {
 
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
-  console.log(username);
+
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
@@ -29,7 +29,8 @@ form.addEventListener("submit", function (event) {
     .then((result) => {
       if (result === "Không tìm thấy tài khoản") {
         alert("Không tìm thấy tài khoản");
-      } else if (result === "Đăng nhập thành công") {
+      } else if (result === username) {
+        localStorage.setItem("username", username);
         window.location.replace("home.html");
       } else {
         alert("khong lam gi");

@@ -25,13 +25,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Table(name = "category")
-public class CategoryEntity implements Serializable{
+public class CategoryEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int categoryId;
     private String categoryName;
-    
+    private String linkImage;
+
     @ManyToOne
     @JoinColumn(name = "categoryIncludesId")
     private CategoryEntity categoryIncludes;
+
 }
