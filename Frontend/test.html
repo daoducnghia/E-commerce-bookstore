@@ -12,28 +12,30 @@
     <!-- <link rel="stylesheet" href="css/component/footer.css" /> -->
   </head>
   <body>
-    <label for="my-file" id="file-label" class="file-label">
-      <span class="file-icon"></span>
-      <span class="file-name">Chọn tệp</span>
-    </label>
-    <input type="file" id="my-file" name="my-file" style="display: none" />
+    <form id="login-form">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" /><br />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" /><br />
+
+      <button type="submit">Login</button>
+    </form>
+
     <script>
-      var fileInput = document.getElementById("my-file");
-      var fileLabel = document.getElementById("file-label");
-      var fileIcon = fileLabel.querySelector(".file-icon");
-      var fileName = fileLabel.querySelector(".file-name");
+      const form = document.getElementById("login-form");
+      form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Ngăn chặn việc gửi form
 
-      fileInput.addEventListener("change", function () {
-        var selectedFile = fileInput.files[0];
-        if (selectedFile) {
-          fileName.textContent = selectedFile.name;
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        // Thực hiện kiểm tra đăng nhập ở đây
+        if (username === "admin" && password === "123456") {
+          alert("Login successful!");
         } else {
-          fileName.textContent = "Chọn tệp";
+          alert("Invalid username or password.");
         }
-      });
-
-      fileLabel.addEventListener("click", function () {
-        fileInput.click();
       });
     </script>
   </body>

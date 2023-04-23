@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,33 +14,38 @@
     </div>
     <div class="login-page">
       <div class="form">
-        <form class="register-form">
+        <form id="register-form" class="register-form">
           <div id="register-label">
             <label>Đăng ký</label>
           </div>
+          <div id="register-name">
+            <label>Họ tên</label>
+            <input type="text" id="name" placeholder="Tên" required/>
+          </div>
           <div id="register-username">
-            <label>Tên tài khoản</label
-            ><input type="text" placeholder="Tên tài khoản" />
+            <label>Tên tài khoản</label>
+            <input type="text" id="username" placeholder="Tên tài khoản" required/>
+            <p id="username-err" style="display: none; color: crimson;">Tên tài khoản đã được sử dụng</p>
           </div>
           <div id="register-password">
-            <label>Mật khẩu</label
-            ><input type="password" placeholder="Mật khẩu" />
+            <label>Mật khẩu</label>
+            <input type="password" id="password" placeholder="Mật khẩu" required/>
           </div>
           <div id="register-email">
-            <label>Email</label
-            ><input type="text" placeholder="Địa chỉ email" />
+            <label>Email</labels>
+            <input type="text" id="email" placeholder="Địa chỉ email" required/>
           </div>
           <div id="register-number">
-            <label>Số điện thoại</label
-            ><input type="text" placeholder="Số điện thoại" />
+            <label>Số điện thoại</label>
+            <input type="text" id="number" placeholder="Số điện thoại" required/>
           </div>
 
-          <button>Đăng ký</button>
+          <button type="submit" id="button">Đăng ký</button>
           <p class="message">
             Đã có tài khoản? <a href="./dangnhap.html">Đăng nhập</a>
           </p>
         </form>
       </div>
-    </div>
+    <script src="js/dangky.js"></script>
   </body>
 </html>
