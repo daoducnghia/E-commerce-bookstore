@@ -1,6 +1,17 @@
 window.addEventListener("load", function (event) {
   var username = localStorage.getItem("username");
-  console.log(username);
+  // console.log(username);
+  $("#input-search").keypress(function (event) {
+    // Kiểm tra xem phím Enter đã được nhấn
+    if (event.keyCode === 13) {
+      // Thực hiện các hành động tương ứng ở đây
+      window.location.replace(
+        "danhsachsp.html?search=" + $("#input-search").val()
+      );
+      
+    }
+  });
+
   if (username) {
     document
       .getElementsByClassName("header--tool__user--items")
