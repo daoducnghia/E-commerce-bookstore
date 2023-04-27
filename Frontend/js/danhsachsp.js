@@ -4,7 +4,7 @@ window.addEventListener("load", function (event) {
     setInterval(productTranfer, 5000);
 });
 
-document.getElementsByClassName('dialogFilter--board').item(0).addEventListener('click', function(event){
+document.getElementsByClassName('popup--board').item(0).addEventListener('click', function(event){
     event.stopPropagation();
 })
 function setHeightListFeaturedProduct(){
@@ -27,9 +27,11 @@ function productTranfer(){
     ele.innerHTML = html;
     setHeightListFeaturedProduct();
 }
-function openDialogFiler(){
-    document.getElementsByClassName('dialogFilter').item(0).style.display = 'block';
+function openPopup(ele){
+    document.getElementById(ele).style.display = 'block';
+    // document.getElementsByClassName(ele).item(0).style.display = 'block';
 }
-function closeDialogFiler(){
-    document.getElementsByClassName('dialogFilter').item(0).style.display = 'none';
+function closePopup(ele){
+    document.getElementById(ele).style.display = 'none';
+    // document.getElementsByClassName(ele).item(0).style.display = 'none';
 }

@@ -23,9 +23,19 @@ var sidebar = `<div class="content--sidebar--items">
 <a href="qlsanpham.html" class="content--sidebar--item productpage"><i class="fa-regular fa-book"></i>Sản phẩm</a>
 <a href="qlkhuyenmai.html" class="content--sidebar--item promotionpage"><i class="fa-light fa-receipt"></i>Khuyến mãi</a>
 <a href="qlkhachhang.html" class="content--sidebar--item clientpage"><i class="fa-light fa-users"></i>Khách hàng</a>
+<a href="qldonhang.html" class="content--sidebar--item orderpage"><i class="fa-regular fa-bags-shopping"></i>Đơn hàng</a>
 <a href="baocao_ql.html" class="content--sidebar--item reportpage"><i class="fa-light fa-file"></i>Báo cáo</a>
 </div>`
 $(function () {
     $(".header").html(header);
     $(".content--sidebar").html(sidebar);
+})
+function openPopup(ele){
+    document.getElementById(ele).style.display = 'block';
+}
+function closePopup(ele){
+    document.getElementById(ele).style.display = 'none';
+}
+document.getElementsByClassName('popup--board').item(0).addEventListener('click', function(event){
+    event.stopPropagation();
 })
