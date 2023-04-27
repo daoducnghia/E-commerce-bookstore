@@ -29,9 +29,12 @@ form.addEventListener("submit", function (event) {
     .then((result) => {
       if (result === "Không tìm thấy tài khoản") {
         alert("Không tìm thấy tài khoản");
-      } else if (result === username) {
+      } else if (result === username + "user") {
         localStorage.setItem("username", username);
         window.location.replace("home.html");
+      } else if (result === username + "admin") {
+        localStorage.setItem("username", username);
+        window.location.replace("adminpage.html");
       } else {
         alert("khong lam gi");
       }

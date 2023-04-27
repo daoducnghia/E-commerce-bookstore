@@ -11,7 +11,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,8 +36,15 @@ public class CategoryEntity implements Serializable {
     private String categoryName;
     private String linkImage;
 
-    @ManyToOne
-    @JoinColumn(name = "categoryIncludesId")
-    private CategoryEntity categoryIncludes;
+    // @ManyToOne
+    // @JoinColumn(name = "categoryIncludesId")
+    // private CategoryEntity categoryIncludes;
 
+    @JsonIgnore // bỏ qua trường này trong đối tượng JSON
+    @ManyToOne()
+    @JoinColumn(name = "categoryIncludesId")
+    private CategoryEntity parent;
+
+    @OneToMany(mappedBy = "categoryIncludesId", fetch = FetchType.LAZY)
+    private List<CategoryEntity> categoryIncludes;
 }
