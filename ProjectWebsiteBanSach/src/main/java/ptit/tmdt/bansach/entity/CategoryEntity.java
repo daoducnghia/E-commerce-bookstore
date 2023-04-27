@@ -36,15 +36,8 @@ public class CategoryEntity implements Serializable {
     private String categoryName;
     private String linkImage;
 
-    // @ManyToOne
-    // @JoinColumn(name = "categoryIncludesId")
-    // private CategoryEntity categoryIncludes;
-
-    @JsonIgnore // bỏ qua trường này trong đối tượng JSON
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "categoryIncludesId")
-    private CategoryEntity parent;
+    private CategoryEntity categoryIncludes;
 
-    @OneToMany(mappedBy = "categoryIncludesId", fetch = FetchType.LAZY)
-    private List<CategoryEntity> categoryIncludes;
 }

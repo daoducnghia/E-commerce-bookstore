@@ -16,16 +16,19 @@ import ptit.tmdt.bansach.repository.ProductRepository;
 public class ProductController {
     @Autowired
     ProductRepository productRepository;
-    
+
     @GetMapping("/search")
-    public List<ProductEntity> searchProductByName(@RequestParam("name") String name){
+    public List<ProductEntity> searchProductByName(@RequestParam("name") String name) {
         try {
             System.out.println(name);
-            List<ProductEntity> lProduct = (List<ProductEntity>)productRepository.findAllByProductName("%"+name+"%");
+            List<ProductEntity> lProduct = (List<ProductEntity>) productRepository
+                    .findAllByProductName("%" + name + "%");
             return lProduct;
         } catch (Exception e) {
             System.out.println(e);
         }
         return null;
     }
+
+    
 }
