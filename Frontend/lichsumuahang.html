@@ -26,7 +26,9 @@
         </div>
         <div class="content--sidebar--items">
           <div class="content--sidebar--item">
-            <a href=""><i class="fa-regular fa-user"></i>Tài khoản của tôi</a>
+            <a href="quanlythongtincanhan.html"
+              ><i class="fa-regular fa-user"></i>Tài khoản của tôi</a
+            >
           </div>
           <div class="content--sidebar--item content--sidebar--item__active">
             <a href=""
@@ -113,7 +115,164 @@
           <div class="order--footer">
             <div class="order--footer--cost">Tổng tiền: 64.500đ</div>
             <div class="order--footer--btn">
-              <button class="btn btn__rad4">Đánh giá</button>
+              <button id="btn-danh-gia" class="btn btn__rad4">Đánh giá</button>
+              <form action="" class="form-danh-gia" id="form-danh-gia">
+                <div class="vien-trong">
+                  <h1>Đánh giá sản phẩm</h1>
+                  <button id="close-form" class="btn-X">X</button>
+                  <div class="san-pham">
+                    <div class="san-pham-item">
+                      <img
+                        id="san-pham-item-img"
+                        src="https://cdn0.fahasa.com/media/catalog/product/d/n/dntttttuntitled.jpg"
+                        alt=""
+                        style="width: 100px; height: 100px"
+                      />
+                      <h2 id="san-pham-item-name">Tên sản phẩm</h2>
+                    </div>
+                    <div class="chat-luong">
+                      <h2>Chất lượng sản phẩm:</h2>
+                      <div class="star">
+                        <i class="fa-light fa-star"></i>
+                        <i class="fa-light fa-star"></i>
+                        <i class="fa-light fa-star"></i>
+                        <i class="fa-light fa-star"></i>
+                        <i class="fa-light fa-star"></i>
+                      </div>
+                    </div>
+                    <div class="noi-dung">
+                      <h2>Nội dung đánh giá:</h2>
+                      <br />
+                      <textarea
+                        name="noi-dung-danh-gia"
+                        id="comment"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div class="san-pham">
+                    <div class="san-pham-item">
+                      <img
+                        src="https://cdn0.fahasa.com/media/catalog/product/d/n/dntttttuntitled.jpg"
+                        alt=""
+                        style="width: 100px; height: 100px"
+                      />
+                      <h2>Tên sản phẩm</h2>
+                    </div>
+                    <div class="chat-luong">
+                      <h2>Chất lượng sản phẩm:</h2>
+                      <div class="star">
+                        <i class="fa-light fa-star"></i>
+                        <i class="fa-light fa-star"></i>
+                        <i class="fa-light fa-star"></i>
+                        <i class="fa-light fa-star"></i>
+                        <i class="fa-light fa-star"></i>
+                      </div>
+                    </div>
+                    <div class="noi-dung">
+                      <h2>Nội dung đánh giá:</h2>
+                      <br />
+                      <textarea
+                        name="noi-dung-danh-gia"
+                        id="comment"
+                      ></textarea>
+                    </div>
+                  </div>
+
+                  <div class="san-pham">
+                    <!-- <button id="close-form" class="btn-X">X</button> -->
+                    <div class="san-pham-item">
+                      <img
+                        src="https://cdn0.fahasa.com/media/catalog/product/d/n/dntttttuntitled.jpg"
+                        alt=""
+                        style="width: 100px; height: 100px"
+                      />
+                      <h2>Tên sản phẩm</h2>
+                    </div>
+                    <div class="chat-luong">
+                      <h2>Chất lượng sản phẩm:</h2>
+                      <div class="star">
+                        <i class="fa-light fa-star"></i>
+                        <i class="fa-light fa-star"></i>
+                        <i class="fa-light fa-star"></i>
+                        <i class="fa-light fa-star"></i>
+                        <i class="fa-light fa-star"></i>
+                      </div>
+                    </div>
+                    <div class="noi-dung">
+                      <h2>Nội dung đánh giá:</h2>
+                      <textarea
+                        name="noi-dung-danh-gia"
+                        id="comment"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div style="text-align: center">
+                    <button type="submit" class="btn btn-submit-danh-gia">
+                      Đánh giá
+                    </button>
+                  </div>
+                </div>
+              </form>
+              <script>
+                var showFormButton = document.getElementById("btn-danh-gia");
+                var myForm = document.getElementById("form-danh-gia");
+                var closeFormButton = document.getElementById("close-form");
+                // var sanPham = document.getElementsByClassName("order--item");
+                // var formSanPham = document.getElementsById("san-pham");
+
+                showFormButton.addEventListener("click", function () {
+                  myForm.style.display = "block";
+
+                  var productItems = document.querySelectorAll("order--item");
+
+                  for (var i = 0; i < productItems.length; i++) {
+                    // Tạo một phần tử mới cho sản phẩm
+                    var productElement = document.createElement("div");
+                    productElement.className = "san-pham";
+                    var sanPham = productElement.createElement("div");
+                    var chatLuong = productElement.createElement("div");
+                    var noidung = productElement.createElement("div");
+
+                    sanPham.className("san-pham-item");
+                    chatLuong.innerHTML = `<div class="chat-luong">
+                      <h2>Chất lượng sản phẩm:</h2>
+                      <div class="star">
+                        <i class="fa-light fa-star"></i>
+                        <i class="fa-light fa-star"></i>
+                        <i class="fa-light fa-star"></i>
+                        <i class="fa-light fa-star"></i>
+                        <i class="fa-light fa-star"></i>
+                      </div>
+                    </div>`;
+
+                    noidung.innerHTML = `<div class="noi-dung">
+                      <h2>Nội dung đánh giá:</h2>
+                      <textarea
+                        name="noi-dung-danh-gia"
+                        id="comment"
+                      ></textarea>
+                    </div>`;
+
+                    var sanPhamImg = sanPham.createElement("img");
+                    var sanPhamName = sanPham.createElement("h2");
+                    var formSanPhamImg =
+                      document.getElementById("san-pham-item-img");
+                    var formSanPhamName =
+                      document.getElementById("san-pham-item-name");
+                    sanPhamImg.innerHTML = formSanPhamImg;
+                    formSanPhamName = formSanPhamName;
+
+                    // Sao chép nội dung của phần tử sản phẩm vào phần tử mới
+                    productElement.innerHTML = productItems[i].innerHTML;
+
+                    // Thêm phần tử mới vào form
+                    form.appendChild(productElement);
+                  }
+                });
+                closeFormButton.addEventListener("click", function () {
+                  myForm.style.display = "none";
+                });
+              </script>
               <button class="btn btn__gray btn__rad4">Mua lại</button>
               <button class="btn btn__gray btn__rad4">Đã nhận hàng</button>
               <button class="btn btn__gray btn__rad4">Huỷ</button>
