@@ -20,7 +20,7 @@ window.addEventListener("load", function (event) {
             Đơn mua
           </div>
         </a>
-        <a href="dangnhap.html">
+        <a href="home.html">
           <div
             id="header--tool__user--item__dangxuat"
             class="header--tool__user--item saudangnhap"
