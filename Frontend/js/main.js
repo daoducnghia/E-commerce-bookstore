@@ -1,6 +1,6 @@
 window.addEventListener("load", function (event) {
   var username = localStorage.getItem("username");
-  // console.log(username);
+  console.log(username);
   $("#input-search").keypress(function (event) {
     // Kiểm tra xem phím Enter đã được nhấn
     if (event.keyCode === 13) {
@@ -8,7 +8,6 @@ window.addEventListener("load", function (event) {
       window.location.replace(
         "danhsachsp.html?search=" + $("#input-search").val()
       );
-      
     }
   });
 

@@ -1,5 +1,7 @@
 package ptit.tmdt.bansach.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,7 +39,7 @@ public class AccountController {
             }
             if (account1.getPassword().equals(account1.getPassword())) {
                 // System.out.println("Đăng nhập thành công");
-                return account.getUsername();
+                return account.getUsername() + account1.getAccountType();
             }
 
         } catch (Exception e) {
@@ -55,7 +57,7 @@ public class AccountController {
     public String dangKy(@RequestBody NguoiDung nguoiDung) {
         try {
 
-            System.out.println(nguoiDung.getUsername());
+            // System.out.println(nguoiDung.getUsername());
             AccountEntity account_check = accountRepository.findByUsername(
                     nguoiDung.getUsername());
             AccountEntity account_save = new AccountEntity();
@@ -84,6 +86,66 @@ public class AccountController {
         }
         return "khong lam gi";
     }
+
+    @PostMapping("/quanLyThongTinCaNhan")
+    public NguoiDung showQuanLyTT(@RequestBody NguoiDung nguoiDung) {
+        try {
+            NguoiDung nguoiDung2 = new NguoiDung();
+            AccountEntity account_save = new AccountEntity();
+            UserEntity user_save = new UserEntity();
+
+            AccountEntity account_check = accountRepository.findByUsername(
+                    nguoiDung.getUsername());
+            if (account_check != null) {
+                UserEntity user_check = userRepository.findByAccountId(account_check.getAccountId());
+                if (user_check != null) {
+                    nguoiDung2.setName(user_check.getName());
+                    nguoiDung2.setEmail(user_check.getEmail());
+                    nguoiDung2.setPhoneNumber(user_check.getPhoneNumber());
+                    nguoiDung2.setUsername(account_check.getUsername());
+                    nguoiDung2.setPassword(account_check.getPassword());
+
+                    return nguoiDung2;
+                } else {
+                    return null;
+                }
+            } else {
+                return null;
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
+    @PostMapping("/saveTTCN")
+    public String saveQuanLyTT(@RequestBody NguoiDung nguoiDung) {
+        try {
+            AccountEntity account_check = accountRepository.findByUsername(
+                    nguoiDung.getUsername());
+            UserEntity user_check = userRepository.findByAccountId(account_check.getAccountId());
+
+            account_check.setPassword(nguoiDung.getPassword());
+            account_check.setAccountType("user");
+            accountRepository.save(account_check);
+
+            user_check.setName(nguoiDung.getName());
+            user_check.setEmail(nguoiDung.getEmail());
+            user_check.setPhoneNumber(nguoiDung.getPhoneNumber());
+            user_check.setAccount(account_check);
+            userRepository.save(user_check);
+
+            return "Lưu thông tin thành công";
+
+        } catch (
+
+        Exception e) {
+            // TODO: handle exception
+            System.out.println(e);
+        }
+        return "Khong";
+    }
 }
 
 class NguoiDung {
@@ -93,6 +155,9 @@ class NguoiDung {
     private String phoneNumber;
     private String username;
     private String password;
+
+    public NguoiDung() {
+    }
 
     public NguoiDung(String name, String email, String phoneNumber, String username, String password) {
         this.name = name;

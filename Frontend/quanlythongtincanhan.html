@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thông tin cá nhân</title>
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="js/jquery364.js"></script>
     <link rel="shortcut icon" href="./assets/icon/Logo.svg" />
     <link rel="stylesheet" href="css/page/thongtincanhan.css" />
   </head>
@@ -26,7 +26,10 @@
               alt=""
             />
           </div>
-          <div class="content--sidebar--user--username font--heading__3">
+          <div
+            id="username-left"
+            class="content--sidebar--user--username font--heading__3"
+          >
             nguyenkkk
           </div>
         </div>
@@ -50,51 +53,79 @@
           </div>
           <div class="noidung-chinh">
             <div class="noidung-text">
-              <table class="table-text">
-                <tr>
-                  <td class="td-label">
-                    <label for="">Tên đăng nhập</label>
-                  </td>
-                  <td class="td-input">
-                    <input type="text" name="" id="" value="nguyenkkk" />
-                  </td>
-                </tr>
-                <tr>
-                  <td class="td-label">
-                    <label for="">Mật khẩu</label>
-                  </td>
-                  <td class="td-input">
-                    <input type="password" name="" id="" value="nguyenkkk" />
-                  </td>
-                </tr>
-                <tr>
-                  <td class="td-label">
-                    <label for="">Email</label>
-                  </td>
-                  <td class="td-input">
-                    <input
-                      type="email"
-                      name=""
-                      id=""
-                      value="nguyenkkk@gmail.com"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td class="td-label">
-                    <label for="">Số điện thoại</label>
-                  </td>
-                  <td class="td-input">
-                    <input type="text" name="" id="" value="0123456789" />
-                  </td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td>
-                    <button class="save-profile btn">Lưu</button>
-                  </td>
-                </tr>
-              </table>
+              <form action="" id="form-quanlytt">
+                <table class="table-text">
+                  <tr>
+                    <td class="td-label">
+                      <label for="">Tên đăng nhập</label>
+                    </td>
+                    <td class="td-input">
+                      <input
+                        type="text"
+                        name=""
+                        id="username"
+                        value="nguyenkkk"
+                        readonly
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="td-label">
+                      <label for="">Mật khẩu</label>
+                    </td>
+                    <td class="td-input">
+                      <input
+                        type="password"
+                        name=""
+                        id="password"
+                        value="nguyenkkk"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="td-label">
+                      <label for="">Họ tên</label>
+                    </td>
+                    <td class="td-input">
+                      <input type="text" name="" id="name" value="Nguyen" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="td-label">
+                      <label for="">Email</label>
+                    </td>
+                    <td class="td-input">
+                      <input
+                        type="email"
+                        name=""
+                        id="email"
+                        value="nguyenkkk@gmail.com"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="td-label">
+                      <label for="">Số điện thoại</label>
+                    </td>
+                    <td class="td-input">
+                      <input
+                        type="text"
+                        name=""
+                        id="phoneNumber"
+                        value="0123456789"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>
+                      <button type="submit" class="save-profile btn">
+                        Lưu
+                      </button>
+                    </td>
+                  </tr>
+                </table>
+              </form>
             </div>
             <div class="noidung-img">
               <i class="fa-solid fa-user"></i>
@@ -114,5 +145,6 @@
       });
     </script>
     <script src="js/main.js"></script>
+    <script src="js/qlthongtincanhan.js"></script>
   </body>
 </html>
