@@ -157,6 +157,7 @@ p {
 .description-product p {
     font-size: 15px;
     line-height: 1.5;
+    text-align: justify;
 }
 
 .description-product h2 {

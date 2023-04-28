@@ -1,6 +1,7 @@
 window.addEventListener("load", function (event) {
   var username = localStorage.getItem("username");
   console.log(username);
+
   $("#input-search").keypress(function (event) {
     // Kiểm tra xem phím Enter đã được nhấn
     if (event.keyCode === 13) {
