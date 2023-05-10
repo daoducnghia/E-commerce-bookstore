@@ -25,17 +25,45 @@ var sidebar = `<div class="content--sidebar--items">
 <a href="qlkhachhang.html" class="content--sidebar--item clientpage"><i class="fa-light fa-users"></i>Khách hàng</a>
 <a href="qldonhang.html" class="content--sidebar--item orderpage"><i class="fa-regular fa-bags-shopping"></i>Đơn hàng</a>
 <a href="baocao_ql.html" class="content--sidebar--item reportpage"><i class="fa-light fa-file"></i>Báo cáo</a>
-</div>`
+</div>`;
 $(function () {
-    $(".header").html(header);
-    $(".content--sidebar").html(sidebar);
-})
-function openPopup(ele){
-    document.getElementById(ele).style.display = 'block';
+  $(".header").html(header);
+  $(".content--sidebar").html(sidebar);
+});
+function openPopup(ele) {
+  document.getElementById(ele).style.display = "block";
 }
-function closePopup(ele){
-    document.getElementById(ele).style.display = 'none';
+function closePopup(ele) {
+  document.getElementById(ele).style.display = "none";
 }
-document.getElementsByClassName('popup--board').item(0).addEventListener('click', function(event){
+document
+  .getElementsByClassName("popup--board")
+  .item(0)
+  .addEventListener("click", function (event) {
     event.stopPropagation();
-})
+  });
+
+window.addEventListener("load", function (event) {
+  var username = localStorage.getItem("username");
+  console.log(username);
+
+  $("#input-search").keypress(function (event) {
+    // Kiểm tra xem phím Enter đã được nhấn
+    if (event.keyCode === 13) {
+      // Thực hiện các hành động tương ứng ở đây
+      window.location.replace(
+        "qlsanpham.html?search=" + $("#input-search").val()
+      );
+    }
+  });
+
+  $("#input-search-kh").keypress(function (event) {
+    // Kiểm tra xem phím Enter đã được nhấn
+    if (event.keyCode === 13) {
+      // Thực hiện các hành động tương ứng ở đây
+      window.location.replace(
+        "qlkhachhang.html?search=" + $("#input-search-kh").val()
+      );
+    }
+  });
+});

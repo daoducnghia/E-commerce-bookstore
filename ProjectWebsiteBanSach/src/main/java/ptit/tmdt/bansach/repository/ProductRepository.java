@@ -20,4 +20,11 @@ public interface ProductRepository extends CrudRepository<ProductEntity, Integer
     @Query("SELECT product FROM ProductEntity product WHERE product.productName LIKE :name")
     public List<ProductEntity> findAllByProductName(String name);
 
+    // public String findIdByName(String productName);
+
+    @Query(value = "SELECT * FROM database_bansach_pthttmdt_btl.product where product_name = ? order by product_id desc limit 1;", nativeQuery = true)
+    public ProductEntity findByNameLatest(String productName);
+
+    // public ProductEntity findAllById(Integer id);
+
 }

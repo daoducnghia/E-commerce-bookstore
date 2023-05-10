@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Table(name = "product")
-public class ProductEntity implements Serializable{
+public class ProductEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int productId;
@@ -44,15 +44,15 @@ public class ProductEntity implements Serializable{
     private int numberOfProduct;
     private int numberOfProductSold;
     private float price;
-    
+
     @ManyToOne
     @JoinColumn(name = "categoryId")
     private CategoryEntity category;
-    
+
     @ManyToOne
     @JoinColumn(name = "languageId")
     private LanguageEntity language;
-    
+
     @ManyToOne
     @JoinColumn(name = "publishingCompanyId")
     private PublishingCompanyEntity publishingCompany;
