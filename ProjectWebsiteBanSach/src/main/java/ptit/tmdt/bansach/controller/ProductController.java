@@ -41,7 +41,6 @@ public class ProductController {
         return null;
     }
 
-<<<<<<< HEAD
     @PostMapping("/get-all-product-by-id")
     public List<ProductEntity> getAllProductById(@RequestBody List<Integer> ids) {
         try {
@@ -53,7 +52,6 @@ public class ProductController {
         return new ArrayList<>();
     }
 
-=======
     @GetMapping("/products")
     public List<ProductEntity> showAllProduct() {
         try {
@@ -89,5 +87,4 @@ public class ProductController {
         }
         return null;
     }
->>>>>>> 49f9fda86986a2da279caa92e58b8b82dacc4f26
 }

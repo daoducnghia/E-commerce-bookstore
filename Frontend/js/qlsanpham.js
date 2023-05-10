@@ -1,17 +1,12 @@
 window.addEventListener("load", function (event) {
-<<<<<<< HEAD
-    if (localStorage.getItem('username') == null) {
-        window.location.replace('dangnhap.html');
-    }
-    document.getElementsByClassName('productpage').item(0).classList.add('content--sidebar--item__active')
-});
-function suasanpham(idP){
-    openPopup('popupAddProduct');
-    //Lấy thông tin sản phẩm theo id hiện lên popup
+  if (localStorage.getItem("username") == null) {
+    window.location.replace("dangnhap.html");
+  }
+  document
+    .getElementsByClassName("productpage")
+    .item(0)
+    .classList.add("content--sidebar--item__active");
 
-    //Lưu lại thông tin sp vừa sửa
-}
-=======
   const params = new URLSearchParams(window.location.search);
   const searchTerm = params.get("search");
   console.log(searchTerm);
@@ -276,4 +271,9 @@ function xoaSP(id) {
     .catch((error) => console.log("error", error));
 }
 
->>>>>>> 49f9fda86986a2da279caa92e58b8b82dacc4f26
+function suasanpham(idP) {
+  openPopup("popupAddProduct");
+  //Lấy thông tin sản phẩm theo id hiện lên popup
+
+  //Lưu lại thông tin sp vừa sửa
+}

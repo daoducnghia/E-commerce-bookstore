@@ -1,11 +1,12 @@
 window.addEventListener("load", function (event) {
-<<<<<<< HEAD
-    if (localStorage.getItem('username') == null) {
-        window.location.replace('dangnhap.html');
-    }
-    document.getElementsByClassName('clientpage').item(0).classList.add('content--sidebar--item__active')
-});
-=======
+  if (localStorage.getItem("username") == null) {
+    window.location.replace("dangnhap.html");
+  }
+  document
+    .getElementsByClassName("clientpage")
+    .item(0)
+    .classList.add("content--sidebar--item__active");
+
   document
     .getElementsByClassName("clientpage")
     .item(0)
@@ -185,4 +186,3 @@ function suaKH(id) {
     })
     .catch((error) => console.log("error", error));
 }
->>>>>>> 49f9fda86986a2da279caa92e58b8b82dacc4f26

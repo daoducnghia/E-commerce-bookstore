@@ -45,13 +45,9 @@ public class ProductEntity implements Serializable {
     private int numberOfProduct;
     private int numberOfProductSold;
     private float price;
-<<<<<<< HEAD
     private float oldPrice;
     private float point;
-    
-=======
 
->>>>>>> 49f9fda86986a2da279caa92e58b8b82dacc4f26
     @ManyToOne
     @JoinColumn(name = "categoryId")
     private CategoryEntity category;

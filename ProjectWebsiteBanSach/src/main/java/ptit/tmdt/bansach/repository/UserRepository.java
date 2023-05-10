@@ -12,8 +12,6 @@ import ptit.tmdt.bansach.entity.UserEntity;
 public interface UserRepository extends JpaRepository<UserEntity, Integer> {
     @Query(value = "SELECT * FROM database_bansach_pthttmdt_btl.user WHERE account_id = ?", nativeQuery = true)
     UserEntity findByAccountId(int accountId);
-<<<<<<< HEAD
-=======
 
     @Query(value = "SELECT * FROM database_bansach_pthttmdt_btl.user WHERE name like ?", nativeQuery = true)
     List<UserEntity> findByName(String name);
@@ -24,5 +22,4 @@ public interface UserRepository extends JpaRepository<UserEntity, Integer> {
     @Query(value = "SELECT COUNT(*) FROM user;", nativeQuery = true)
     int countKH();
 
->>>>>>> 49f9fda86986a2da279caa92e58b8b82dacc4f26
 }
