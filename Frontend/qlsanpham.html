@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="vi">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="./assets/icon/Logo.svg" />
     <title>Bán sách - Quản lý sản phẩm</title>
-    <link rel="stylesheet" href="./css/page/admin.css">
-    <link rel="stylesheet" href="./css/page/qlsanpham.css">
-</head>
+    <link rel="stylesheet" href="./css/page/admin.css" />
+    <link rel="stylesheet" href="./css/page/qlsanpham.css" />
+  </head>
 
-<body>
-    <div class="header">
-    </div>
+  <body>
+    <div class="header"></div>
     <div class="content">
+<<<<<<< HEAD
         <div class="content--sidebar">
         </div>
         <div class="content--main">
@@ -214,85 +213,399 @@
                         </div>
                     </div>
                 </div>
+=======
+      <div class="content--sidebar"></div>
+      <div class="content--main">
+        <div class="content--header">
+          <div class="content--header--title">Quản lý sách</div>
+          <div class="content--header--search">
+            <div class="header--tool__search">
+              <input
+                type="text"
+                class="inpt inpt--icon inpt__rad4"
+                placeholder="Tìm theo tên sách"
+                id="input-search"
+              />
+              <div class="header--tool__search--icon">
+                <i class="fa-light fa-magnifying-glass"></i>
+              </div>
+>>>>>>> 49f9fda86986a2da279caa92e58b8b82dacc4f26
             </div>
+          </div>
+          <div class="content--header--add">
+            <button
+              class="btn btn__rad4"
+              onclick="openPopup('popupAddProduct')"
+            >
+              Thêm sách mới
+            </button>
+          </div>
         </div>
-    </div>
-    <div class="popup" style="display: none;" id="popupAddProduct" onclick="closePopup('popupAddProduct')">
-        <div class="popup--board">
-            <div class="popup--header">Thông tin sách</div>
-            <div class="popup--content">
-                <div class="inputLabel">
-                    <div class="inputLabel--label">Tên sách</div>
-                    <input type="text" name="" id="" class="inpt inpt__rad4 inpt__w100">
-                </div>
-                <div class="inputLabel">
-                    <div class="inputLabel--label">Hình ảnh sách</div>
-                    <input type="file" name="" id="" class="" multiple>
-                </div>
-                <div class="popup--content--nav">
-                    <div class="inputLabel">
-                        <div class="inputLabel--label">Giá sách</div>
-                        <input type="text" name="" id="" class="inpt inpt__rad4 inpt__w100">
-                    </div>
-                    <div class="inputLabel">
-                        <div class="inputLabel--label">Ngôn ngữ</div>
-                        <select name="" id="" class="dropdownlist">
-                            <option value="">Tiếng Anh</option>
-                            <option value="">Tiếng Nhật</option>
-                            <option value="">Tiếng Trung</option>
-                            <option value="">Tiếng Việt</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="inputLabel">
-                    <div class="inputLabel--label">Tác giả</div>
-                    <input type="text" name="" id="" class="inpt inpt__rad4 inpt__w100"
-                        placeholder="Nhiều tác giả cách nhau bởi dấu ','">
-                </div>
-                <div class="inputLabel">
-                    <div class="inputLabel--label">Dịch giả</div>
-                    <input type="text" name="" id="" class="inpt inpt__rad4 inpt__w100"
-                        placeholder="Nhiều dịch giả cách nhau bởi dấu ','">
-                </div>
-                <div class="inputLabel">
-                    <div class="inputLabel--label">Nhà xuất bản</div>
-                    <input type="text" name="" id="" class="inpt inpt__rad4 inpt__w100">
-                </div>
-                <div class="popup--content--nav">
-                    <div class="inputLabel">
-                        <div class="inputLabel--label">Số trang</div>
-                        <input type="text" name="" id="" class="inpt inpt__rad4 inpt__w100">
-                    </div>
-                    <div class="inputLabel">
-                        <div class="inputLabel--label">Kích thước</div>
-                        <input type="text" name="" id="" class="inpt inpt__rad4 inpt__w100">
-                    </div>
-                </div>
-                <div class="popup--content--nav">
-                    <div class="inputLabel">
-                        <div class="inputLabel--label">Ngày xuất bản</div>
-                        <input type="date" name="" id="" class="inpt inpt__rad4 inpt__w100">
-                    </div>
-                    <div class="inputLabel">
-                        <div class="inputLabel--label">Số lượng sách</div>
-                        <input type="text" name="" id="" class="inpt inpt__rad4 inpt__w100">
-                    </div>
-                </div>
-                <div class="inputLabel">
-                    <div class="inputLabel--label">Mô tả sách</div>
-                    <textarea name="" id="" class="textfield textfield__w100"
-                        placeholder="Giới thiệu chi tiết về sách"></textarea>
-                </div>
+        <div class="content--body">
+          <div class="content--body--header">
+            <div class="content--body--items">
+              <div class="content--body--item">Id</div>
+              <div class="content--body--item">Tên sách</div>
+              <div class="content--body--item">Thể loại</div>
+              <div class="content--body--item">Ngôn ngữ</div>
+              <div class="content--body--item">Nhà xuất bản</div>
+              <div class="content--body--item">Năm xuất bản</div>
+              <div class="content--body--item">Giá bán</div>
+              <div class="content--body--item">Số lượng</div>
+              <div class="content--body--item">Đã bán</div>
+              <div class="content--body--item">Chức năng</div>
             </div>
-            <div class="popup--footer">
-                <button class="btn btn__gray btn__rad4" onclick="closePopup('popupAddProduct')">Huỷ</button>
-                <button class="btn btn__rad4">Lưu</button>
+          </div>
+          <div id="content--body--tbody" class="content--body--tbody">
+            <!-- <div id="content--body--items" class="content--body--items">
+              <div class="content--body--item">1</div>
+              <div class="content--body--item">
+                Không Diệt Không Sinh Đừng Sợ Hãi (Tái Bản 2022)
+              </div>
+              <div class="content--body--item">Lịch Sử - Địa Lý - Tôn Giáo</div>
+              <div class="content--body--item">Tiếng Việt</div>
+              <div class="content--body--item">Thế giới</div>
+              <div class="content--body--item">2022</div>
+              <div class="content--body--item">82.500đ</div>
+              <div class="content--body--item">500</div>
+              <div class="content--body--item">200</div>
+              <div class="content--body--item">
+                <button class="btn">Sửa</button>
+                <button class="btn btn__gray">Xoá</button>
+              </div>
             </div>
+            <div class="content--body--items">
+              <div class="content--body--item">1</div>
+              <div class="content--body--item">
+                Không Diệt Không Sinh Đừng Sợ Hãi (Tái Bản 2022)
+              </div>
+              <div class="content--body--item">Lịch Sử - Địa Lý - Tôn Giáo</div>
+              <div class="content--body--item">Tiếng Việt</div>
+              <div class="content--body--item">Thế giới</div>
+              <div class="content--body--item">2022</div>
+              <div class="content--body--item">82.500đ</div>
+              <div class="content--body--item">500</div>
+              <div class="content--body--item">200</div>
+              <div class="content--body--item">
+                <button class="btn">Sửa</button>
+                <button class="btn btn__gray">Xoá</button>
+              </div>
+            </div>
+            <div class="content--body--items">
+              <div class="content--body--item">1</div>
+              <div class="content--body--item">
+                Không Diệt Không Sinh Đừng Sợ Hãi (Tái Bản 2022)
+              </div>
+              <div class="content--body--item">Lịch Sử - Địa Lý - Tôn Giáo</div>
+              <div class="content--body--item">Tiếng Việt</div>
+              <div class="content--body--item">Thế giới</div>
+              <div class="content--body--item">2022</div>
+              <div class="content--body--item">82.500đ</div>
+              <div class="content--body--item">500</div>
+              <div class="content--body--item">200</div>
+              <div class="content--body--item">
+                <button class="btn">Sửa</button>
+                <button class="btn btn__gray">Xoá</button>
+              </div>
+            </div>
+            <div class="content--body--items">
+              <div class="content--body--item">1</div>
+              <div class="content--body--item">
+                Không Diệt Không Sinh Đừng Sợ Hãi (Tái Bản 2022)
+              </div>
+              <div class="content--body--item">Lịch Sử - Địa Lý - Tôn Giáo</div>
+              <div class="content--body--item">Tiếng Việt</div>
+              <div class="content--body--item">Thế giới</div>
+              <div class="content--body--item">2022</div>
+              <div class="content--body--item">82.500đ</div>
+              <div class="content--body--item">500</div>
+              <div class="content--body--item">200</div>
+              <div class="content--body--item">
+                <button class="btn">Sửa</button>
+                <button class="btn btn__gray">Xoá</button>
+              </div>
+            </div>
+            <div class="content--body--items">
+              <div class="content--body--item">1</div>
+              <div class="content--body--item">
+                Không Diệt Không Sinh Đừng Sợ Hãi (Tái Bản 2022)
+              </div>
+              <div class="content--body--item">Lịch Sử - Địa Lý - Tôn Giáo</div>
+              <div class="content--body--item">Tiếng Việt</div>
+              <div class="content--body--item">Thế giới</div>
+              <div class="content--body--item">2022</div>
+              <div class="content--body--item">82.500đ</div>
+              <div class="content--body--item">500</div>
+              <div class="content--body--item">200</div>
+              <div class="content--body--item">
+                <button class="btn">Sửa</button>
+                <button class="btn btn__gray">Xoá</button>
+              </div>
+            </div>
+            <div class="content--body--items">
+              <div class="content--body--item">1</div>
+              <div class="content--body--item">
+                Không Diệt Không Sinh Đừng Sợ Hãi (Tái Bản 2022)
+              </div>
+              <div class="content--body--item">Lịch Sử - Địa Lý - Tôn Giáo</div>
+              <div class="content--body--item">Tiếng Việt</div>
+              <div class="content--body--item">Thế giới</div>
+              <div class="content--body--item">2022</div>
+              <div class="content--body--item">82.500đ</div>
+              <div class="content--body--item">500</div>
+              <div class="content--body--item">200</div>
+              <div class="content--body--item">
+                <button class="btn">Sửa</button>
+                <button class="btn btn__gray">Xoá</button>
+              </div>
+            </div>
+            <div class="content--body--items">
+              <div class="content--body--item">1</div>
+              <div class="content--body--item">
+                Không Diệt Không Sinh Đừng Sợ Hãi (Tái Bản 2022)
+              </div>
+              <div class="content--body--item">Lịch Sử - Địa Lý - Tôn Giáo</div>
+              <div class="content--body--item">Tiếng Việt</div>
+              <div class="content--body--item">Thế giới</div>
+              <div class="content--body--item">2022</div>
+              <div class="content--body--item">82.500đ</div>
+              <div class="content--body--item">500</div>
+              <div class="content--body--item">200</div>
+              <div class="content--body--item">
+                <button class="btn">Sửa</button>
+                <button class="btn btn__gray">Xoá</button>
+              </div>
+            </div>
+            <div class="content--body--items">
+              <div class="content--body--item">1</div>
+              <div class="content--body--item">
+                Không Diệt Không Sinh Đừng Sợ Hãi (Tái Bản 2022)
+              </div>
+              <div class="content--body--item">Lịch Sử - Địa Lý - Tôn Giáo</div>
+              <div class="content--body--item">Tiếng Việt</div>
+              <div class="content--body--item">Thế giới</div>
+              <div class="content--body--item">2022</div>
+              <div class="content--body--item">82.500đ</div>
+              <div class="content--body--item">500</div>
+              <div class="content--body--item">200</div>
+              <div class="content--body--item">
+                <button class="btn">Sửa</button>
+                <button class="btn btn__gray">Xoá</button>
+              </div>
+            </div>
+            <div class="content--body--items">
+              <div class="content--body--item">1</div>
+              <div class="content--body--item">
+                Không Diệt Không Sinh Đừng Sợ Hãi (Tái Bản 2022)
+              </div>
+              <div class="content--body--item">Lịch Sử - Địa Lý - Tôn Giáo</div>
+              <div class="content--body--item">Tiếng Việt</div>
+              <div class="content--body--item">Thế giới</div>
+              <div class="content--body--item">2022</div>
+              <div class="content--body--item">82.500đ</div>
+              <div class="content--body--item">500</div>
+              <div class="content--body--item">200</div>
+              <div class="content--body--item">
+                <button class="btn">Sửa</button>
+                <button class="btn btn__gray">Xoá</button>
+              </div>
+            </div>
+            <div class="content--body--items">
+              <div class="content--body--item">1</div>
+              <div class="content--body--item">
+                Không Diệt Không Sinh Đừng Sợ Hãi (Tái Bản 2022)
+              </div>
+              <div class="content--body--item">Lịch Sử - Địa Lý - Tôn Giáo</div>
+              <div class="content--body--item">Tiếng Việt</div>
+              <div class="content--body--item">Thế giới</div>
+              <div class="content--body--item">2022</div>
+              <div class="content--body--item">82.500đ</div>
+              <div class="content--body--item">500</div>
+              <div class="content--body--item">200</div>
+              <div class="content--body--item">
+                <button class="btn">Sửa</button>
+                <button class="btn btn__gray">Xoá</button>
+              </div>
+            </div>
+            <div class="content--body--items">
+              <div class="content--body--item">1</div>
+              <div class="content--body--item">
+                Không Diệt Không Sinh Đừng Sợ Hãi (Tái Bản 2022)
+              </div>
+              <div class="content--body--item">Lịch Sử - Địa Lý - Tôn Giáo</div>
+              <div class="content--body--item">Tiếng Việt</div>
+              <div class="content--body--item">Thế giới</div>
+              <div class="content--body--item">2022</div>
+              <div class="content--body--item">82.500đ</div>
+              <div class="content--body--item">500</div>
+              <div class="content--body--item">200</div>
+              <div class="content--body--item">
+                <button class="btn">Sửa</button>
+                <button class="btn btn__gray">Xoá</button>
+              </div>
+            </div> -->
+          </div>
         </div>
+      </div>
     </div>
-</body>
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="./js/admin.js"></script>
-<script src="./js/qlsanpham.js"></script>
-
+    <div
+      class="popup"
+      style="display: none"
+      id="popupAddProduct"
+      onclick="closePopup('popupAddProduct')"
+    >
+      <div id="popup--board" class="popup--board">
+        <form action="" id="form-add">
+          <input type="hidden" id="idProduct" />
+          <div class="popup--header">Thông tin sách</div>
+          <div class="popup--content">
+            <div class="inputLabel">
+              <div class="inputLabel--label">Tên sách</div>
+              <input
+                type="text"
+                name=""
+                id="name"
+                class="inpt inpt__rad4 inpt__w100"
+              />
+            </div>
+            <div class="inputLabel">
+              <div class="inputLabel--label">Hình ảnh sách</div>
+              <input type="file" name="" id="linkImg" class="" multiple />
+            </div>
+            <div class="popup--content--nav">
+              <div class="inputLabel">
+                <div class="inputLabel--label">Giá sách</div>
+                <input
+                  type="text"
+                  name=""
+                  id="price"
+                  class="inpt inpt__rad4 inpt__w100"
+                />
+              </div>
+              <div class="inputLabel">
+                <div class="inputLabel--label">Ngôn ngữ</div>
+                <select name="" id="dd-lang" class="dropdownlist">
+                  <option value="Tiếng Anh">Tiếng Anh</option>
+                  <option value="Tiếng Nhật">Tiếng Nhật</option>
+                  <option value="Tiếng Trung">Tiếng Trung</option>
+                  <option value="Tiếng Việt">Tiếng Việt</option>
+                </select>
+              </div>
+            </div>
+            <div class="inputLabel">
+              <div class="inputLabel--label">Tác giả</div>
+              <input
+                type="text"
+                name=""
+                id="authors"
+                class="inpt inpt__rad4 inpt__w100"
+                placeholder="Nhiều tác giả cách nhau bởi dấu ','"
+              />
+            </div>
+            <div class="inputLabel">
+              <div id="input-category" class="inputLabel--label">Thể loại</div>
+              <select name="" id="dd-category" class="dropdownlist">
+                <option value="Văn học">Văn học</option>
+                <option value="Tiểu thuyết">Tiểu thuyết</option>
+                <option value="Kĩ năng sống">Kĩ năng sống</option>
+                <option value="Tâm lý">Tâm lý</option>
+              </select>
+            </div>
+            <div class="inputLabel">
+              <div class="inputLabel--label">Dịch giả</div>
+              <input
+                type="text"
+                name=""
+                id="trans"
+                class="inpt inpt__rad4 inpt__w100"
+                placeholder="Nhiều dịch giả cách nhau bởi dấu ','"
+              />
+            </div>
+            <div class="inputLabel">
+              <div class="inputLabel--label">Nhà xuất bản</div>
+              <input
+                type="text"
+                name=""
+                id="nxb"
+                class="inpt inpt__rad4 inpt__w100"
+              />
+            </div>
+            <div class="popup--content--nav">
+              <div class="inputLabel">
+                <div class="inputLabel--label">Số trang</div>
+                <input
+                  type="text"
+                  name=""
+                  id="page"
+                  class="inpt inpt__rad4 inpt__w100"
+                />
+              </div>
+              <div class="inputLabel">
+                <div class="inputLabel--label">Kích thước</div>
+                <input
+                  type="text"
+                  name=""
+                  id="size"
+                  class="inpt inpt__rad4 inpt__w100"
+                />
+              </div>
+            </div>
+            <div class="popup--content--nav">
+              <div class="inputLabel">
+                <div class="inputLabel--label">Ngày xuất bản</div>
+                <input
+                  type="date"
+                  name=""
+                  id="date"
+                  class="inpt inpt__rad4 inpt__w100"
+                />
+              </div>
+              <div class="inputLabel">
+                <div class="inputLabel--label">Số lượng sách</div>
+                <input
+                  type="text"
+                  name=""
+                  id="quant"
+                  class="inpt inpt__rad4 inpt__w100"
+                />
+              </div>
+            </div>
+            <div class="inputLabel">
+              <div class="inputLabel--label">Mô tả sách</div>
+              <textarea
+                name=""
+                id="describe"
+                class="textfield textfield__w100"
+                placeholder="Giới thiệu chi tiết về sách"
+              ></textarea>
+            </div>
+          </div>
+          <div class="popup--footer">
+            <button
+              class="btn btn__gray btn__rad4"
+              onclick="closePopup('popupAddProduct')"
+            >
+              Huỷ
+            </button>
+            <button id="myButton" type="submit" class="btn btn__rad4">
+              Lưu
+            </button>
+          </div>
+        </form>
+        <!-- <script>
+          var e = document.getElementById("ddl-lang");
+          function onChange() {
+            var value = e.value;
+            var text = e.options[e.selectedIndex].text;
+            console.log(value, text);
+          }
+          e.onchange = onChange;
+          onChange();
+        </script> -->
+      </div>
+    </div>
+  </body>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="./js/admin.js"></script>
+  <script src="./js/qlsanpham.js"></script>
 </html>

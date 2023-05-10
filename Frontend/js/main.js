@@ -2,7 +2,12 @@ const url = "http://localhost:8080";
 const tranportFee = 30000;
 window.addEventListener("load", function (event) {
   var username = localStorage.getItem("username");
+<<<<<<< HEAD
   // console.log(username);
+=======
+  console.log(username);
+
+>>>>>>> 49f9fda86986a2da279caa92e58b8b82dacc4f26
   $("#input-search").keypress(function (event) {
     // Kiểm tra xem phím Enter đã được nhấn
     if (event.keyCode === 13) {

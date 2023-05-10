@@ -19,4 +19,7 @@ public interface AccountRepository extends JpaRepository<AccountEntity, Integer>
 
     @Query(value = "SELECT username FROM database_bansach_pthttmdt_btl.account", nativeQuery = true)
     public List<String> findAllUsername();
+
+    @Query(value = "SELECT * FROM database_bansach_pthttmdt_btl.account WHERE ", nativeQuery = true)
+    public AccountEntity findByUsernameId(int id);
 }

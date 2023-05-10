@@ -33,7 +33,7 @@
         </h3>
         <div class="product">
           <div class="small-container single-product">
-            <div class="row">
+            <div id="row" class="row">
               <div class="col-2">
                 <img
                   src="assets/image/img1.jpg"
@@ -69,8 +69,8 @@
                 </div>
               </div>
               <div class="col-2">
-                <h1>Trăm năm cô đơn</h1>
-                <h4>100.000 VNĐ</h4>
+                <h1 id="name">Trăm năm cô đơn</h1>
+                <h4 id="price">100.000 VNĐ</h4>
                 <input
                   type="number"
                   name=""
@@ -86,32 +86,34 @@
                   </tr>
                   <tr>
                     <td>Công ty phát hành:</td>
-                    <td>Nhã nam</td>
+                    <td id="nha-phat-hanh">Nhã nam</td>
                   </tr>
                   <tr>
                     <td>Ngày xuất bản:</td>
-                    <td>2018-08-10 14:03:30</td>
+                    <td id="ngay-xuat-ban">2018-08-10 14:03:30</td>
                   </tr>
                   <tr>
                     <td>Kích thước:</td>
-                    <td>15 x 24 cm</td>
+                    <td id="kick-thuoc">15 x 24 cm</td>
                   </tr>
                   <tr>
                     <td>Dịch Giả:</td>
-                    <td>Nguyễn Trung Đức , Phạm Đình Lợi , Nguyễn Quốc Dũng</td>
+                    <td id="dich-gia">
+                      Nguyễn Trung Đức , Phạm Đình Lợi , Nguyễn Quốc Dũng
+                    </td>
                   </tr>
                   <tr>
                     <td>Loại bìa:</td>
-                    <td>Bìa mềm</td>
+                    <td id="bia">Bìa mềm</td>
                   </tr>
                   <tr>
-                    <td>Loại bìa:</td>
-                    <td>496</td>
+                    <td>Số trang:</td>
+                    <td id="so-trang">496</td>
                   </tr>
                 </table>
               </div>
             </div>
-            <div class="description-product">
+            <div id="description-product" class="description-product">
               <hr />
               <h1>Chi tiết sách</h1>
               <p>
@@ -138,14 +140,14 @@
                 1982.
               </p>
             </div>
-            <div class="danhgia">
+            <div id="danhgia" class="danhgia">
               <hr />
               <h1>Đánh giá</h1>
               <div class="tong-quan-danh-gia">
                 <h2>4.9 / 5</h2>
               </div>
 
-              <div class="box-danh-gia">
+              <div id="box-danh-gia" class="box-danh-gia">
                 <h6 class="name-danhgia">nghia123</h6>
                 <div class="stars">
                   <i class="star-danh-gia fa-regular fa-star"></i>
@@ -227,6 +229,7 @@
       });
     </script>
     <script src="js/main.js"></script>
+    <script src="js/chitietsp.js"></script>
     <!-- END FOOTER -->
   </body>
 </html>
