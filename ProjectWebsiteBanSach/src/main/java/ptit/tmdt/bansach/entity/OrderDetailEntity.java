@@ -29,6 +29,8 @@ public class OrderDetailEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderDetailId;
+    private int quantity;
+    private float price;
     
     @ManyToOne
     @JoinColumn(name = "productId")

@@ -1,42 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script
-      src="https://code.jquery.com/jquery-2.2.4.js"
-      charset="utf-8"
-    ></script>
-    <!-- <link rel="stylesheet" href="css/component/footer.css" /> -->
-  </head>
-  <body>
-    <form id="login-form">
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" /><br />
-
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" /><br />
-
-      <button type="submit">Login</button>
-    </form>
-
-    <script>
-      const form = document.getElementById("login-form");
-      form.addEventListener("submit", function (event) {
-        event.preventDefault(); // Ngăn chặn việc gửi form
-
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
-
-        // Thực hiện kiểm tra đăng nhập ở đây
-        if (username === "admin" && password === "123456") {
-          alert("Login successful!");
-        } else {
-          alert("Invalid username or password.");
+</head>
+<body>
+    <input type="file" name="" id="inptImg">
+</body>
+<script>
+    var pic = document.querySelector("#inptImg");
+    pic.addEventListener("change", function(){
+        var freader = new FileReader();
+        freader.readAsDataURL(pic.files[0]);
+        freader.onload = function(e){
+            console.log(e.target.result);
         }
-      });
-    </script>
-  </body>
+    })
+</script>
 </html>

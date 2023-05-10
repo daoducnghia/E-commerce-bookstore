@@ -38,12 +38,15 @@ public class ProductEntity implements Serializable{
     private Date publicationDate;
     @Column(columnDefinition = "text")
     private String productDescription;
+    @Column(columnDefinition = "LONGTEXT")
     private String linkImage;
     private String productSize;
     private String translator;
     private int numberOfProduct;
     private int numberOfProductSold;
     private float price;
+    private float oldPrice;
+    private float point;
     
     @ManyToOne
     @JoinColumn(name = "categoryId")

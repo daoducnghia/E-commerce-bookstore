@@ -4,17 +4,13 @@
  */
 package ptit.tmdt.bansach.entity;
 
-import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OrderBy;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,21 +23,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Table(name = "tblOrder")
-public class OrderEntity implements Serializable {
+@Table(name = "ShippingInfomation")
+public class ShippingInformationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int orderId;
-    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
-    private Date purchaseDate;
-    private float orderTotal;
-    private float transportFee;
-    private float discount;
-    private String paymentMethod;
-    private String orderStatus;
-    private String message;
+    private int shippingInfomationId;
     
     @ManyToOne
-    @JoinColumn(name = "userId")
-    private UserEntity user;
+    @JoinColumn(name = "orderId")
+    private OrderEntity order;
+    
+    @ManyToOne
+    @JoinColumn(name = "shipmentDetailId")
+    private ShipmentDetailEntity shipmentDetail;
 }

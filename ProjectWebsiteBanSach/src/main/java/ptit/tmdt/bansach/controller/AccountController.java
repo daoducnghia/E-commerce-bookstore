@@ -76,7 +76,7 @@ public class AccountController {
                 userRepository.save(user_save);
                 return "Đăng ký thành công";
             } else if (nguoiDung.getUsername().equals(account_check.getUsername())) {
-                return "Trùng username";
+                return "Tài khoản đã tồn tại";
             }
             // userRepository.saveNguoiDung(nguoiDung.getName(), nguoiDung.getEmail(),
             // nguoiDung.getPhoneNumber());

@@ -6,23 +6,150 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/icon/Logo.svg" />
-    <title>Bán sách - Quản lý</title>
+    <title>Bán sách - Quản lý khuyến mãi</title>
     <link rel="stylesheet" href="./css/page/adminpage.css">
+    <link rel="stylesheet" href="./css/page/qlkhuyenmai.css">
 </head>
 
 <body>
     <div class="header">
-        
+
     </div>
     <div class="content">
         <div class="content--sidebar">
         </div>
         <div class="content--main">
-            
+            <div class="content--header">
+                <div class="content--header--title">Quản lý khuyến mãi</div>
+                <div class="content--header--search">
+                    <div class="header--tool__search">
+                        <input type="text" id="inptSearchPromotion" class="inpt inpt--icon inpt__rad4" placeholder="Tìm theo tên chương trình khuyễn mãi" />
+                        <div class="header--tool__search--icon">
+                            <i class="fa-light fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="content--header--add">
+                    <button class="btn btn__rad4" onclick="addPromotion()">Thêm khuyến mãi</button>
+                </div>
+            </div>
+            <div class="content--body">
+                <div class="content--body--header">
+                    <div class="content--body--items">
+                        <div class="content--body--item">#</div>
+                        <div class="content--body--item"></div>
+                        <div class="content--body--item">Tên chương trình</div>
+                        <div class="content--body--item">Giá trị giảm</div>
+                        <div class="content--body--item">Loại</div>
+                        <div class="content--body--item">Bắt đầu</div>
+                        <div class="content--body--item">Kết thúc</div>
+                        <div class="content--body--item">Hoạt động</div>
+                        <div class="content--body--item">Chức năng</div>
+                    </div>
+                </div>
+                <div class="content--body--tbody">
+                    <div class="content--body--items">
+                        <div class="content--body--item">1</div>
+                        <div class="content--body--item"><img
+                                src="https://cdn0.fahasa.com/media/magentothem/banner7/SLIVER_NCCMOREPRODUCTION_T42023_Slide_840x320.png"
+                                alt=""></div>
+                        <div class="content--body--item">Chào hè 2023</div>
+                        <div class="content--body--item" style="justify-content: right;">10</div>
+                        <div class="content--body--item">%</div>
+                        <div class="content--body--item">20/04/2023</div>
+                        <div class="content--body--item">25/04/2023</div>
+                        <div class="content--body--item"><span class="btn--lable btn--lable__gray">Ngừng</span></div>
+                        <div class="content--body--item">
+                            <button class="btn">Sửa</button>
+                            <button class="btn btn__gray">Xoá</button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup" id="popupAddPromotion" style="display: none;" onclick="closePopup('popupAddPromotion')">
+        <div class="popup--board">
+            <div class="popup--header">Thông tin khuyến mãi</div>
+            <div class="popup--content">
+                <input type="hidden" name="" id="idPromotion">
+                <div class="inputLabel">
+                    <div class="inputLabel--label">Tên chương trình</div>
+                    <input type="text" name="" id="namePromotion" class="inpt inpt__rad4 inpt__w100" placeholder="">
+                </div>
+                <div class="inputLabel">
+                    <div class="inputLabel--label">Hình ảnh</div>
+                    <input type="file" name="" id="imagePromotion">
+                </div>
+                <div class="popup--content--nav">
+                    <div class="inputLabel">
+                        <div class="inputLabel--label">Giá trị giảm</div>
+                        <input type="text" name="" id="discountPromotion" class="inpt inpt__rad4 inpt__w100" placeholder="">
+                    </div>
+                    <div class="inputLabel">
+                        <div class="inputLabel--label">Loại giảm</div>
+                        <select name="" id="typePromotion" class="dropdownlist">
+                            <option value="pct">Phần trăm (%)</option>
+                            <option value="vnd">Tiền xác định (vnđ)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="inputLabel">
+                    <div class="inputLabel--label">Mô tả</div>
+                    <textarea name="" id="descriptionPromotion" class="textfield textfield__w100"
+                        placeholder="Mô tả về chương trình khuyến mãi"></textarea>
+                </div>
+                <div class="popup--content--nav">
+                    <div class="inputLabel">
+                        <div class="inputLabel--label">Ngày bắt đầu</div>
+                        <input type="date" name="" id="startDatePromotion" class="inpt inpt__rad4 inpt__w100">
+                    </div>
+                    <div class="inputLabel">
+                        <div class="inputLabel--label">Ngày kết thúc</div>
+                        <input type="date" name="" id="endDatePromotion" class="inpt inpt__rad4 inpt__w100">
+                    </div>
+                </div>
+                <div class="popup--content--product">
+                    <div class="popup--content--title">Chọn sách</div>
+                    <input type="checkbox" name="" id="chonTatCaSach" checked="checked"/>Tất cả sách
+                    <div class="popup--content--searchProduct">
+                        <!-- <div class="popup--content--searchProduct--icon">
+                            <input type="text" class="inpt inpt--icon" placeholder="Tìm kiếm theo tên sản phẩm" onkeyup="searchProduct(event, this)"/>
+                            <i class="fa-light fa-magnifying-glass"></i>
+                        </div>
+                        <div class="content--product--items__select--nav">
+                            <div class="content--product--items__select">
+                                <div class="content--product--item"><input type="checkbox" name="" id="" value=""></div>
+                                <div class="content--product--item"><img src="https://cdn0.fahasa.com/media/catalog/product/8/9/8935278607311.jpg" alt=""></div>
+                                <div class="content--product--item">Không Diệt Không Sinh Đừng Sợ Hãi (Tái Bản 2022)</div>
+                                <div class="content--product--item">80.000đ</div>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="popup--content--listProduct">
+                        <!-- <div class="popup--content--title">Danh sách sản phẩm</div>
+                        <div class="content--product--items--nav">
+                            <div class="content--product--items">
+                                <div class="content--product--item">1</div>
+                                <div class="content--product--item"><img src="https://cdn0.fahasa.com/media/catalog/product/8/9/8935278607311.jpg" alt=""></div>
+                                <div class="content--product--item">Không Diệt Không Sinh Đừng Sợ Hãi (Tái Bản 2022)</div>
+                                <div class="content--product--item">80.000đ</div>
+                                <div class="content--product--item"><button class="btn btn__gray">Xoá</button></div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="popup--footer">
+                <button class="btn btn__gray btn__rad4" onclick="closePopup('popupAddPromotion')">Huỷ</button>
+                <button class="btn btn__rad4" onclick="savePromotion()">Lưu</button>
+            </div>
         </div>
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="./js/admin.js"></script>
 <script src="./js/qlkhuyenmai.js"></script>
+
 </html>

@@ -1,426 +1,177 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./assets/icon/Logo.svg" />
-    <title>Lịch sử mua hàng</title>
-    <link rel="stylesheet" href="./css/page/lichsumuahang.css" />
-  </head>
 
-  <body>
-    <div id="headerP"></div>
-    <div class="content">
-      <div class="content--sidebar">
-        <div class="content--sidebar--user">
-          <div class="content--sidebar--user--img">
-            <img
-              src="https://thuthuatnhanh.com/wp-content/uploads/2020/02/icon-be-ong-dang-yeu.jpg"
-              alt=""
-            />
-          </div>
-          <div class="content--sidebar--user--username font--heading__3">
-            nguyenkkk
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./assets/icon/Logo.svg" />
+  <title>Lịch sử mua hàng</title>
+  <link rel="stylesheet" href="./css/page/lichsumuahang.css" />
+</head>
+
+<body>
+  <div id="headerP"></div>
+  <div class="content">
+    <div class="content--sidebar">
+      <div class="content--sidebar--user">
+        <div class="content--sidebar--user--img">
+          <img src="https://thuthuatnhanh.com/wp-content/uploads/2020/02/icon-be-ong-dang-yeu.jpg" alt="" />
         </div>
-        <div class="content--sidebar--items">
-          <div class="content--sidebar--item">
-            <a href="quanlythongtincanhan.html"
-              ><i class="fa-regular fa-user"></i>Tài khoản của tôi</a
-            >
-          </div>
-          <div class="content--sidebar--item content--sidebar--item__active">
-            <a href=""
-              ><i class="fa-regular fa-clipboard-list-check"></i>Đơn hàng</a
-            >
-          </div>
+        <div class="content--sidebar--user--username font--heading__3">
+          nguyenkkk
         </div>
       </div>
-      <div class="content--main">
-        <div class="content--main--titleBar">
-          <div class="titleBar--item titleBar--item__active">Tất cả</div>
-          <div class="titleBar--item">Chờ thanh toán</div>
-          <div class="titleBar--item">Vận chuyển</div>
-          <div class="titleBar--item">Đang giao</div>
-          <div class="titleBar--item">Hoàn thành</div>
-          <div class="titleBar--item">Đã huỷ</div>
-          <div class="titleBar--item">Trả hàng</div>
+      <div class="content--sidebar--items">
+        <div class="content--sidebar--item">
+          <a href="quanlythongtincanhan.html"><i class="fa-regular fa-user"></i>Tài khoản của tôi</a>
         </div>
-        <div class="content--main--search">
-          <input
-            type="text"
-            class="inpt inpt--icon"
-            placeholder="Tìm kiếm đơn hàng theo mã đơn hàng"
-          />
-          <div class="content--main--search--icon">
-            <i class="fa-light fa-magnifying-glass"></i>
-          </div>
+        <div class="content--sidebar--item content--sidebar--item__active">
+          <a href=""><i class="fa-regular fa-clipboard-list-check"></i>Đơn hàng</a>
         </div>
+      </div>
+    </div>
+    <div class="content--main">
+      <div class="content--main--titleBar">
+        <div class="titleBar--item titleBar--item__active" id="titleBar--item__all" onclick="viewOder('all')">Tất cả
+        </div>
+        <div class="titleBar--item" id="titleBar--item__choxacnhan" onclick="viewOder('choxacnhan')">Chờ xác nhận</div>
+        <div class="titleBar--item" id="titleBar--item__chovanchuyen" onclick="viewOder('chovanchuyen')">Chờ vận chuyển
+        </div>
+        <div class="titleBar--item" id="titleBar--item__dangvanchuyen" onclick="viewOder('dangvanchuyen')">Vận chuyển
+        </div>
+        <div class="titleBar--item" id="titleBar--item__hoanthanh" onclick="viewOder('hoanthanh')">Hoàn thành</div>
+        <div class="titleBar--item" id="titleBar--item__huy" onclick="viewOder('huy')">Đã huỷ</div>
+      </div>
+      <div class="content--main--search">
+        <input type="text" class="inpt inpt--icon" placeholder="Tìm kiếm đơn hàng theo mã đơn hàng"/>
+        <div class="content--main--search--icon">
+          <i class="fa-light fa-magnifying-glass"></i>
+        </div>
+      </div>
+      <div class="content--main--orders">
         <div class="content--main--order">
           <div class="order--header">
             <div class="order--header--idOrder font--subheader">
-              DH0123456789
+              <img src="./assets/image/loading skeleton.gif" alt="" class="loading--skeleton__text_s">
             </div>
-            <div class="order--header--date font--subheader">02/02/2020</div>
-            <div class="order--header--status font--subheader">hoàn thành</div>
+            <div class="order--header--date font--subheader"><img src="./assets/image/loading skeleton.gif" alt=""
+                class="loading--skeleton__text_s"></div>
+            <div class="order--header--status font--subheader"><img src="./assets/image/loading skeleton.gif" alt=""
+                class="loading--skeleton__text_s"></div>
           </div>
           <div class="order--items">
             <div class="order--item">
               <div class="order--item--image">
-                <img
-                  src="https://cdn0.fahasa.com/media/catalog/product/d/n/dntttttuntitled.jpg"
-                  alt=""
-                />
+                <img src="./assets/image/loading skeleton.gif" alt="" class="loading--skeleton__text_max">
               </div>
               <div class="order--item--info">
                 <div class="order--item--info--productName font--subheader">
-                  Đắc nhân tâm
+                  <img src="./assets/image/loading skeleton.gif" alt="" class="loading--skeleton__text_m">
                 </div>
-                <div class="order--item--info--productCount">X1</div>
+                <div class="order--item--info--productCount"><img src="./assets/image/loading skeleton.gif" alt=""
+                    class="loading--skeleton__text_s"></div>
               </div>
-              <div class="order--item--cost">64.500đ</div>
+              <div class="order--item--cost"><img src="./assets/image/loading skeleton.gif" alt=""
+                  class="loading--skeleton__text_s"></div>
             </div>
             <div class="order--item">
               <div class="order--item--image">
-                <img
-                  src="https://cdn0.fahasa.com/media/catalog/product/d/n/dntttttuntitled.jpg"
-                  alt=""
-                />
+                <img src="./assets/image/loading skeleton.gif" alt="" class="loading--skeleton__text_max">
               </div>
               <div class="order--item--info">
                 <div class="order--item--info--productName font--subheader">
-                  Đắc nhân tâm
+                  <img src="./assets/image/loading skeleton.gif" alt="" class="loading--skeleton__text_m">
                 </div>
-                <div class="order--item--info--productCount">X1</div>
+                <div class="order--item--info--productCount"><img src="./assets/image/loading skeleton.gif" alt=""
+                    class="loading--skeleton__text_s"></div>
               </div>
-              <div class="order--item--cost">64.500đ</div>
+              <div class="order--item--cost"><img src="./assets/image/loading skeleton.gif" alt=""
+                  class="loading--skeleton__text_s"></div>
             </div>
             <div class="order--item">
               <div class="order--item--image">
-                <img
-                  src="https://cdn0.fahasa.com/media/catalog/product/d/n/dntttttuntitled.jpg"
-                  alt=""
-                />
+                <img src="./assets/image/loading skeleton.gif" alt="" class="loading--skeleton__text_max">
               </div>
               <div class="order--item--info">
                 <div class="order--item--info--productName font--subheader">
-                  Đắc nhân tâm
+                  <img src="./assets/image/loading skeleton.gif" alt="" class="loading--skeleton__text_m">
                 </div>
-                <div class="order--item--info--productCount">X1</div>
+                <div class="order--item--info--productCount"><img src="./assets/image/loading skeleton.gif" alt=""
+                    class="loading--skeleton__text_s"></div>
               </div>
-              <div class="order--item--cost">64.500đ</div>
+              <div class="order--item--cost"><img src="./assets/image/loading skeleton.gif" alt=""
+                  class="loading--skeleton__text_s"></div>
             </div>
+
           </div>
           <div class="order--footer">
-            <div class="order--footer--cost">Tổng tiền: 64.500đ</div>
+            <div class="order--footer--cost"><img src="./assets/image/loading skeleton.gif" alt=""
+                class="loading--skeleton__text_m"></div>
             <div class="order--footer--btn">
-              <button id="btn-danh-gia" class="btn btn__rad4">Đánh giá</button>
-              <form action="" class="form-danh-gia" id="form-danh-gia">
-                <div class="vien-trong">
-                  <h1>Đánh giá sản phẩm</h1>
-                  <button id="close-form" class="btn-X">X</button>
-                  <div class="san-pham">
-                    <div class="san-pham-item">
-                      <img
-                        id="san-pham-item-img"
-                        src="https://cdn0.fahasa.com/media/catalog/product/d/n/dntttttuntitled.jpg"
-                        alt=""
-                        style="width: 100px; height: 100px"
-                      />
-                      <h2 id="san-pham-item-name">Tên sản phẩm</h2>
-                    </div>
-                    <div class="chat-luong">
-                      <h2>Chất lượng sản phẩm:</h2>
-                      <div class="star">
-                        <i class="fa-light fa-star"></i>
-                        <i class="fa-light fa-star"></i>
-                        <i class="fa-light fa-star"></i>
-                        <i class="fa-light fa-star"></i>
-                        <i class="fa-light fa-star"></i>
-                      </div>
-                    </div>
-                    <div class="noi-dung">
-                      <h2>Nội dung đánh giá:</h2>
-                      <br />
-                      <textarea
-                        name="noi-dung-danh-gia"
-                        id="comment"
-                      ></textarea>
-                    </div>
-                  </div>
-                  <div class="san-pham">
-                    <div class="san-pham-item">
-                      <img
-                        src="https://cdn0.fahasa.com/media/catalog/product/d/n/dntttttuntitled.jpg"
-                        alt=""
-                        style="width: 100px; height: 100px"
-                      />
-                      <h2>Tên sản phẩm</h2>
-                    </div>
-                    <div class="chat-luong">
-                      <h2>Chất lượng sản phẩm:</h2>
-                      <div class="star">
-                        <i class="fa-light fa-star"></i>
-                        <i class="fa-light fa-star"></i>
-                        <i class="fa-light fa-star"></i>
-                        <i class="fa-light fa-star"></i>
-                        <i class="fa-light fa-star"></i>
-                      </div>
-                    </div>
-                    <div class="noi-dung">
-                      <h2>Nội dung đánh giá:</h2>
-                      <br />
-                      <textarea
-                        name="noi-dung-danh-gia"
-                        id="comment"
-                      ></textarea>
-                    </div>
-                  </div>
-
-                  <div class="san-pham">
-                    <!-- <button id="close-form" class="btn-X">X</button> -->
-                    <div class="san-pham-item">
-                      <img
-                        src="https://cdn0.fahasa.com/media/catalog/product/d/n/dntttttuntitled.jpg"
-                        alt=""
-                        style="width: 100px; height: 100px"
-                      />
-                      <h2>Tên sản phẩm</h2>
-                    </div>
-                    <div class="chat-luong">
-                      <h2>Chất lượng sản phẩm:</h2>
-                      <div class="star">
-                        <i class="fa-light fa-star"></i>
-                        <i class="fa-light fa-star"></i>
-                        <i class="fa-light fa-star"></i>
-                        <i class="fa-light fa-star"></i>
-                        <i class="fa-light fa-star"></i>
-                      </div>
-                    </div>
-                    <div class="noi-dung">
-                      <h2>Nội dung đánh giá:</h2>
-                      <textarea
-                        name="noi-dung-danh-gia"
-                        id="comment"
-                      ></textarea>
-                    </div>
-                  </div>
-                  <div style="text-align: center">
-                    <button type="submit" class="btn btn-submit-danh-gia">
-                      Đánh giá
-                    </button>
-                  </div>
-                </div>
-              </form>
-              <script>
-                var showFormButton = document.getElementById("btn-danh-gia");
-                var myForm = document.getElementById("form-danh-gia");
-                var closeFormButton = document.getElementById("close-form");
-                // var sanPham = document.getElementsByClassName("order--item");
-                // var formSanPham = document.getElementsById("san-pham");
-
-                showFormButton.addEventListener("click", function () {
-                  myForm.style.display = "block";
-
-                  var productItems = document.querySelectorAll("order--item");
-
-                  for (var i = 0; i < productItems.length; i++) {
-                    // Tạo một phần tử mới cho sản phẩm
-                    var productElement = document.createElement("div");
-                    productElement.className = "san-pham";
-                    var sanPham = productElement.createElement("div");
-                    var chatLuong = productElement.createElement("div");
-                    var noidung = productElement.createElement("div");
-
-                    sanPham.className("san-pham-item");
-                    chatLuong.innerHTML = `<div class="chat-luong">
-                      <h2>Chất lượng sản phẩm:</h2>
-                      <div class="star">
-                        <i class="fa-light fa-star"></i>
-                        <i class="fa-light fa-star"></i>
-                        <i class="fa-light fa-star"></i>
-                        <i class="fa-light fa-star"></i>
-                        <i class="fa-light fa-star"></i>
-                      </div>
-                    </div>`;
-
-                    noidung.innerHTML = `<div class="noi-dung">
-                      <h2>Nội dung đánh giá:</h2>
-                      <textarea
-                        name="noi-dung-danh-gia"
-                        id="comment"
-                      ></textarea>
-                    </div>`;
-
-                    var sanPhamImg = sanPham.createElement("img");
-                    var sanPhamName = sanPham.createElement("h2");
-                    var formSanPhamImg =
-                      document.getElementById("san-pham-item-img");
-                    var formSanPhamName =
-                      document.getElementById("san-pham-item-name");
-                    sanPhamImg.innerHTML = formSanPhamImg;
-                    formSanPhamName = formSanPhamName;
-
-                    // Sao chép nội dung của phần tử sản phẩm vào phần tử mới
-                    productElement.innerHTML = productItems[i].innerHTML;
-
-                    // Thêm phần tử mới vào form
-                    form.appendChild(productElement);
-                  }
-                });
-                closeFormButton.addEventListener("click", function () {
-                  myForm.style.display = "none";
-                });
-              </script>
-              <button class="btn btn__gray btn__rad4">Mua lại</button>
-              <button class="btn btn__gray btn__rad4">Đã nhận hàng</button>
-              <button class="btn btn__gray btn__rad4">Huỷ</button>
-            </div>
-          </div>
-        </div>
-        <div class="content--main--order">
-          <div class="order--header">
-            <div class="order--header--idOrder font--subheader">
-              DH0123456789
-            </div>
-            <div class="order--header--date font--subheader">02/02/2020</div>
-            <div class="order--header--status font--subheader">hoàn thành</div>
-          </div>
-          <div class="order--items">
-            <div class="order--item">
-              <div class="order--item--image">
-                <img
-                  src="https://cdn0.fahasa.com/media/catalog/product/d/n/dntttttuntitled.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="order--item--info">
-                <div class="order--item--info--productName font--subheader">
-                  Đắc nhân tâm
-                </div>
-                <div class="order--item--info--productCount">X1</div>
-              </div>
-              <div class="order--item--cost">64.500đ</div>
-            </div>
-            <div class="order--item">
-              <div class="order--item--image">
-                <img
-                  src="https://cdn0.fahasa.com/media/catalog/product/d/n/dntttttuntitled.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="order--item--info">
-                <div class="order--item--info--productName font--subheader">
-                  Đắc nhân tâm
-                </div>
-                <div class="order--item--info--productCount">X1</div>
-              </div>
-              <div class="order--item--cost">64.500đ</div>
-            </div>
-            <div class="order--item">
-              <div class="order--item--image">
-                <img
-                  src="https://cdn0.fahasa.com/media/catalog/product/d/n/dntttttuntitled.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="order--item--info">
-                <div class="order--item--info--productName font--subheader">
-                  Đắc nhân tâm
-                </div>
-                <div class="order--item--info--productCount">X1</div>
-              </div>
-              <div class="order--item--cost">64.500đ</div>
-            </div>
-          </div>
-          <div class="order--footer">
-            <div class="order--footer--cost">Tổng tiền: 64.500đ</div>
-            <div class="order--footer--btn">
-              <button class="btn btn__rad4">Đánh giá</button>
-              <button class="btn btn__gray btn__rad4">Mua lại</button>
-              <button class="btn btn__gray btn__rad4">Đã nhận hàng</button>
-              <button class="btn btn__gray btn__rad4">Huỷ</button>
-            </div>
-          </div>
-        </div>
-        <div class="content--main--order">
-          <div class="order--header">
-            <div class="order--header--idOrder font--subheader">
-              DH0123456789
-            </div>
-            <div class="order--header--date font--subheader">02/02/2020</div>
-            <div class="order--header--status font--subheader">hoàn thành</div>
-          </div>
-          <div class="order--items">
-            <div class="order--item">
-              <div class="order--item--image">
-                <img
-                  src="https://cdn0.fahasa.com/media/catalog/product/d/n/dntttttuntitled.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="order--item--info">
-                <div class="order--item--info--productName font--subheader">
-                  Đắc nhân tâm
-                </div>
-                <div class="order--item--info--productCount">X1</div>
-              </div>
-              <div class="order--item--cost">64.500đ</div>
-            </div>
-            <div class="order--item">
-              <div class="order--item--image">
-                <img
-                  src="https://cdn0.fahasa.com/media/catalog/product/d/n/dntttttuntitled.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="order--item--info">
-                <div class="order--item--info--productName font--subheader">
-                  Đắc nhân tâm
-                </div>
-                <div class="order--item--info--productCount">X1</div>
-              </div>
-              <div class="order--item--cost">64.500đ</div>
-            </div>
-            <div class="order--item">
-              <div class="order--item--image">
-                <img
-                  src="https://cdn0.fahasa.com/media/catalog/product/d/n/dntttttuntitled.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="order--item--info">
-                <div class="order--item--info--productName font--subheader">
-                  Đắc nhân tâm
-                </div>
-                <div class="order--item--info--productCount">X1</div>
-              </div>
-              <div class="order--item--cost">64.500đ</div>
-            </div>
-          </div>
-          <div class="order--footer">
-            <div class="order--footer--cost">Tổng tiền: 64.500đ</div>
-            <div class="order--footer--btn">
-              <button class="btn btn__rad4">Đánh giá</button>
-              <button class="btn btn__gray btn__rad4">Mua lại</button>
-              <button class="btn btn__gray btn__rad4">Đã nhận hàng</button>
-              <button class="btn btn__gray btn__rad4">Huỷ</button>
+              <button class="btn btn__gray btn__rad4"><img src="./assets/image/loading skeleton.gif" alt=""
+                  class="loading--skeleton__text_s"></button>
+              <button class="btn btn__gray btn__rad4"><img src="./assets/image/loading skeleton.gif" alt=""
+                  class="loading--skeleton__text_s"></button>
+              <button class="btn btn__gray btn__rad4"><img src="./assets/image/loading skeleton.gif" alt=""
+                  class="loading--skeleton__text_s"></button>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div id="footerP"></div>
-  </body>
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-  <script>
-    $(function () {
-      $("#headerP").load("nav.html");
-    });
-    $(function () {
-      $("#footerP").load("footer.html");
-    });
-  </script>
-  <script src="js/main.js"></script>
+  </div>
+  <div id="footerP"></div>
+  <div class="popup" style="display: none;" id="popupEvaluate" onclick="closePopup('popupEvaluate')">
+    <div class="popup--board">
+      <div class="popup--header">Đánh giá</div>
+      <div class="popup--content">
+        <div class="popup--content--evaluate">
+          <div class="evaluate--item">
+            <div class="evaluate--item--product">
+              <input type="hidden" class="evaluate--item--product--id" value="">
+              <div class="evaluate--item--product--image">
+                <img src="https://cdn0.fahasa.com/media/catalog/product/8/9/8935278607311.jpg" alt="">
+              </div>
+              <div class="evaluate--item--product--name">Không Diệt Không Sinh Đừng Sợ Hãi</div>
+            </div>
+            <div class="evaluate--item--main">
+              <div class="evaluate--item--main--point">
+                <div class="evaluate--item--main--point--star">
+                  <i class="fa-solid fa-star point__star point__star__yellow" title="1"></i>
+                  <i class="fa-solid fa-star point__star point__star__yellow" title="2"></i>
+                  <i class="fa-solid fa-star point__star point__star__yellow" title="3"></i>
+                  <i class="fa-solid fa-star point__star point__star__yellow" title="4"></i>
+                  <i class="fa-solid fa-star point__star point__star__yellow" title="5"></i>
+                </div>
+                <div class="evaluate--item--main--point--text">Tuyệt vời</div>
+                <input type="hidden" class="evaluate--item--main--point--num" value="5">
+              </div>
+              <div class="inputLabel">
+                <div class="inputLabel--label">Nội dung</div>
+                <textarea name="" class="textfield textfield__w100 evaluate--item--main--content" placeholder="Hãy chia sẻ cảm nhận của bạn"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="popup--footer">
+        <button class="btn btn__gray btn__rad4 " onclick="closePopup('popupEvaluate')">Huỷ</button>
+        <button class="btn btn__rad4" id="btnSaveEvaluate">Lưu</button>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+  $(function () {
+    $("#headerP").load("nav.html");
+  });
+  $(function () {
+    $("#footerP").load("footer.html");
+  });
+</script>
+<script src="js/main.js"></script>
+<script src="./js/lichsumuahang.js"></script>
+
 </html>

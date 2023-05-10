@@ -6,6 +6,7 @@ package ptit.tmdt.bansach.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,9 +31,11 @@ public class PromotionEntity implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int promotionId;
     private String promotionName;
+    @Column(columnDefinition = "text")
     private String promotionDescription;
     private String promotionType;
-    private String discount;
+    private float discount;
+    @Column(columnDefinition = "LONGTEXT")
     private String linkImage;
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date promotionStartTime;

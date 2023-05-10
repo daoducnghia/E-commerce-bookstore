@@ -35,6 +35,7 @@ public class ShipmentDetailEntity implements Serializable {
     private String district;
     private String commune;
     private String addressDetail;
+    private String status;
     
     @ManyToOne
     @JoinColumn(name = "userId")

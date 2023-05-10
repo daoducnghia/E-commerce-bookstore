@@ -1,6 +1,8 @@
 window.addEventListener("load", function (event) {
   var username = localStorage.getItem("username");
-  console.log(username);
+  if(localStorage.getItem('username') == null){
+    window.location.replace('dangnhap.html');
+  }
   // SHOW THONG TIN CA NHAN---------------------------------------
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");

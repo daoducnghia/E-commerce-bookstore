@@ -1,79 +1,57 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./assets/icon/Logo.svg" />
-    <title>Đặt hàng</title>
-    <link rel="stylesheet" href="./css/page/dathang.css" />
-  </head>
 
-  <body>
-    <div id="headerP"></div>
-    <div class="content">
-      <div class="content--title">Đặt hàng</div>
-      <div class="content--address">
-        <div class="content--address--title content--title__item">
-          <i class="fa-regular fa-location-dot"></i>Địa chỉ nhận hàng
-        </div>
-        <div class="content--address--main">
-          <div class="content--address--main--infoUser">
-            Chưa có thông tin nhận hàng
-          </div>
-          <div class="content--address--main--btn">
-            <a href="">Thêm địa chỉ mới</a>
-          </div>
-        </div>
-        <!-- <div class="content--voucher">
-            <div class="content--vocher--title content--title__item"><i
-                    class="fa-sharp fa-regular fa-ticket-simple"></i>Voucher</div>
-            <div class="content--voucher--main">
-                Mã Voucher
-                <input type="text" class="inpt inpt__rad4" placeholder="Nhập mã voucher">
-                <button class="btn btn__rad4">Áp dụng</button>
-            </div>
-            <div class="content--voucher--items" hidden>
-                <div class="content--voucher--item">
-                    <div class="content--voucher--item--name font--subheader">Mã voucher</div>
-                    <div class="content--voucher--item--info font--subheader">Chương trình</div>
-                    <div class="content--voucher--item--discount font--subheader">Chiết khấu</div>
-                </div>
-                <div class="content--voucher--item">
-                    <div class="content--voucher--item--name">VC0000155AC</div>
-                    <div class="content--voucher--item--info">Chào bạn mới giảm ngay 100k</div>
-                    <div class="content--voucher--item--discount">-100.000đ</div>
-                </div>
-            </div>
-        </div> -->
-        <div class="content--pay">
-            <div class="content--pay--title content--title__item"><i class="fa-regular fa-credit-card"></i>Thanh toán
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./assets/icon/Logo.svg" />
+  <title>BanSach - Đặt hàng</title>
+  <link rel="stylesheet" href="./css/page/dathang.css" />
+</head>
+
+<body>
+  <div id="headerP"></div>
+  <div class="content">
+    <div class="content--title">Đặt hàng</div>
+    <div class="content--address">
+      <div class="content--address--title content--title__item">
+        <i class="fa-regular fa-location-dot"></i>Địa chỉ nhận hàng
       </div>
-      <div class="content--product">
-        <div class="content--product--title content--title__item">
-          <i class="fa-regular fa-box"></i>Sản phẩm
+      <div class="content--address--main">
+        <input type="hidden" name="" id="idAddress">
+        <div class="content--address--main--infoUser">
+          Chưa có thông tin nhận hàng
         </div>
-        <div class="content--product--main">
-          <div class="product--main--title">
-            <div class="product--main--title__product font--heading__3">
-              Sản phẩm
-            </div>
-            <div class="product--main--title__price font--heading__3">
-              Đơn giá
-            </div>
-            <div class="product--main--title__quantity font--heading__3">
-              Số lượng
-            </div>
-            <div class="product--main--title__cost font--heading__3">
-              Thành tiền
-            </div>
+        <div class="content--address--main--btn">
+          <a onclick="openPopup('popupAddress')">Thêm địa chỉ mới</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="content--product">
+      <div class="content--product--title content--title__item">
+        <i class="fa-regular fa-box"></i>Sản phẩm
+      </div>
+      <div class="content--product--main">
+        <div class="product--main--title">
+          <div class="product--main--title__product font--heading__3">
+            Sản phẩm
           </div>
+          <div class="product--main--title__price font--heading__3">
+            Đơn giá
+          </div>
+          <div class="product--main--title__quantity font--heading__3">
+            Số lượng
+          </div>
+          <div class="product--main--title__cost font--heading__3">
+            Thành tiền
+          </div>
+        </div>
+        <div class="product--items">
           <div class="product--item">
             <div class="product--item--image">
-              <img
-                src="https://cdn0.fahasa.com/media/catalog/product/d/n/dntttttuntitled.jpg"
-                alt=""
-              />
+              <img src="https://cdn0.fahasa.com/media/catalog/product/d/n/dntttttuntitled.jpg" alt="" />
             </div>
             <div class="product--item--name">Đắc nhân tâm</div>
             <div class="product--item--price">64.500đ</div>
@@ -82,460 +60,199 @@
           </div>
           <div class="product--item">
             <div class="product--item--image">
-              <img
-                src="https://cdn0.fahasa.com/media/catalog/product/d/n/dntttttuntitled.jpg"
-                alt=""
-              />
+              <img src="https://cdn0.fahasa.com/media/catalog/product/d/n/dntttttuntitled.jpg" alt="" />
             </div>
             <div class="product--item--name">Đắc nhân tâm</div>
             <div class="product--item--price">64.500đ</div>
             <div class="product--item--quantity">1</div>
             <div class="product--item-cost">64.500đ</div>
-          </div>
-        </div>
-        <div class="content--product--footer">
-          <div class="content--product--note">
-            Lời nhắn:
-            <input
-              type="text"
-              class="inpt inpt__rad4"
-              placeholder="Lưu ý cho người bán..."
-            />
-          </div>
-          <div class="content--product--cost">Tổng tiền: 64.500đ</div>
-        </div>
-      </div>
-      <div class="content--voucher">
-        <div class="content--vocher--title content--title__item">
-          <i class="fa-sharp fa-regular fa-ticket-simple"></i>Voucher
-        </div>
-        <div class="content--voucher--main">
-          Mã Voucher
-          <input
-            type="text"
-            class="inpt inpt__rad4"
-            placeholder="Nhập mã voucher"
-          />
-          <button class="btn btn__rad4">Áp dụng</button>
-        </div>
-        <div class="content--voucher--items" hidden>
-          <div class="content--voucher--item">
-            <div class="content--voucher--item--name font--subheader">
-              Mã voucher
-            </div>
-            <div class="content--voucher--item--info font--subheader">
-              Chương trình
-            </div>
-            <div class="content--voucher--item--discount font--subheader">
-              Chiết khấu
-            </div>
-          </div>
-          <div class="content--voucher--item">
-            <div class="content--voucher--item--name">VC0000155AC</div>
-            <div class="content--voucher--item--info">
-              Chào bạn mới giảm ngay 100k
-            </div>
-            <div class="content--voucher--item--discount">-100.000đ</div>
+            <input type="hidden" name="" class="totalAmount">
           </div>
         </div>
       </div>
-      <div class="content--pay">
-        <div class="content--pay--title content--title__item">
-          <i class="fa-regular fa-credit-card"></i>Thanh toán
+      <div class="content--product--footer">
+        <div class="content--product--note">
+          Lời nhắn:
+          <input type="text" class="inpt inpt__rad4" placeholder="Lưu ý cho người bán..." id="message"/>
         </div>
-        <div class="content--pay--paymentMethod">
-          <div class="content--pay--paymentMethod--title">
-            Phương thức thanh toán
-          </div>
-          <select name="" id="" class="dropdownlist">
-            <option value="">Thanh toán khi nhận hàng</option>
-            <option value="">Thẻ Tín dụng/Ghi nợ</option>
-          </select>
+        <div class="content--product--cost">Tổng tiền: 64.500đ</div>
+      </div>
+    </div>
+
+    <div class="content--pay">
+      <div class="content--pay--title content--title__item">
+        <i class="fa-regular fa-credit-card"></i>Thanh toán
+      </div>
+      <div class="content--pay--paymentMethod">
+        <div class="content--pay--paymentMethod--title">
+          Phương thức thanh toán
         </div>
-        <div class="content--pay--main">
-          <div class="content--pay--main__left">Thanh toán khi nhận hàng</div>
-          <div class="content--pay--main__right">Phí thu hộ: 0đ</div>
+        <select name="" id="dropdownlistThanhToan" class="dropdownlist" onchange="checkdropdownlistThanhToan()">
+          <option value="1">Thanh toán khi nhận hàng</option>
+          <option value="2">Thẻ Tín dụng/Ghi nợ</option>
+        </select>
+      </div>
+      <div class="content--pay--main">
+        <div class="content--pay--main__left">Thanh toán khi nhận hàng</div>
+        <div class="content--pay--main__right">Phí thu hộ: 0đ</div>
+      </div>
+      <!-- <div class="content--pay--main">
+        <div class="content--pay--main__left">
+          Thanh toán thẻ Tín dụng/Ghi nợ
         </div>
-        <div class="content--pay--main">
-          <div class="content--pay--main__left">
-            Thanh toán thẻ Tín dụng/Ghi nợ
+        <div class="content--pay--main__right">
+          <div class="content--pay--main__right--title">Chọn thẻ</div>
+          <div class="content--pay--main__right--credit">
+            <input type="radio" name="card" /> Ngân hàng ABC **** 1234
           </div>
-          <div class="content--pay--main__right">
-            <div class="content--pay--main__right--title">Chọn thẻ</div>
-            <div class="content--pay--main__right--credit">
-              <input type="radio" name="card" /> Ngân hàng ABC **** 1234
-            </div>
-            <div class="content--pay--main__right--credit">
-              <input type="radio" name="card" /> Ngân hàng DEF **** 1234
-            </div>
-            <div class="content--pay--main__right--btn">
-              <a href="">Thêm thẻ</a>
-            </div>
+          <div class="content--pay--main__right--credit">
+            <input type="radio" name="card" /> Ngân hàng DEF **** 1234
+          </div>
+          <div class="content--pay--main__right--btn">
+            <a href="">Thêm thẻ</a>
           </div>
         </div>
-        <div class="content--pay--footer">
-          <div class="content--pay--footer--cost">
-            <div class="content--pay--footer--cost--item">
-              Tống tiền hàng: 64.500đ
-            </div>
-            <div class="content--pay--footer--cost--item">
-              Phí vận chuyển: 30.000đ
-            </div>
-            <div class="content--pay--footer--cost--item">
-              Giảm giá: -30.000đ
-            </div>
-            <div class="content--pay--footer--cost--item">
-              Tống thanh toán: 64.500đ
-            </div>
+      </div> -->
+      <div class="content--pay--footer">
+        <div class="content--pay--footer--cost">
+          <div class="content--pay--footer--cost--item">
+            Tổng tiền hàng: 0đ
           </div>
-          <div class="content--pay--footer--btn">
-            <button class="btn btn__rad4">Đặt hàng</button>
+          <div class="content--pay--footer--cost--item">
+            Phí vận chuyển: 0đ
           </div>
+          <div class="content--pay--footer--cost--item">
+            Giảm giá: -0đ
+          </div>
+          <div class="content--pay--footer--cost--item">
+            Tống thanh toán: 0đ <span id="tongtt"></span>
+          </div>
+        </div>
+        <div class="content--pay--footer--btn">
+          <button class="btn btn__rad4" onclick="dathang()">Đặt hàng</button>
         </div>
       </div>
     </div>
-    <div class="popup" hidden>
-      <div class="popup--board">
-        <div class="popup--header">Địa chỉ của tôi</div>
-        <div class="popup--content">
-          <div class="popup--content--address">
-            <div class="popup--content--address--item">
-              <div class="popup--content--address--item--radio">
-                <input type="radio" name="address" id="" />
+  </div>
+  <div class="popup" style="display: none;" id="popupAddress" onclick="closePopup('popupAddress')">
+    <div class="popup--board">
+      <div class="popup--header">Địa chỉ của tôi</div>
+      <div class="popup--content">
+        <div class="popup--content--address">
+          <div class="popup--content--address--item">
+            <div class="popup--content--address--item--radio">
+              <input type="radio" name="address" id="" />
+            </div>
+            <div class="popup--content--address--item--info">
+              <div class="popup--content--address--item--info--user">
+                Nguyễn Văn A | 0999888999
               </div>
-              <div class="popup--content--address--item--info">
-                <div class="popup--content--address--item--info--user">
-                  Nguyễn Văn A | 0999888999
-                </div>
-                <div class="popup--content--address--item--info--address">
-                  7 Nguyễn Văn Trỗi, Mỗ Lao, Hà Đông, Hà Nội
-                </div>
-              </div>
-              <div class="popup--content--address--item--btn">
-                <a href="">Cập nhật</a>
+              <div class="popup--content--address--item--info--address">
+                7 Nguyễn Văn Trỗi, Mỗ Lao, Hà Đông, Hà Nội
               </div>
             </div>
-            <div class="popup--content--address--item">
-              <div class="popup--content--address--item--radio">
-                <input type="radio" name="address" id="" />
-              </div>
-              <div class="popup--content--address--item--info">
-                <div class="popup--content--address--item--info--user">
-                  Nguyễn Văn A | 0999888999
-                </div>
-                <div class="popup--content--address--item--info--address">
-                  7 Nguyễn Văn Trỗi, Mỗ Lao, Hà Đông, Hà Nội
-                </div>
-              </div>
-              <div class="popup--content--address--item--btn">
-                <a href="">Cập nhật</a>
-              </div>
-            </div>
-            <div class="popup--content--address--item">
-              <div class="popup--content--address--item--radio">
-                <input type="radio" name="address" id="" />
-              </div>
-              <div class="popup--content--address--item--info">
-                <div class="popup--content--address--item--info--user">
-                  Nguyễn Văn A | 0999888999
-                </div>
-                <div class="popup--content--address--item--info--address">
-                  7 Nguyễn Văn Trỗi, Mỗ Lao, Hà Đông, Hà Nội
-                </div>
-              </div>
-              <div class="popup--content--address--item--btn">
-                <a href="">Cập nhật</a>
-              </div>
-            </div>
-            <div class="popup--content--address--item">
-              <div class="popup--content--address--item--radio">
-                <input type="radio" name="address" id="" />
-              </div>
-              <div class="popup--content--address--item--info">
-                <div class="popup--content--address--item--info--user">
-                  Nguyễn Văn A | 0999888999
-                </div>
-                <div class="popup--content--address--item--info--address">
-                  7 Nguyễn Văn Trỗi, Mỗ Lao, Hà Đông, Hà Nội
-                </div>
-              </div>
-              <div class="popup--content--address--item--btn">
-                <a href="">Cập nhật</a>
-              </div>
-            </div>
-            <div class="popup--content--address--item">
-              <div class="popup--content--address--item--radio">
-                <input type="radio" name="address" id="" />
-              </div>
-              <div class="popup--content--address--item--info">
-                <div class="popup--content--address--item--info--user">
-                  Nguyễn Văn A | 0999888999
-                </div>
-                <div class="popup--content--address--item--info--address">
-                  7 Nguyễn Văn Trỗi, Mỗ Lao, Hà Đông, Hà Nội
-                </div>
-              </div>
-              <div class="popup--content--address--item--btn">
-                <a href="">Cập nhật</a>
-              </div>
-            </div>
-            <div class="popup--content--address--item">
-              <div class="popup--content--address--item--radio">
-                <input type="radio" name="address" id="" />
-              </div>
-              <div class="popup--content--address--item--info">
-                <div class="popup--content--address--item--info--user">
-                  Nguyễn Văn A | 0999888999
-                </div>
-                <div class="popup--content--address--item--info--address">
-                  7 Nguyễn Văn Trỗi, Mỗ Lao, Hà Đông, Hà Nội
-                </div>
-              </div>
-              <div class="popup--content--address--item--btn">
-                <a href="">Cập nhật</a>
-              </div>
-            </div>
-            <div class="popup--content--address--item">
-              <div class="popup--content--address--item--radio">
-                <input type="radio" name="address" id="" />
-              </div>
-              <div class="popup--content--address--item--info">
-                <div class="popup--content--address--item--info--user">
-                  Nguyễn Văn A | 0999888999
-                </div>
-                <div class="popup--content--address--item--info--address">
-                  7 Nguyễn Văn Trỗi, Mỗ Lao, Hà Đông, Hà Nội
-                </div>
-              </div>
-              <div class="popup--content--address--item--btn">
-                <a href="">Cập nhật</a>
-              </div>
-            </div>
-            <div class="popup--content--address--item">
-              <div class="popup--content--address--item--radio">
-                <input type="radio" name="address" id="" />
-              </div>
-              <div class="popup--content--address--item--info">
-                <div class="popup--content--address--item--info--user">
-                  Nguyễn Văn A | 0999888999
-                </div>
-                <div class="popup--content--address--item--info--address">
-                  7 Nguyễn Văn Trỗi, Mỗ Lao, Hà Đông, Hà Nội
-                </div>
-              </div>
-              <div class="popup--content--address--item--btn">
-                <a href="">Cập nhật</a>
-              </div>
-            </div>
-            <div class="popup--content--address--item">
-              <div class="popup--content--address--item--radio">
-                <input type="radio" name="address" id="" />
-              </div>
-              <div class="popup--content--address--item--info">
-                <div class="popup--content--address--item--info--user">
-                  Nguyễn Văn A | 0999888999
-                </div>
-                <div class="popup--content--address--item--info--address">
-                  7 Nguyễn Văn Trỗi, Mỗ Lao, Hà Đông, Hà Nội
-                </div>
-              </div>
-              <div class="popup--content--address--item--btn">
-                <a href="">Cập nhật</a>
-              </div>
-            </div>
-            <div class="popup--content--address--item">
-              <div class="popup--content--address--item--radio">
-                <input type="radio" name="address" id="" />
-              </div>
-              <div class="popup--content--address--item--info">
-                <div class="popup--content--address--item--info--user">
-                  Nguyễn Văn A | 0999888999
-                </div>
-                <div class="popup--content--address--item--info--address">
-                  7 Nguyễn Văn Trỗi, Mỗ Lao, Hà Đông, Hà Nội
-                </div>
-              </div>
-              <div class="popup--content--address--item--btn">
-                <a href="">Cập nhật</a>
-              </div>
-            </div>
-            <div class="popup--content--address--item">
-              <div class="popup--content--address--item--radio">
-                <input type="radio" name="address" id="" />
-              </div>
-              <div class="popup--content--address--item--info">
-                <div class="popup--content--address--item--info--user">
-                  Nguyễn Văn A | 0999888999
-                </div>
-                <div class="popup--content--address--item--info--address">
-                  7 Nguyễn Văn Trỗi, Mỗ Lao, Hà Đông, Hà Nội
-                </div>
-              </div>
-              <div class="popup--content--address--item--btn">
-                <a href="">Cập nhật</a>
-              </div>
-            </div>
-            <div class="popup--content--address--item">
-              <div class="popup--content--address--item--radio">
-                <input type="radio" name="address" id="" />
-              </div>
-              <div class="popup--content--address--item--info">
-                <div class="popup--content--address--item--info--user">
-                  Nguyễn Văn A | 0999888999
-                </div>
-                <div class="popup--content--address--item--info--address">
-                  7 Nguyễn Văn Trỗi, Mỗ Lao, Hà Đông, Hà Nội
-                </div>
-              </div>
-              <div class="popup--content--address--item--btn">
-                <a href="">Cập nhật</a>
-              </div>
+            <div class="popup--content--address--item--btn">
+              <a onclick="updateAddress(id)">Cập nhật</a>
             </div>
           </div>
-          <div class="popup--content--btn"><a href="">Thêm địa chỉ mới</a></div>
         </div>
-        <div class="popup--footer">
-          <button class="btn btn__gray btn__rad4">Huỷ</button>
-          <button class="btn btn__rad4">Xác nhận</button>
-        </div>
+        <div class="popup--content--btn"><a onclick="addAddress()">Thêm địa chỉ mới</a></div>
+      </div>
+      <div class="popup--footer">
+        <button class="btn btn__gray btn__rad4 " onclick="closePopup('popupAddress')">Huỷ</button>
+        <button class="btn btn__rad4" onclick="pickAddress()">Xác nhận</button>
       </div>
     </div>
-    <div class="popup" hidden>
-      <div class="popup--board">
-        <div class="popup--header">Địa chỉ mới</div>
-        <div class="popup--content">
-          <div class="popup--content--nav">
-            <div class="inputLabel">
-              <div class="inputLabel--label">Họ và Tên</div>
-              <input
-                type="text"
-                class="inpt inpt__rad4 inpt__w100"
-                placeholder="Họ và Tên"
-              />
-            </div>
-            <div class="inputLabel">
-              <div class="inputLabel--label">Số điện thoại</div>
-              <input
-                type="number"
-                class="inpt inpt__rad4 inpt__w100"
-                placeholder="Số điện thoại"
-              />
-            </div>
+  </div>
+  <div class="popup" style="display: none;" id="popupAddAddress" onclick="closePopup('popupAddAddress')">
+    <div class="popup--board popup--board__AddAddress">
+      <div class="popup--header">Thông tin địa chỉ</div>
+      <div class="popup--content">
+        <input type="hidden" id="idAddressAA">
+        <div class="popup--content--nav">
+          <div class="inputLabel">
+            <div class="inputLabel--label">Họ và Tên</div>
+            <input type="text" class="inpt inpt__rad4 inpt__w100" placeholder="Họ và Tên" id="fullnameAA" />
           </div>
           <div class="inputLabel">
-            <div class="inputLabel--label">Địa chỉ</div>
-            <input
-              type="text"
-              class="inpt inpt__rad4 inpt__w100"
-              placeholder="Tỉnh/Thành phố, Quận/Huyện, Phường/Xã"
-            />
-          </div>
-          <div class="inputLabel">
-            <div class="inputLabel--label">Địa chỉ chi tiết</div>
-            <textarea
-              name=""
-              id=""
-              class="textfield textfield__w100"
-              placeholder="Địa chỉ chi tiết"
-            ></textarea>
-          </div>
-          <div class="popup--content--defaultAddress">
-            <input type="checkbox" name="" id="" />
-            Đặt làm địa chỉ mặc định
+            <div class="inputLabel--label">Số điện thoại</div>
+            <input type="number" class="inpt inpt__rad4 inpt__w100" placeholder="Số điện thoại" id="phonenumberAA" />
           </div>
         </div>
-        <div class="popup--footer">
-          <button class="btn btn__gray btn__rad4">Trở lại</button>
-          <button class="btn btn__rad4">Hoàn thành</button>
+        <div class="inputLabel">
+          <div class="inputLabel--label">Địa chỉ</div>
+          <input type="text" class="inpt inpt__rad4 inpt__w100" placeholder="Tỉnh/Thành phố, Quận/Huyện, Phường/Xã"
+            id="addressAA" />
+        </div>
+        <div class="inputLabel">
+          <div class="inputLabel--label">Địa chỉ chi tiết</div>
+          <textarea name="" class="textfield textfield__w100" placeholder="Địa chỉ chi tiết"
+            id="addressDetailAA"></textarea>
+        </div>
+        <div class="popup--content--defaultAddress">
+          <input type="checkbox" name="" id="checkAddressAA" />
+          Đặt làm địa chỉ mặc định
         </div>
       </div>
-    </div>
-    <div class="popup" hidden>
-      <div class="popup--board">
-        <div class="popup--header">Thêm thẻ</div>
-        <div class="popup--content">
-          <div class="popup--content--title">Chi tiết thẻ</div>
-          <div class="inputLabel">
-            <div class="inputLabel--label">Số thẻ</div>
-            <input
-              type="number"
-              name=""
-              id=""
-              class="inpt inpt__rad4 inpt__w100"
-              placeholder="Số thẻ"
-            />
-          </div>
-          <div class="popup--content--nav">
-            <div class="inputLabel">
-              <div class="inputLabel--label">Ngày hết hạn</div>
-              <input
-                type="text"
-                name=""
-                id=""
-                class="inpt inpt__rad4 inpt__w100"
-                placeholder="Ngày hết hạn (MM/YY)"
-              />
-            </div>
-            <div class="inputLabel">
-              <div class="inputLabel--label">Mã CVV</div>
-              <input
-                type="text"
-                name=""
-                id=""
-                class="inpt inpt__rad4 inpt__w100"
-                placeholder="CVV"
-              />
-            </div>
-          </div>
-          <div class="inputLabel">
-            <div class="inputLabel--label">Họ về Tên chủ thẻ</div>
-            <input
-              type="text"
-              name=""
-              id=""
-              class="inpt inpt__rad4 inpt__w100"
-              placeholder="HỌ VÀ TÊN"
-            />
-          </div>
-          <div class="popup--content--title">
-            Địa chỉ đăng ký thẻ Tín dụng/Ghi nợ
-          </div>
-          <div class="inputLabel">
-            <div class="inputLabel--label">Địa chỉ</div>
-            <textarea
-              name=""
-              id=""
-              class="textfield textfield__w100"
-              placeholder="Địa chỉ thanh toán đã đăng ký khi mở thẻ Tín dụng/Ghi nợ"
-            ></textarea>
-          </div>
-          <div class="inputLabel">
-            <div class="inputLabel--label">Mã bưu chính</div>
-            <input
-              type="text"
-              name=""
-              id=""
-              class="inpt inpt__rad4 inpt__w100"
-              placeholder="Mã bưu chính"
-            />
-          </div>
-        </div>
-        <div class="popup--footer">
-          <button class="btn btn__gray btn__rad4">Trở lại</button>
-          <button class="btn btn__rad4">Hoàn thành</button>
-        </div>
+      <div class="popup--footer">
+        <button class="btn btn__gray btn__rad4" onclick="closePopup('popupAddAddress')">Trở lại</button>
+        <button class="btn btn__rad4" onclick="saveAddress()">Lưu</button>
       </div>
     </div>
-    <div id="footerP"></div>
-  </body>
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-  <script>
-    $(function () {
-      $("#headerP").load("nav.html");
-    });
-    $(function () {
-      $("#footerP").load("footer.html");
-    });
-  </script>
-  <script src="js/main.js"></script>
+  </div>
+  <div class="popup" id="popupAddCard" style="display: none;" onclick="closePopup('popupAddCard')">
+    <div class="popup--board popup--board__AddCard">
+      <div class="popup--header">Thêm thẻ</div>
+      <div class="popup--content">
+        <div class="popup--content--title">Chi tiết thẻ</div>
+        <div class="inputLabel">
+          <div class="inputLabel--label">Số thẻ</div>
+          <input type="number" name="" id="cardNumber" class="inpt inpt__rad4 inpt__w100" placeholder="Số thẻ" />
+        </div>
+        <div class="popup--content--nav">
+          <div class="inputLabel">
+            <div class="inputLabel--label">Ngày hết hạn</div>
+            <input type="text" name="" id="" class="inpt inpt__rad4 inpt__w100" placeholder="Ngày hết hạn (MM/YY)" />
+          </div>
+          <div class="inputLabel">
+            <div class="inputLabel--label">Mã CVV</div>
+            <input type="text" name="" id="cvv" class="inpt inpt__rad4 inpt__w100" placeholder="CVV" />
+          </div>
+        </div>
+        <div class="inputLabel">
+          <div class="inputLabel--label">Họ về Tên chủ thẻ</div>
+          <input type="text" name="" id="cardholderName" class="inpt inpt__rad4 inpt__w100" placeholder="HỌ VÀ TÊN" />
+        </div>
+        <div class="popup--content--title">
+          Địa chỉ đăng ký thẻ Tín dụng/Ghi nợ
+        </div>
+        <div class="inputLabel">
+          <div class="inputLabel--label">Địa chỉ</div>
+          <textarea name="" id="addressCard" class="textfield textfield__w100"
+            placeholder="Địa chỉ thanh toán đã đăng ký khi mở thẻ Tín dụng/Ghi nợ"></textarea>
+        </div>
+        <div class="inputLabel">
+          <div class="inputLabel--label">Mã bưu chính</div>
+          <input type="text" name="" id="zipCode" class="inpt inpt__rad4 inpt__w100" placeholder="Mã bưu chính" />
+        </div>
+      </div>
+      <div class="popup--footer">
+        <button class="btn btn__gray btn__rad4" onclick="closePopup('popupAddCard')">Trở lại</button>
+        <button class="btn btn__rad4" onclick="addBankCard()">Hoàn thành</button>
+      </div>
+    </div>
+  </div>
+  <div id="footerP"></div>
+</body>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+  $(function () {
+    $("#headerP").load("nav.html");
+  });
+  $(function () {
+    $("#footerP").load("footer.html");
+  });
+</script>
+<script src="js/main.js"></script>
+<script src="./js/dathang.js"></script>
 </html>
