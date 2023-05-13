@@ -37,6 +37,7 @@ function viewOder(mes) {
   fetch(url + "/api/get-all-order-by-user", requestOptions)
     .then(response => response.json())
     .then(result => {
+      console.log(result);
       if (result.length === 0) {
         var html = `<div class="content--main--order">Không có đơn hàng</div>`
         document.getElementsByClassName('content--main--orders').item(0).innerHTML = html;

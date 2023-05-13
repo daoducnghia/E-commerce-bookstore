@@ -32,44 +32,12 @@ function deleteProduct(ele) {
         .then(result => {
             if (result) {
                 box.remove();
+                getNumberProductInCart();
             }
         })
         .catch(error => console.log('error', error));
 }
-function getCart() {
-    var myHeaders = new Headers();
-    myHeaders.append("user", localStorage.getItem("username"));
 
-    var requestOptions = {
-        method: 'GET',
-        headers: myHeaders,
-        redirect: 'follow'
-    };
-
-    fetch(url + "/api/cart", requestOptions)
-        .then(response => response.json())
-        .then(result => {
-            var html = '';
-            for (let cart of result) {
-                html += `<div class="box">
-                <input type="checkbox" name="checkProduct" value="`+ cart.cardId + `" onchange="updateAmount(this)"/>
-                <img src="`+ cart.product.linkImage + `" alt="" />
-                <div class="content-box">
-                  <h3>`+ cart.product.productName + `</h3>
-                  <h4>Giá: <span class="product--price">`+ formatMoneyVND(cart.product.price) + `</span></h4>
-                  <p class="unit">Số lượng: <input class="product--price product--number" value="`+ cart.productCount + `" /></p>
-                  <p class="btn-area" onclick="deleteProduct(this)">
-                    <i class="fa fa-trash"></i>
-                    <span class="btn2" >Xoá</span>
-                  </p>
-                </div>
-              </div>`
-            }
-            document.getElementsByClassName('shop').item(0).innerHTML = html;
-
-        })
-        .catch(error => console.log('error', error));
-}
 function updateAmount(ele) {
     var item = ele.parentElement.getElementsByClassName('product--price').item(0);
     var itemNumber = ele.parentElement.getElementsByClassName('product--number').item(0);

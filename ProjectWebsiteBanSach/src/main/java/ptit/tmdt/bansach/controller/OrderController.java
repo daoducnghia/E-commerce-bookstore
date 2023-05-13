@@ -4,8 +4,10 @@
  */
 package ptit.tmdt.bansach.controller;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
@@ -69,18 +71,17 @@ public class OrderController {
     @Autowired
     ProductRepository productRepository;
 
-    
     @GetMapping("/get-all-order-by-id")
-    public List<OrderQL> getAllOrderById(HttpServletRequest request, @RequestParam("idOrder") String idOrder){
+    public List<OrderQL> getAllOrderById(HttpServletRequest request, @RequestParam("idOrder") String idOrder) {
         try {
             String username = request.getHeader("user");
             AccountEntity acount = accountRepository.findByUsername(username);
             if (!acount.getAccountType().equalsIgnoreCase("admin")) {
                 return new ArrayList<>();
             }
-            List<OrderEntity> listOrder = orderRepository.getAllById("%"+idOrder+"%");
+            List<OrderEntity> listOrder = orderRepository.getAllById("%" + idOrder + "%");
             List<OrderQL> listOrderQL = new ArrayList<>();
-            for(OrderEntity o: listOrder){
+            for (OrderEntity o : listOrder) {
                 OrderQL oql = new OrderQL();
                 oql.setOrder(o);
                 oql.setShippingInformation(shippingInformationRepository.findByOrder(o));
@@ -93,7 +94,7 @@ public class OrderController {
         }
         return new ArrayList<>();
     }
-    
+
     @GetMapping("/get-all-order")
     public List<OrderQL> getAllOrder(HttpServletRequest request) {
         try {
@@ -117,7 +118,7 @@ public class OrderController {
             }
             listOrder.sort(Comparator.comparing(OrderEntity::getOrderId).reversed());
             List<OrderQL> listOrderQL = new ArrayList<>();
-            for(OrderEntity o: listOrder){
+            for (OrderEntity o : listOrder) {
                 OrderQL oql = new OrderQL();
                 oql.setOrder(o);
                 oql.setShippingInformation(shippingInformationRepository.findByOrder(o));
@@ -274,7 +275,126 @@ public class OrderController {
         }
         return null;
     }
+
+    @PostMapping("/get-order-by-month")
+    public List<ReportOrder> getOrderByMonth(@RequestBody List<Date> listDate) {
+        try {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(listDate.get(0));
+            calendar.set(Calendar.DAY_OF_MONTH, 1);
+            Date startDate = calendar.getTime();
+            calendar.setTime(listDate.get(1));
+            calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
+            Date endDate = calendar.getTime();
+            List<OrderEntity> listOrder = orderRepository.findAllByPurchaseDate(startDate, endDate);
+            calendar.setTime(startDate);
+            Calendar cal = Calendar.getInstance();
+            List<ReportOrder> listReportOrder = new ArrayList<>();
+            while (calendar.getTime().before(endDate)) {
+                cal.setTime(calendar.getTime());
+                cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
+                int numberOrder = 0;
+                int numberOrderReturn = 0;
+                float revenue = 0;
+                float discount = 0;
+                float returns = 0;
+                for (OrderEntity od : listOrder) {
+                    if (calendar.getTime().compareTo(od.getPurchaseDate()) <= 0 && cal.getTime().compareTo(od.getPurchaseDate()) >= 0) {
+                        numberOrder += 1;
+                        revenue += od.getOrderTotal() + od.getDiscount();
+                        discount += od.getDiscount();
+                        if (od.getOrderStatus().equalsIgnoreCase("Huỷ")) {
+                            returns += od.getOrderTotal();
+                            numberOrderReturn += 1;
+                        }
+                    }
+                }
+                ReportOrder reportOrder = new ReportOrder();
+                int month = calendar.get(Calendar.MONTH) + 1;
+                reportOrder.setTime((month < 10 ? "0" + month : month) + "-" + calendar.get(Calendar.YEAR));
+                reportOrder.setNumberOrder(numberOrder);
+                reportOrder.setNumberOrderReturn(numberOrderReturn);
+                reportOrder.setRevenue(revenue);
+                reportOrder.setDiscount(discount);
+                reportOrder.setReturns(returns);
+                reportOrder.setTotalRevenue(revenue - discount - returns);
+                listReportOrder.add(reportOrder);
+                calendar.add(Calendar.MONTH, 1);
+            }
+            return listReportOrder;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }
 }
+
+class ReportOrder {
+
+    private String time;
+    private int numberOrder;
+    private int numberOrderReturn;
+    private float revenue;
+    private float discount;
+    private float returns;
+    private float totalRevenue;
+
+    public int getNumberOrderReturn() {
+        return numberOrderReturn;
+    }
+
+    public void setNumberOrderReturn(int numberOrderReturn) {
+        this.numberOrderReturn = numberOrderReturn;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public int getNumberOrder() {
+        return numberOrder;
+    }
+
+    public void setNumberOrder(int numberOrder) {
+        this.numberOrder = numberOrder;
+    }
+
+    public float getRevenue() {
+        return revenue;
+    }
+
+    public void setRevenue(float revenue) {
+        this.revenue = revenue;
+    }
+
+    public float getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(float discount) {
+        this.discount = discount;
+    }
+
+    public float getReturns() {
+        return returns;
+    }
+
+    public void setReturns(float returns) {
+        this.returns = returns;
+    }
+
+    public float getTotalRevenue() {
+        return totalRevenue;
+    }
+
+    public void setTotalRevenue(float totalRevenue) {
+        this.totalRevenue = totalRevenue;
+    }
+};
 
 class Order {
 
@@ -455,7 +575,9 @@ class OrderDetailDTO {
         this.product = product;
     }
 };
-class OrderQL{
+
+class OrderQL {
+
     private OrderEntity order;
     private ShippingInformationEntity shippingInformation;
     private List<OrderDetailEntity> listOrderDetail;
@@ -483,5 +605,5 @@ class OrderQL{
     public void setShippingInformation(ShippingInformationEntity shippingInformation) {
         this.shippingInformation = shippingInformation;
     }
-    
+
 }

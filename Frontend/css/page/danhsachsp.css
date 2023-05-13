@@ -150,9 +150,17 @@
 }
 .content--product--item--img{
     width: 100%;
+    max-height: 230px;
+    display: flex;
+    justify-content: center;
 }
 .content--product--item--img img{
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+.content--product--item--title{
+    text-align: center;
+    padding: 8px 0;
 }
 .content--product--item--title a{
     font-size: 14px;
@@ -162,6 +170,9 @@
     padding-top: 4px;
     display: flex;
     text-align: center;
+}
+.content--product--item--title:hover a{
+    font-weight: 600;
 }
 .content--product--item--price__old{
     color: #555555;

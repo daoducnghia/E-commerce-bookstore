@@ -2,12 +2,12 @@ const url = "http://localhost:8080";
 const tranportFee = 30000;
 window.addEventListener("load", function (event) {
   var username = localStorage.getItem("username");
-  // console.log(username);
-  console.log(username);
+
+  showCategory()
 
   $("#input-search").keypress(function (event) {
     // Kiểm tra xem phím Enter đã được nhấn
-    if (event.keyCode === 13) {
+    if (event.keyCode === 13 && $("#input-search").val() != '') {
       // Thực hiện các hành động tương ứng ở đây
       window.location.replace(
         "danhsachsp.html?search=" + $("#input-search").val()
@@ -87,23 +87,125 @@ function getNumberProductInCart() {
     })
     .catch(error => console.log('error', error));
 }
-function openPopup(ele){
+function openPopup(ele) {
   document.getElementById(ele).style.display = 'block';
 }
-function closePopup(ele){
+function closePopup(ele) {
   document.getElementById(ele).style.display = 'none';
 }
-document.getElementsByClassName('popup--board').item(0).addEventListener('click', function(event){
+document.getElementsByClassName('popup--board').item(0).addEventListener('click', function (event) {
   event.stopPropagation();
 })
-function logout(){
+function logout() {
   localStorage.removeItem('username');
   window.location.replace('home.html');
 }
-function ckeckDangNhap(web){
-  if(localStorage.getItem('username') == null){
+function ckeckDangNhap(web) {
+  if (localStorage.getItem('username') == null) {
     window.location.replace('dangnhap.html');
   } else {
     window.location.replace(web);
   }
+}
+
+function addToCart(id) {
+  var myHeaders = new Headers();
+  myHeaders.append("user", localStorage.getItem("username"));
+
+  var requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow'
+  };
+
+  fetch(url + "/api/add-to-cart?id-product=" + id, requestOptions)
+    .then(response => response.text())
+    .then(result => {
+      if (result == 'OK') {
+        getNumberProductInCart();
+      } else {
+        alert("Không thể thêm sản phẩm vào giỏ hàng!")
+      }
+    })
+    .catch(error => console.log('error', error));
+}
+function getCart() {
+  var myHeaders = new Headers();
+  myHeaders.append("user", localStorage.getItem("username"));
+
+  var requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow'
+  };
+
+  fetch(url + "/api/cart", requestOptions)
+    .then(response => response.json())
+    .then(result => {
+      var html = '';
+      for (let cart of result) {
+        html += `<div class="box">
+              <input type="checkbox" name="checkProduct" value="`+ cart.cardId + `" onchange="updateAmount(this)"/>
+              <img src="`+ cart.product.linkImage + `" alt="" />
+              <div class="content-box">
+                <h3>`+ cart.product.productName + `</h3>
+                <h4>Giá: <span class="product--price">`+ formatMoneyVND(cart.product.price) + `</span></h4>
+                <p class="unit">Số lượng: <input class="product--price product--number" value="`+ cart.productCount + `" /></p>
+                <p class="btn-area" onclick="deleteProduct(this)">
+                  <i class="fa fa-trash"></i>
+                  <span class="btn2" >Xoá</span>
+                </p>
+              </div>
+            </div>`
+      }
+      document.querySelector('.shop').innerHTML = html;
+    })
+    .catch(error => console.log('error', error));
+}
+function showCategory() {
+  var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+
+  fetch(url + "/api/get-category", requestOptions)
+    .then(response => response.json())
+    .then(result => {
+      var html = '';
+      for (var c of result) {
+        html += `<div class="navBar__product--module">
+        <div class="navBar__product--module--title">`+ c.category.categoryName + `</div>`;
+        var n = 5;
+        if (c.listCategory.length < 5)
+          n = c.listCategory.length;
+        for (var i = 0; i < n; i++) {
+          html += `<div class="navBar__product--module--item">
+                  <a onclick="showProductByCategory(`+ c.listCategory[i].categoryId + `)">` + c.listCategory[i].categoryName + `</a>
+                  </div>`;
+        }
+        html += `<div class="navBar__product--module--item navBar__product--module--item__light">
+                <a onclick="showProductByCategory(`+ c.category.categoryId + `)">Xem tất cả</a>
+                </div>
+                </div>`;
+      }
+      document.querySelector(".navBar__product--items").innerHTML = html;
+    })
+    .catch(error => console.log('error', error));
+}
+function showProductByCategory(id) {
+  window.location.replace("danhsachsp.html?category=" + id);
+}
+function likeProduct(idProduct, ele) {
+  var listLikeProduct = [];
+  if (localStorage.getItem('listLikeProduct') != null) {
+    listLikeProduct = localStorage.getItem('listLikeProduct').split(',');
+  }
+  if (listLikeProduct.includes(idProduct.toString())) {
+    listLikeProduct = listLikeProduct.filter(element => element != idProduct);
+    ele.classList.remove("text__red");
+  } else {
+    listLikeProduct.push(idProduct);
+    ele.classList.add("text__red");
+  }
+  localStorage.setItem("listLikeProduct", listLikeProduct);
 }

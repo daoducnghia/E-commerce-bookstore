@@ -30,6 +30,7 @@ function viewOrder(ele, mes) {
     fetch(url + "/api/get-all-order", requestOptions)
         .then(response => response.json())
         .then(result => {
+            console.log(result);
             var html = '';
             for (var od of result) {
                 html += `<div class="content--body--items">

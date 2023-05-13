@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+import ptit.tmdt.bansach.entity.CategoryEntity;
 import ptit.tmdt.bansach.entity.ProductEntity;
 
 /**
@@ -21,10 +22,31 @@ public interface ProductRepository extends CrudRepository<ProductEntity, Integer
     public List<ProductEntity> findAllByProductName(String name);
 
     // public String findIdByName(String productName);
-
     @Query(value = "SELECT * FROM database_bansach_pthttmdt_btl.product where product_name = ? order by product_id desc limit 1;", nativeQuery = true)
     public ProductEntity findByNameLatest(String productName);
 
     // public ProductEntity findAllById(Integer id);
+    @Query(value = "SELECT\n"
+            + "  product.*\n"
+            + "FROM product\n"
+            + "ORDER BY product.number_of_product_sold DESC\n"
+            + "LIMIT 15", nativeQuery = true)
+    public List<ProductEntity> findAllBanChay();
+
+    @Query(value = "SELECT\n"
+            + "  product.*\n"
+            + "FROM product\n"
+            + "ORDER BY product.product_id DESC\n"
+            + "LIMIT 15", nativeQuery = true)
+    public List<ProductEntity> findAllMoiNhat();
+
+    @Query(value = "SELECT\n"
+            + "  product.*\n"
+            + "FROM product\n"
+            + "ORDER BY (product.old_price/product.price) DESC\n"
+            + "LIMIT 15", nativeQuery = true)
+    public List<ProductEntity> findAllGiaTot();
+
+    public List<ProductEntity> findAllByCategory(CategoryEntity category);
 
 }

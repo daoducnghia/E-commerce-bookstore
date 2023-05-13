@@ -18,9 +18,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ptit.tmdt.bansach.entity.AccountEntity;
 import ptit.tmdt.bansach.entity.CardEntity;
+import ptit.tmdt.bansach.entity.ProductEntity;
 import ptit.tmdt.bansach.entity.UserEntity;
 import ptit.tmdt.bansach.repository.AccountRepository;
 import ptit.tmdt.bansach.repository.CartRepository;
+import ptit.tmdt.bansach.repository.ProductRepository;
 import ptit.tmdt.bansach.repository.UserRepository;
 
 /**
@@ -31,17 +33,21 @@ import ptit.tmdt.bansach.repository.UserRepository;
 @RequestMapping("/api")
 @RestController
 public class CartController {
+
     @Autowired
     CartRepository cartRepository;
-    
+
     @Autowired
     AccountRepository accountRepository;
 
     @Autowired
     UserRepository userRepository;
-    
+
+    @Autowired
+    ProductRepository productRepository;
+
     @GetMapping("/cart")
-    public List<CardEntity> getCart(HttpServletRequest request){
+    public List<CardEntity> getCart(HttpServletRequest request) {
         try {
             String username = request.getHeader("user");
             AccountEntity acount = accountRepository.findByUsername(username);
@@ -53,9 +59,9 @@ public class CartController {
         }
         return new ArrayList<>();
     }
-    
+
     @GetMapping("/get-cart-by-id")
-    public CardEntity getCardById(@RequestParam("idCart") int idCart){
+    public CardEntity getCardById(@RequestParam("idCart") int idCart) {
         try {
             CardEntity cart = cartRepository.findById(idCart).get();
             return cart;
@@ -64,16 +70,16 @@ public class CartController {
         }
         return new CardEntity();
     }
-    
+
     @GetMapping("/get-number-product-in-cart")
-    public int getNumberProductInCart(HttpServletRequest request){
+    public int getNumberProductInCart(HttpServletRequest request) {
         try {
             int nPC = 0;
             String username = request.getHeader("user");
             AccountEntity acount = accountRepository.findByUsername(username);
             UserEntity user = userRepository.findByAccountId(acount.getAccountId());
             List<CardEntity> listCart = cartRepository.findAllByUser(user);
-            for(CardEntity c: listCart){
+            for (CardEntity c : listCart) {
                 nPC += c.getProductCount();
             }
             return nPC;
@@ -82,9 +88,9 @@ public class CartController {
         }
         return 0;
     }
-    
+
     @PostMapping("/update-cart")
-    public CardEntity updateCart(@RequestBody CardEntity cardEntity){
+    public CardEntity updateCart(@RequestBody CardEntity cardEntity) {
         try {
             CardEntity cart = cartRepository.findById(cardEntity.getCardId()).get();
             cart.setProductCount(cardEntity.getProductCount());
@@ -95,16 +101,42 @@ public class CartController {
         }
         return new CardEntity();
     }
-    
+
     @DeleteMapping("/delete-cart-by-id")
-    public boolean deleteCartById(@RequestParam("idCart") int idCart){
+    public boolean deleteCartById(@RequestParam("idCart") int idCart) {
         try {
             cartRepository.deleteById(idCart);
             return true;
-            
+
         } catch (Exception e) {
             System.out.println(e);
         }
         return false;
+    }
+
+    @GetMapping("/add-to-cart")
+    public String addToCart(@RequestParam("id-product") int idProduct, HttpServletRequest request) {
+        try {
+            ProductEntity p = productRepository.findById(idProduct).get();
+            String username = request.getHeader("user");
+            AccountEntity acount = accountRepository.findByUsername(username);
+            UserEntity user = userRepository.findByAccountId(acount.getAccountId());
+
+            CardEntity cartOld = cartRepository.findByProductAndUser(p, user);
+            if (cartOld == null) {
+                CardEntity cart = new CardEntity();
+                cart.setProduct(p);
+                cart.setUser(user);
+                cart.setProductCount(1);
+                cartRepository.save(cart);
+            } else {
+                cartOld.setProductCount(cartOld.getProductCount() + 1);
+                cartRepository.save(cartOld);
+            }
+            return "OK";
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return "ERROR";
     }
 }

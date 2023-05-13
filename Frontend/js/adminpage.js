@@ -43,7 +43,8 @@ window.addEventListener("load", function (event) {
   fetch("http://localhost:8080/api/showDoanhThu", requestOptions)
     .then((response) => response.text())
     .then((result) => {
-      document.getElementById("tongDoanhThu").innerHTML = result;
+      console.log(result);
+      document.getElementById("tongDoanhThu").innerHTML = formatMoneyVND(parseFloat(result));
     })
     .catch((error) => console.log("error", error));
 
@@ -72,7 +73,7 @@ window.addEventListener("load", function (event) {
           result[i].soluong +
           `</div>
               <div class="content--order--item--column">` +
-          result[i].orderTotal +
+              formatMoneyVND(result[i].orderTotal) +
           `</div>
               <div class="content--order--item--column">` +
           result[i].order_status +

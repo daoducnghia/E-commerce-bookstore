@@ -1,7 +1,6 @@
 window.addEventListener("load", function (event) {
   const params = new URLSearchParams(window.location.search);
   const searchTerm = params.get("id");
-  console.log(searchTerm);
 
   var requestOptions = {
     method: "GET",
@@ -28,9 +27,9 @@ window.addEventListener("load", function (event) {
                 <h1 id="name">` +
         result.productName +
         `</h1>
-                <h4 id="price">` +
-        result.price +
-        ` VNĐ</h4>
+                <h4 id="price" style="color:red">` +
+                formatMoneyVND(result.price) +
+        ` </h4>
                 <input
                   type="number"
                   name=""
@@ -125,9 +124,13 @@ window.addEventListener("load", function (event) {
         `<hr />
               <h1>Đánh giá</h1>
               <div class="tong-quan-danh-gia">
-                <h2>` +
-        avrPoint +
-        `/5 trên tổng ` +
+                <h2>`; 
+        if(avrPoint == NaN){
+          htmlDanhGia += 0;
+        } else {
+          htmlDanhGia += avrPoint;
+        }
+        htmlDanhGia += `/5 trên tổng ` +
         result1.length +
         ` đánh giá</h2>
               </div>`;
@@ -166,3 +169,6 @@ window.addEventListener("load", function (event) {
     })
     .catch((error1) => console.log("error1", error1));
 });
+function addToCartID() {
+  addToCart(new URLSearchParams(window.location.search).get("id"));
+}

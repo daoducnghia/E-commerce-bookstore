@@ -9,7 +9,6 @@ window.addEventListener("load", function (event) {
 
   const params = new URLSearchParams(window.location.search);
   const searchTerm = params.get("search");
-  console.log(searchTerm);
   var requestOptions = {
     method: "GET",
     redirect: "follow",
@@ -49,7 +48,6 @@ window.addEventListener("load", function (event) {
       .then((response) => response.json())
       .then((result) => {
         var html = ``;
-        console.log(result);
         for (let x = 0; x < result.length; x++) {
           var stt = x + 1;
           html +=
@@ -73,8 +71,8 @@ window.addEventListener("load", function (event) {
             result[x].publicationDate +
             `</div>
                         <div class="content--body--item">` +
-            result[x].price +
-            `đ</div>
+                        formatMoneyVND(result[x].price) +
+            `</div>
                         <div class="content--body--item">` +
             result[x].numberOfProduct +
             `</div>

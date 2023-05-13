@@ -1,215 +1,26 @@
 window.addEventListener("load", function (event) {
   const params = new URLSearchParams(window.location.search);
   const searchTerm = params.get("search");
-  console.log(searchTerm);
-  if (searchTerm == null) {
-    // Hiển thị toàn bộ sản phẩm trong trang ---------------------------------------------------------
-    var requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
+  const category = params.get("category");
+  const promotion = params.get("promotion");
 
-    fetch("http://localhost:8080/api/products", requestOptions)
-      .then((response) => response.json())
-      .then((result) => {
-        var html1 = null;
-        //   console.log(result[0].productName);
-        for (let x = 0; x < result.length; x++) {
-          console.log(result[x].productName);
-          if (x == 0) {
-            html2 =
-              `<div class="content--product--item" id="` +
-              result[x].productId +
-              `"> 
-          <div class="content--product--item--sale">
-            <div class="content--product--item--sale--flag"></div>
-            -30%
-          </div>
-          <div class="content--product--item--like">
-            <i class="fa-light fa-heart"></i>
-          </div>
-          <div class="content--product--item--img">
-            <img src="` +
-              result[x].linkImage +
-              `" alt="" />
-          </div>
-          <div class="content--product--item--title">
-            <a href="chitietsp.html?id=` +
-              result[x].productId +
-              `">` +
-              result[x].productName +
-              `</a>
-          </div>
-          <div class="content--product--item--price__old">` +
-              result[x].price +
-              `đ</div>
-          <div class="content--product--item--price">` +
-              result[x].price +
-              `đ</div>
-          <div class="content--product--item--point">
-            <i class="fa-light fa-star point__1"></i>
-            <i class="fa-light fa-star point__2"></i>
-            <i class="fa-light fa-star point__3"></i>
-            <i class="fa-light fa-star point__4"></i>
-            <i class="fa-light fa-star point__5"></i>
-          </div>
-          <div class="content--product--item--btn">
-            <button class="btn">Thêm vào giỏ hàng</button>
-          </div>
-        </div>`;
-          } else {
-            html2 +=
-              `<div class="content--product--item"id="` +
-              result[x].productId +
-              `">
-          <div class="content--product--item--sale">
-            <div class="content--product--item--sale--flag"></div>
-            -30%
-          </div>
-          <div class="content--product--item--like">
-            <i class="fa-light fa-heart"></i>
-          </div>
-          <div class="content--product--item--img">
-            <img src="` +
-              result[x].linkImage +
-              `" alt="" />
-          </div>
-          <div class="content--product--item--title">
-            <a href="chitietsp.html?id=` +
-              result[x].productId +
-              `">` +
-              result[x].productName +
-              `</a>
-          </div>
-          <div class="content--product--item--price__old">` +
-              result[x].price +
-              `đ</div>
-          <div class="content--product--item--price">` +
-              result[x].price +
-              `đ</div>
-          <div class="content--product--item--point">
-            <i class="fa-light fa-star point__1"></i>
-            <i class="fa-light fa-star point__2"></i>
-            <i class="fa-light fa-star point__3"></i>
-            <i class="fa-light fa-star point__4"></i>
-            <i class="fa-light fa-star point__5"></i>
-          </div>
-          <div class="content--product--item--btn">
-            <button class="btn">Thêm vào giỏ hàng</button>
-          </div>
-        </div>`;
-          }
-        }
-        //   $(".content--product--items").innerHTML = html1;
-        const element = document.getElementById("content--product--items");
-
-        element.innerHTML = html2;
-      })
-      .catch((error) => console.log("error", error));
-  } else {
+  showMenuLeft();
+  showProductNoiBat();
+  if (searchTerm != null) {
     // Lấy giá trị của tham số truy vấn 'search' ---------------------------------------------------------
-
-    console.log(searchTerm);
-    var requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
-
-    fetch("http://localhost:8080/api/search?name=" + searchTerm, requestOptions)
-      .then((response1) => response1.json())
-      .then((result1) => {
-        var html1 = null;
-        //   console.log(result1[0].productName);
-        for (let x = 0; x < result1.length; x++) {
-          console.log(result1[x].productName);
-          if (x == 0) {
-            html1 =
-              `<div class="content--product--item">
-          <div class="content--product--item--sale">
-            <div class="content--product--item--sale--flag"></div>
-            -30%
-          </div>
-          <div class="content--product--item--like">
-            <i class="fa-light fa-heart"></i>
-          </div>
-          <div class="content--product--item--img">
-            <img src="` +
-              result1[x].linkImage +
-              `" alt="" />
-          </div>
-          <div class="content--product--item--title">
-            <a href="">` +
-              result1[x].productName +
-              `</a>
-          </div>
-          <div class="content--product--item--price__old">` +
-              result1[x].price +
-              `đ</div>
-          <div class="content--product--item--price">` +
-              result1[x].price +
-              `đ</div>
-          <div class="content--product--item--point">
-            <i class="fa-light fa-star point__1"></i>
-            <i class="fa-light fa-star point__2"></i>
-            <i class="fa-light fa-star point__3"></i>
-            <i class="fa-light fa-star point__4"></i>
-            <i class="fa-light fa-star point__5"></i>
-          </div>
-          <div class="content--product--item--btn">
-            <button class="btn">Thêm vào giỏ hàng</button>
-          </div>
-        </div>`;
-          } else {
-            html1 +=
-              `<div class="content--product--item">
-          <div class="content--product--item--sale">
-            <div class="content--product--item--sale--flag"></div>
-            -30%
-          </div>
-          <div class="content--product--item--like">
-            <i class="fa-light fa-heart"></i>
-          </div>
-          <div class="content--product--item--img">
-            <img src="` +
-              result1[x].linkImage +
-              `" alt="" />
-          </div>
-          <div class="content--product--item--title">
-            <a href="">` +
-              result1[x].productName +
-              `</a>
-          </div>
-          <div class="content--product--item--price__old">` +
-              result1[x].price +
-              `đ</div>
-          <div class="content--product--item--price">` +
-              result1[x].price +
-              `đ</div>
-          <div class="content--product--item--point">
-            <i class="fa-light fa-star point__1"></i>
-            <i class="fa-light fa-star point__2"></i>
-            <i class="fa-light fa-star point__3"></i>
-            <i class="fa-light fa-star point__4"></i>
-            <i class="fa-light fa-star point__5"></i>
-          </div>
-          <div class="content--product--item--btn">
-            <button class="btn">Thêm vào giỏ hàng</button>
-          </div>
-        </div>`;
-          }
-        }
-        //   $(".content--product--items").innerHTML = html1;
-        const element = document.getElementById("content--product--items");
-
-        element.innerHTML = html1;
-      })
-      .catch((error) => console.log("error", error));
+    searchProduct(searchTerm)
+  } else if (category != null) {
+    //Hiển thị sản phẩm theo category
+    showAllProductByCategory(category);
+  } else if (promotion != null) {
+    //Hiển thị sản phẩm theo promotion
+    showAllProductByPromotion(promotion);
+  } else {
+    // Hiển thị toàn bộ sản phẩm trong trang ---------------------------------------------------------
+    showAllProduct('moinhat');
   }
 
-  document
-    .getElementsByClassName("product_page")
-    .item(0)
-    .classList.add("header--navBar--item__active");
+  document.getElementsByClassName("product_page").item(0).classList.add("header--navBar--item__active");
   setHeightListFeaturedProduct();
   setInterval(productTranfer, 5000);
 });
@@ -256,4 +67,176 @@ function openPopup(ele) {
 function closePopup(ele) {
   document.getElementById(ele).style.display = "none";
   // document.getElementsByClassName(ele).item(0).style.display = 'none';
+}
+function showAllProduct(type) {
+  var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+
+  fetch(url + "/api/get-all-product?type=" + type, requestOptions)
+    .then(response => response.json())
+    .then(result => {
+      showProductFromList(result);
+    })
+    .catch(error => console.log('error', error));
+}
+function showProductNoiBat() {
+  var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+
+  fetch(url + "/api/get-top15-product?type=banchay", requestOptions)
+    .then(response => response.json())
+    .then(result => {
+      var html = '';
+      for (var p of result) {
+        html += `<div class="content--sidebar--product--item">`
+        var sale = Math.round((p.oldPrice - p.price) / p.oldPrice * 100);
+        if (sale > 5) {
+          html += `<div class="content--sidebar--product--item--sale">
+          <div class="content--sidebar--product--item--sale--flag"></div>
+          -`+ sale + `%
+        </div>`
+        }
+        html += `<div class="content--sidebar--product--item--like">`
+        var listLikeProduct = [];
+        if (localStorage.getItem('listLikeProduct') != null) {
+          listLikeProduct = localStorage.getItem('listLikeProduct').split(',');
+        }
+        if (listLikeProduct.includes(p.productId.toString())) {
+          html += `<i class="fa-light fa-heart text__red" onclick="likeProduct(` + p.productId + `, this)"></i>`;
+        } else {
+          html += `<i class="fa-light fa-heart" onclick="likeProduct(` + p.productId + `, this)"></i>`;
+        }
+        html += `</div>
+        <div class="content--sidebar--product--item--img">
+          <img
+            src="`+ p.linkImage + `"
+            alt=""
+          />
+        </div>
+        <div class="content--sidebar--product--item--title">
+          <a href="chitietsp.html?id=`+ p.productId + `">` + p.productName + `</a>
+        </div>
+        <div class="content--sidebar--product--item--price">` + formatMoneyVND(p.price) + `</div>
+      </div>`
+      }
+      document.querySelector(".content--sidebar--product--items").innerHTML = html;
+    })
+    .catch(error => console.log('error', error));
+}
+var dropdownlistSapXep = document.querySelector("#dropdownlistSapXep");
+dropdownlistSapXep.addEventListener("change", function () {
+  showAllProduct(this.value);
+})
+function searchProduct(searchTerm) {
+  var requestOptions = {
+    method: "GET",
+    redirect: "follow",
+  };
+
+  fetch("http://localhost:8080/api/search?name=" + searchTerm, requestOptions)
+    .then((response1) => response1.json())
+    .then((result) => {
+      showProductFromList(result);
+    })
+    .catch((error) => console.log("error", error));
+}
+function showAllProductByCategory(category) {
+  var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+
+  fetch(url + "/api/get-all-product-by-category?category=" + category, requestOptions)
+    .then(response => response.json())
+    .then(result => {
+      showProductFromList(result);
+    })
+    .catch(error => console.log('error', error));
+}
+function showProductFromList(result) {
+  var html = '';
+  for (var p of result) {
+    html += `<div class="content--product--item">`
+    var sale = Math.round((p.oldPrice - p.price) / p.oldPrice * 100);
+    if (sale >= 5) {
+      html += `<div class="content--product--item--sale">
+        <div class="content--product--item--sale--flag"></div>
+        -`+ sale + `%
+      </div>`;
+    }
+    html += `<div class="content--product--item--like">`;
+    var listLikeProduct = [];
+    if (localStorage.getItem('listLikeProduct') != null) {
+      listLikeProduct = localStorage.getItem('listLikeProduct').split(',');
+    }
+    if (listLikeProduct.includes(p.productId.toString())) {
+      html += `<i class="fa-light fa-heart text__red" onclick="likeProduct(` + p.productId + `, this)"></i>`;
+    } else {
+      html += `<i class="fa-light fa-heart" onclick="likeProduct(` + p.productId + `, this)"></i>`;
+    }
+    html += `</div>
+    <div class="content--product--item--img">
+      <img src="`+ p.linkImage + `" alt="" />
+    </div>
+    <a href="chitietsp.html?id=`+ p.productId + `"><div class="content--product--item--title">` + p.productName + `</div></a>`;
+    if (sale > 0)
+      html += `<div class="content--product--item--price__old">` + formatMoneyVND(p.oldPrice) + `</div>`;
+    html += `<div class="content--product--item--price">` + formatMoneyVND(p.price) + `</div>
+            <div class="content--product--item--point">`;
+    for (var i = 0; i < Math.round(p.point); i++) {
+      html += `<i class="fa-light fa-star" style="color: #ffbb00;"></i>`
+    }
+    for (var i = Math.round(p.point); i < 5; i++) {
+      html += `<i class="fa-light fa-star""></i>`
+    }
+    html += `</div>
+    <div class="content--product--item--btn">
+      <button class="btn" onclick="addToCart(`+ p.productId + `)">Thêm vào giỏ hàng</button>
+    </div>
+  </div>`
+  }
+  document.querySelector(".content--product--items").innerHTML = html;
+}
+function showAllProductByPromotion(promotion) {
+  var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+
+  fetch(url + "/api/get-all-product-by-promotion?promotion=" + promotion, requestOptions)
+    .then(response => response.json())
+    .then(result => {
+      showProductFromList(result);
+    })
+    .catch(error => console.log('error', error));
+}
+function showMenuLeft() {
+  var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+
+  fetch(url + "/api/get-category", requestOptions)
+    .then(response => response.json())
+    .then(result => {
+      var html = '';
+      for (var c of result) {
+        html += `<div class="content--sidebar--item" onclick="showProductByCategory(` + c.category.categoryId + `)">
+        `+ c.category.categoryName + `
+        <div class="content--sidebar--module">`;
+        for (var ct of c.listCategory) {
+          html += `<div class="content--sidebar--module--item">
+          <a onclick="showProductByCategory(`+ ct.categoryId + `)">` + ct.categoryName + `</a>
+        </div>`
+        }
+        html += `</div>
+          </div>`
+      }
+      document.querySelector(".content--sidebar--items").innerHTML = html;
+    })
+    .catch(error => console.log('error', error));
 }

@@ -4,6 +4,7 @@
  */
 package ptit.tmdt.bansach.repository;
 
+import java.util.Date;
 import java.util.List;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -37,4 +38,10 @@ public interface OrderRepository extends JpaRepository<OrderEntity, Integer> {
 
     @Query(value = "SELECT * FROM database_bansach_pthttmdt_btl.tbl_order ORDER BY purchase_date asc LIMIT 10;", nativeQuery = true)
     List<OrderEntity> findTenNewest();
+
+    @Query(value = "SELECT\n"
+            + "  tbl_order.*\n"
+            + "FROM tbl_order\n"
+            + "WHERE tbl_order.purchase_date BETWEEN ?1 AND ?2", nativeQuery = true)
+    List<OrderEntity> findAllByPurchaseDate(Date startDate, Date endDate);
 }

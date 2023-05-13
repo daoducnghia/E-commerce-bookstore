@@ -1,6 +1,7 @@
 package ptit.tmdt.bansach.controller;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -86,5 +87,44 @@ public class ProductController {
             System.out.println(e);
         }
         return null;
+    }
+
+    @GetMapping("/get-top15-product")
+    public List<ProductEntity> getTop15Product(@RequestParam("type") String type) {
+        try {
+            List<ProductEntity> list = new ArrayList<>();
+            if (type.equalsIgnoreCase("banchay")) {
+                list = productRepository.findAllBanChay();
+            } else if (type.equalsIgnoreCase("moinhat")) {
+                list = productRepository.findAllMoiNhat();
+            } else {
+                list = productRepository.findAllGiaTot();
+            }
+            return list;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return new ArrayList<>();
+    }
+
+    @GetMapping("/get-all-product")
+    public List<ProductEntity> getAllProduct(@RequestParam("type") String type) {
+        try {
+            List<ProductEntity> list = (List<ProductEntity>) productRepository.findAll();
+            list.sort(Comparator.comparing(ProductEntity::getProductId).reversed());
+            if (type.equalsIgnoreCase("banchay")) {
+                list.sort(Comparator.comparing(ProductEntity::getNumberOfProductSold).reversed());
+            }
+            if (type.equalsIgnoreCase("giathap")) {
+                list.sort(Comparator.comparing(ProductEntity::getPrice));
+            }
+            if (type.equalsIgnoreCase("giacao")) {
+                list.sort(Comparator.comparing(ProductEntity::getPrice).reversed());
+            }
+            return list;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return new ArrayList<>();
     }
 }

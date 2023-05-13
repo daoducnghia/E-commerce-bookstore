@@ -10,3 +10,9 @@
 .dropdownlist:hover{
     background-color: #F5F5F5;
 }
+.dropdownlist__gray{
+    background-color: #F5F5F5;
+}
+.dropdownlist__gray:hover{
+    background-color: #fff;
+}

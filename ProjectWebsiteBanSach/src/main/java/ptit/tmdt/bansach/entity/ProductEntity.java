@@ -47,6 +47,7 @@ public class ProductEntity implements Serializable {
     private float price;
     private float oldPrice;
     private float point;
+    private int numberReview = 0;
 
     @ManyToOne
     @JoinColumn(name = "categoryId")

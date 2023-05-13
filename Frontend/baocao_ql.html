@@ -6,23 +6,76 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/icon/Logo.svg" />
-    <title>Bán sách - Quản lý</title>
+    <title>Báo cáo | Bán sách</title>
     <link rel="stylesheet" href="./css/page/adminpage.css">
+    <link rel="stylesheet" href="./css/page/baocao_ql.css">
 </head>
 
 <body>
     <div class="header">
-        
+
     </div>
     <div class="content">
         <div class="content--sidebar">
         </div>
         <div class="content--main">
-            
+            <div class="content--main--select">
+                <select name="" id="typeReport" class="dropdownlist dropdownlist__gray">
+                    <option value="doanhthu">Báo cáo doanh thu</option>
+                    <option value="khachhang">Báo cáo khách hàng</option>
+                </select>
+            </div>
+            <div class="content--main--nav">
+                <div class="content--main--title">Doanh số theo tháng</div>
+                <div class="content--main--content">
+                    <div class="content--main--content--date">
+                        <div class="inputLabel">
+                            <div class="inputLabel--label">Từ ngày</div>
+                            <input type="date" name="" id="startDate" class="inpt inpt__rad4 inpt__w100" />
+                        </div>
+                        <div class="inputLabel">
+                            <div class="inputLabel--label">Đến ngày</div>
+                            <input type="date" name="" id="endDate" class="inpt inpt__rad4 inpt__w100" />
+                        </div>
+                        <button class="btn btn__rad4" onclick="showReport()">Xem báo cáo</button>
+                    </div>
+                    <div class="content--main--content--module">
+                        <div class="module--customer">
+                            <div class="module--customer--header">
+                                <div class="module--customer--items">
+                                    <div class="module--customer--item">#</div>
+                                    <div class="module--customer--item">Tên khách hàng</div>
+                                    <div class="module--customer--item">Tài khoản</div>
+                                    <div class="module--customer--item">Số đơn hàng</div>
+                                    <div class="module--customer--item">Số đơn hàng huỷ</div>
+                                    <div class="module--customer--item">Doanh thu</div>
+                                </div>
+                            </div>
+                            <div class="module--customer--body">
+                                <div class="module--customer--items">
+                                    <div class="module--customer--item">1</div>
+                                    <div class="module--customer--item">NVA</div>
+                                    <div class="module--customer--item">anv</div>
+                                    <div class="module--customer--item">10</div>
+                                    <div class="module--customer--item">1</div>
+                                    <div class="module--customer--item">10.000.000đ</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="module--chart">
+                            <div class="module--customer--chart">
+                                <canvas id="chartCustomerByMonth" style="height: 450px;width: 290px;"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="./lib/Jquery/jquery364.js"></script>
+<script type="text/javascript" src="./lib/ChartJs/Chart.min.js"></script>
 <script src="./js/admin.js"></script>
 <script src="./js/baocao_ql.js"></script>
+
 </html>

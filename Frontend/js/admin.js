@@ -37,12 +37,9 @@ function openPopup(ele) {
 function closePopup(ele) {
   document.getElementById(ele).style.display = "none";
 }
-document
-  .getElementsByClassName("popup--board")
-  .item(0)
-  .addEventListener("click", function (event) {
-    event.stopPropagation();
-  });
+document.getElementsByClassName("popup--board").item(0).addEventListener("click", function (event) {
+  event.stopPropagation();
+});
 function logout() {
   localStorage.removeItem("username");
   window.location.replace("home.html");

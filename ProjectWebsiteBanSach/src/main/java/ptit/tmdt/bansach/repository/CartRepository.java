@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import ptit.tmdt.bansach.entity.CardEntity;
+import ptit.tmdt.bansach.entity.ProductEntity;
 import ptit.tmdt.bansach.entity.UserEntity;
 
 /**
@@ -18,5 +19,7 @@ import ptit.tmdt.bansach.entity.UserEntity;
 public interface CartRepository extends CrudRepository<CardEntity, Integer>{
 
     public List<CardEntity> findAllByUser(UserEntity user);
+
+    public CardEntity findByProductAndUser(ProductEntity product, UserEntity user);
     
 }

@@ -19,7 +19,8 @@ import ptit.tmdt.bansach.repository.PromotionRepository;
 
 /**
  *
- * @author dovan Cập nhật lại giá của mỗi sản phẩm vào lúc 0:00 mỗi ngày do
+ * @author dovan 
+ * Cập nhật lại giá của mỗi sản phẩm vào lúc 0:00 mỗi ngày do
  * chương trình khuyến mãi hết hạn hoặc bắt đầu
  */
 @Configuration

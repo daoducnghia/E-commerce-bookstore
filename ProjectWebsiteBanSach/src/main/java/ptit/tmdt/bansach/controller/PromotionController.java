@@ -50,10 +50,11 @@ public class PromotionController {
                 pe = promotionRepository.save(promotion.getPromotion());
             } else {
                 PromotionEntity pe1 = promotionRepository.findById(promotion.getPromotion().getPromotionId()).get();
-                if (!promotion.getPromotion().getLinkImage().isEmpty()) {
-                    pe1.setLinkImage(promotion.getPromotion().getLinkImage());
+                PromotionEntity pe2 = promotion.getPromotion();
+                if (pe2.getLinkImage().isEmpty()) {
+                    pe2.setLinkImage(pe1.getLinkImage());
                 }
-                pe = promotionRepository.save(promotion.getPromotion());
+                pe = promotionRepository.save(pe2);
                 List<PromotionDetailEntity> lPromotionDetail = promotionDetailRepository.findAllByPromotion(pe);
                 List<ProductEntity> lProduct = new ArrayList<>();
                 //Xoá các promotion detail
@@ -142,6 +143,24 @@ public class PromotionController {
         }
         return new Promotion();
     }
+    
+    @GetMapping("/get-all-promotion-active")
+    public List<PromotionEntity> getAllPromotionActive(){
+        try {
+            Date today = new Date();
+            List<PromotionEntity> list = (List<PromotionEntity>) promotionRepository.findAll();
+            List<PromotionEntity> listActive = new ArrayList<>();
+            for(PromotionEntity p: list){
+                if(today.compareTo(p.getPromotionStartTime()) >= 0 && today.compareTo(p.getPromotionEndTime()) <= 0){
+                    listActive.add(p);
+                }
+            }
+            return listActive;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return new ArrayList<>();
+    }
 
     @GetMapping("/get-all-promotion")
     public List<PromotionEntity> getAllPromotion() {
@@ -208,6 +227,22 @@ public class PromotionController {
             System.out.println(e);
         }
         return "ERROR";
+    }
+    
+    @GetMapping("/get-all-product-by-promotion")
+    public List<ProductEntity> getAllProductByPromotion(@RequestParam("promotion") int id){
+        try {
+            PromotionEntity promotion = promotionRepository.findById(id).get();
+            List<PromotionDetailEntity> listPromotionDetail = promotionDetailRepository.findAllByPromotion(promotion);
+            List<ProductEntity> listProduct = new ArrayList<>();
+            for(PromotionDetailEntity pde: listPromotionDetail){
+                listProduct.add(pde.getProduct());
+            }
+            return listProduct;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return new ArrayList<>();
     }
 }
 
