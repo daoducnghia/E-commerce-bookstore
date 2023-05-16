@@ -1,4 +1,5 @@
 {
   "java.compile.nullAnalysis.mode": "automatic",
-  "livePreview.defaultPreviewPath": "/Frontend/chitietsp.html"
+  "livePreview.defaultPreviewPath": "/Frontend/chitietsp.html",
+  "java.debug.settings.onBuildFailureProceed": true
 }

@@ -71,7 +71,7 @@ window.addEventListener("load", function (event) {
             result[x].publicationDate +
             `</div>
                         <div class="content--body--item">` +
-                        formatMoneyVND(result[x].price) +
+            formatMoneyVND(result[x].price) +
             `</div>
                         <div class="content--body--item">` +
             result[x].numberOfProduct +
@@ -176,44 +176,90 @@ window.addEventListener("load", function (event) {
     var date = document.getElementById("date").value;
     var quant = document.getElementById("quant").value;
     var describe = document.getElementById("describe").value;
+    // Xử lý link img
+    var imgProd = document.getElementById("linkImg");
 
-    var linkImg = document.getElementById("linkImg").value;
+    var linkImage = "";
+    if (imgProd.value == "") {
+      // save
+      linkImage = "";
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
 
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
+      var raw = JSON.stringify({
+        id: id,
+        name: name,
+        linkImg: linkImage,
+        price: price,
+        language: textL,
+        translator: trans,
+        nxb: nxb,
+        page: page,
+        size: size,
+        dateRelease: date,
+        quantity: quant,
+        describe: describe,
+        authors: authors,
+        category: textC,
+      });
 
-    var raw = JSON.stringify({
-      id: id,
-      name: name,
-      linkImg: linkImg,
-      price: price,
-      language: textL,
-      translator: trans,
-      nxb: nxb,
-      page: page,
-      size: size,
-      dateRelease: date,
-      quantity: quant,
-      describe: describe,
-      authors: authors,
-      category: textC,
-    });
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow",
+      };
 
-    var requestOptions = {
-      method: "POST",
-      headers: myHeaders,
-      body: raw,
-      redirect: "follow",
-    };
+      fetch("http://localhost:8080/api/addProduct", requestOptions)
+        .then((response) => response.text())
+        .then((result) => {
+          if (result == "Trong try") {
+            window.location.reload();
+          }
+        })
+        .catch((error) => console.log("error", error));
+    } else {
+      var fReader = new FileReader();
+      fReader.readAsDataURL(imgProd.files[0]);
+      fReader.onload = function (e) {
+        linkImage = e.target.result;
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
 
-    fetch("http://localhost:8080/api/addProduct", requestOptions)
-      .then((response) => response.text())
-      .then((result) => {
-        if (result == "Trong try") {
-          window.location.reload();
-        }
-      })
-      .catch((error) => console.log("error", error));
+        var raw = JSON.stringify({
+          id: id,
+          name: name,
+          linkImg: linkImage,
+          price: price,
+          language: textL,
+          translator: trans,
+          nxb: nxb,
+          page: page,
+          size: size,
+          dateRelease: date,
+          quantity: quant,
+          describe: describe,
+          authors: authors,
+          category: textC,
+        });
+
+        var requestOptions = {
+          method: "POST",
+          headers: myHeaders,
+          body: raw,
+          redirect: "follow",
+        };
+
+        fetch("http://localhost:8080/api/addProduct", requestOptions)
+          .then((response) => response.text())
+          .then((result) => {
+            if (result == "Trong try") {
+              window.location.reload();
+            }
+          })
+          .catch((error) => console.log("error", error));
+      };
+    }
   });
 
   document

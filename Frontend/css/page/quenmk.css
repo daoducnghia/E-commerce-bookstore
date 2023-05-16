@@ -1,6 +1,6 @@
-@import url(./component/text.css);
+/* @import url(./component/text.css);
 @import url(./component/icon.css);
-@import url(./component/textfield.css);
+@import url(./component/textfield.css); */
 
 * {
     font-family: 'Inter-regular', Arial, Helvetica, sans-serif;
@@ -18,7 +18,7 @@
 .navbar--logo {
     width: 100px;
     height: 100px;
-    background-image: url(../assets/icon/Logo.svg);
+    /* background-image: url(../assets/icon/Logo.svg); */
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -172,4 +172,10 @@ input {
 a {
     color: #FFFFFF;
     text-decoration: none;
+}
+
+#user-notfound {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
 }

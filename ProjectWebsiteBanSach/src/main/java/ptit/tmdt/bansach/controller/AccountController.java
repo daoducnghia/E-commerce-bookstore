@@ -1,6 +1,7 @@
 package ptit.tmdt.bansach.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -145,6 +146,51 @@ public class AccountController {
             System.out.println(e);
         }
         return "Khong";
+    }
+
+    @PostMapping("/quenMK-check")
+    public String quenmkCheck(@RequestBody NguoiDung nguoiDung) {
+        try {
+            // Check username
+            AccountEntity ae = accountRepository.findByUsernameCorrect(nguoiDung.getUsername());
+            if (ae == null) {
+                return "Username không có trong CSDL";
+            }
+            // Check email, phongNumber
+            UserEntity ue = userRepository.findByAccountId(ae.getAccountId());
+            if (!ue.getEmail().equals(nguoiDung.getEmail())) {
+                return "Sai email";
+            } else if (!ue.getPhoneNumber().equals(nguoiDung.getPhoneNumber())) {
+                return "Sai số điện thoại";
+            } else if (ue.getEmail().equals(nguoiDung.getEmail()) && ue.getPhoneNumber()
+                    .equals(nguoiDung.getPhoneNumber())) {
+                return "Cho qua account_id = " + ae.getAccountId();
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+            System.out.println(e);
+        }
+        return "Không làm gì";
+    }
+
+    @PostMapping("/quenMK-save")
+    public String quenMKSave(@RequestBody NguoiDung nguoiDung) {
+        try {
+            AccountEntity ae = accountRepository.findByAccountId(nguoiDung.getId());
+            if (ae == null) {
+                return "Không tìm thấy account";
+            }
+            if (nguoiDung.getPassword().equals(ae.getPassword())) {
+                return "MK mới trùng MK cũ";
+            }
+            ae.setPassword(nguoiDung.getPassword());
+            accountRepository.save(ae);
+            return "Đổi mật khẩu thành công";
+        } catch (Exception e) {
+            // TODO: handle exception
+            System.out.println(e);
+        }
+        return "Không làm gì";
     }
 }
 

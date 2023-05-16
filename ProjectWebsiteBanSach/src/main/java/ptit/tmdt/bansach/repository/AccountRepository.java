@@ -22,4 +22,11 @@ public interface AccountRepository extends JpaRepository<AccountEntity, Integer>
 
     @Query(value = "SELECT * FROM database_bansach_pthttmdt_btl.account WHERE ", nativeQuery = true)
     public AccountEntity findByUsernameId(int id);
+
+    @Query(value = "select * from database_bansach_pthttmdt_btl.account where username = ?", nativeQuery = true)
+    public AccountEntity findByUsernameCorrect(String username);
+
+    @Query(value = "select * from database_bansach_pthttmdt_btl.account where account_id = ?", nativeQuery = true)
+    public AccountEntity findByAccountId(Integer account_id);
+
 }

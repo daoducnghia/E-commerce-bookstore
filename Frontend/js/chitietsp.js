@@ -28,7 +28,7 @@ window.addEventListener("load", function (event) {
         result.productName +
         `</h1>
                 <h4 id="price" style="color:red">` +
-                formatMoneyVND(result.price) +
+        formatMoneyVND(result.price) +
         ` </h4>
                 <input
                   type="number"
@@ -36,7 +36,7 @@ window.addEventListener("load", function (event) {
                   id="input-number-product"
                   value="1"
                 />
-                <a href="#" class="btnA">Thêm vào giỏ hàng</a>
+                <a onclick="addToCartID()" class="btnA">Thêm vào giỏ hàng</a>
                 <h3>Thông tin sản phẩm</h3>
                 <table>
                   <tr>
@@ -120,17 +120,17 @@ window.addEventListener("load", function (event) {
       }
       var avrPoint = (sumPoint / result1.length).toFixed(1);
 
-      var htmlDanhGia =
-        `<hr />
+      var htmlDanhGia = `<hr />
               <h1>Đánh giá</h1>
               <div class="tong-quan-danh-gia">
-                <h2>`; 
-        if(avrPoint == NaN){
-          htmlDanhGia += 0;
-        } else {
-          htmlDanhGia += avrPoint;
-        }
-        htmlDanhGia += `/5 trên tổng ` +
+                <h2>`;
+      if (avrPoint == "NaN") {
+        htmlDanhGia += 0;
+      } else {
+        htmlDanhGia += avrPoint;
+      }
+      htmlDanhGia +=
+        `/5 trên tổng ` +
         result1.length +
         ` đánh giá</h2>
               </div>`;
