@@ -1,8 +1,5 @@
 package ptit.tmdt.bansach.controller;
 
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -92,8 +89,6 @@ public class AccountController {
     public NguoiDung showQuanLyTT(@RequestBody NguoiDung nguoiDung) {
         try {
             NguoiDung nguoiDung2 = new NguoiDung();
-            AccountEntity account_save = new AccountEntity();
-            UserEntity user_save = new UserEntity();
 
             AccountEntity account_check = accountRepository.findByUsername(
                     nguoiDung.getUsername());

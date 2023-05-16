@@ -4,7 +4,6 @@
  */
 package ptit.tmdt.bansach.controller;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -140,18 +139,23 @@ public class OrderController {
             AccountEntity acount = accountRepository.findByUsername(username);
             UserEntity user = userRepository.findByAccountId(acount.getAccountId());
             List<OrderEntity> listOrder = new ArrayList<>();
-            List<OrderEntity> listOrderRe = new ArrayList<>();
             if (statusOrder.equalsIgnoreCase("choxacnhan")) {
-                listOrder = orderRepository.findAllByUserAndOrderStatus(user, "Chờ xác nhận", Sort.by(Sort.Direction.DESC, "orderId"));
+                listOrder = orderRepository.findAllByUserAndOrderStatus(user, "Chờ xác nhận",
+                        Sort.by(Sort.Direction.DESC, "orderId"));
             } else if (statusOrder.equalsIgnoreCase("chovanchuyen")) {
-                listOrder = orderRepository.findAllByUserAndOrderStatus(user, "Chờ vận chuyển", Sort.by(Sort.Direction.DESC, "orderId"));
+                listOrder = orderRepository.findAllByUserAndOrderStatus(user, "Chờ vận chuyển",
+                        Sort.by(Sort.Direction.DESC, "orderId"));
             } else if (statusOrder.equalsIgnoreCase("dangvanchuyen")) {
-                listOrder = orderRepository.findAllByUserAndOrderStatus(user, "Đang vận chuyển", Sort.by(Sort.Direction.DESC, "orderId"));
+                listOrder = orderRepository.findAllByUserAndOrderStatus(user, "Đang vận chuyển",
+                        Sort.by(Sort.Direction.DESC, "orderId"));
             } else if (statusOrder.equalsIgnoreCase("hoanthanh")) {
-                listOrder = orderRepository.findAllByUserAndOrderStatus(user, "Hoàn thành", Sort.by(Sort.Direction.DESC, "orderId"));
-                listOrder.addAll(orderRepository.findAllByUserAndOrderStatus(user, "Đã đánh giá", Sort.by(Sort.Direction.DESC, "orderId")));
+                listOrder = orderRepository.findAllByUserAndOrderStatus(user, "Hoàn thành",
+                        Sort.by(Sort.Direction.DESC, "orderId"));
+                listOrder.addAll(orderRepository.findAllByUserAndOrderStatus(user, "Đã đánh giá",
+                        Sort.by(Sort.Direction.DESC, "orderId")));
             } else if (statusOrder.equalsIgnoreCase("huy")) {
-                listOrder = orderRepository.findAllByUserAndOrderStatus(user, "Huỷ", Sort.by(Sort.Direction.DESC, "orderId"));
+                listOrder = orderRepository.findAllByUserAndOrderStatus(user, "Huỷ",
+                        Sort.by(Sort.Direction.DESC, "orderId"));
             } else {
                 listOrder = orderRepository.findAllByUser(user, Sort.by(Sort.Direction.DESC, "orderId"));
             }
@@ -251,7 +255,8 @@ public class OrderController {
                 productRepository.save(p);
                 cartRepository.delete(c);
             }
-            ShipmentDetailEntity shipmentDetail = shipmentDetailRepository.findById(order.getShipmentDetail().getShipmentDetailId()).get();
+            ShipmentDetailEntity shipmentDetail = shipmentDetailRepository
+                    .findById(order.getShipmentDetail().getShipmentDetailId()).get();
             ShippingInformationEntity shippingInformation = new ShippingInformationEntity();
             shippingInformation.setOrder(orderEntity);
             shippingInformation.setShipmentDetail(shipmentDetail);
@@ -299,7 +304,8 @@ public class OrderController {
                 float discount = 0;
                 float returns = 0;
                 for (OrderEntity od : listOrder) {
-                    if (calendar.getTime().compareTo(od.getPurchaseDate()) <= 0 && cal.getTime().compareTo(od.getPurchaseDate()) >= 0) {
+                    if (calendar.getTime().compareTo(od.getPurchaseDate()) <= 0
+                            && cal.getTime().compareTo(od.getPurchaseDate()) >= 0) {
                         numberOrder += 1;
                         revenue += od.getOrderTotal() + od.getDiscount();
                         discount += od.getDiscount();
@@ -454,6 +460,7 @@ class OrderDTO {
     public void setShipmentDetailEntity(ShipmentDetailEntity shipmentDetailEntity) {
         this.shipmentDetailEntity = shipmentDetailEntity;
     }
+
     List<OrderDetailDTO> listOrderDetail;
 
     public int getOrderId() {
@@ -535,7 +542,8 @@ class OrderDetailDTO {
 
     @Override
     public String toString() {
-        return "OrderDetailDTO{" + "orderDetailId=" + orderDetailId + ", quantity=" + quantity + ", price=" + price + ", product=" + product + '}';
+        return "OrderDetailDTO{" + "orderDetailId=" + orderDetailId + ", quantity=" + quantity + ", price=" + price
+                + ", product=" + product + '}';
     }
 
     private int orderDetailId;

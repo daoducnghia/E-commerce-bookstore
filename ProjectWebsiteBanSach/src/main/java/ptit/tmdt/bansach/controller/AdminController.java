@@ -3,8 +3,6 @@ package ptit.tmdt.bansach.controller;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,14 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.annotation.ObjectIdGenerators.None;
-
 import ptit.tmdt.bansach.entity.AccountEntity;
 import ptit.tmdt.bansach.entity.AuthorDetailEntity;
 import ptit.tmdt.bansach.entity.AuthorEntity;
 import ptit.tmdt.bansach.entity.CategoryEntity;
 import ptit.tmdt.bansach.entity.LanguageEntity;
-import ptit.tmdt.bansach.entity.OrderDetailEntity;
 import ptit.tmdt.bansach.entity.OrderEntity;
 import ptit.tmdt.bansach.entity.ProductEntity;
 import ptit.tmdt.bansach.entity.PublishingCompanyEntity;
