@@ -6,21 +6,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Giỏ hàng</title>
-  <script src="https://code.jquery.com/jquery-2.2.4.js" charset="utf-8"></script>
   <!-- <link rel="stylesheet" href="css/main.css" /> -->
   <link rel="shortcut icon" href="./assets/icon/Logo.svg" />
+  <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="css/page/giohang.css" />
   <!-- <link rel="stylesheet" href="css/main.css"> -->
 </head>
 
 <body>
+  <div class="nav--loading">
+    <img src="./assets/image/loading.gif" alt="LOADING">
+  </div>
   <!-- Navigator bar -->
   <div id="nav"></div>
-  <script>
-    $(function () {
-      $("#nav").load("nav.html");
-    });
-  </script>
   <!-- End navigator bar -->
 
   <!-- Content -->
@@ -38,11 +36,13 @@
       <div class="project">
         <div class="shop">
           <div class="box">
-            <input type="checkbox" name="checkProduct"/>
+            <input type="checkbox" name="checkProduct" />
             <img src="./assets/image/loading skeleton.gif" alt="" class="loading--skeleton__img_xl">
             <div class="content-box">
-              <h3><img src="./assets/image/loading skeleton.gif" style="padding: 0;" alt="" class="loading--skeleton__text_l"></h3>
-              <h4 class="product--price"><img src="./assets/image/loading skeleton.gif" style="padding: 0;" alt="" class="loading--skeleton__text_m"></h4>
+              <h3><img src="./assets/image/loading skeleton.gif" style="padding: 0;" alt=""
+                  class="loading--skeleton__text_l"></h3>
+              <h4 class="product--price"><img src="./assets/image/loading skeleton.gif" style="padding: 0;" alt=""
+                  class="loading--skeleton__text_m"></h4>
               <p class="unit" cl>Số lượng: <input value="1" class="product--price" /></p>
               <p class="btn-area" onclick="deleteProduct(this)">
                 <i class="fa fa-trash"></i>
@@ -66,12 +66,18 @@
 
   <!-- Footer -->
   <div id="footer"></div>
+  <!-- End footer -->
+  <script src="./lib/Jquery/jquery364.js"></script>
+  <script>
+    $(function () {
+      $("#nav").load("nav.html");
+    });
+  </script>
   <script>
     $(function () {
       $("#footer").load("footer.html");
     });
   </script>
-  <!-- End footer -->
   <script src="js/main.js"></script>
   <script src="./js/giohang.js"></script>
 </body>

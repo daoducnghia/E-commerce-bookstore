@@ -1,105 +1,107 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Liên hệ</title>
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <link rel="shortcut icon" href="./assets/icon/Logo.svg" />
-    <link rel="stylesheet" href="css/page/lienhe.css" />
-  </head>
-  <body>
-    <div id="nav"></div>
 
-    <div class="content">
-      <div class="wrapper">
-        <div class="main-label">
-          <h1>Liên hệ</h1>
-          <h3>
-            <a href="home.html">Trang chủ</a>
-            /
-            <a href="lienhe.html">Liên hệ</a>
-          </h3>
-        </div>
-      </div>
-      <div class="first-content">
-        <div class="first-content-left">
-          <div class="first-content-left-1">
-            <h2>Giải đáp thắc mắc</h2>
-            <p>
-              We’re Talking About Clean Beauty Gift Sets, Of Course – And We’ve
-              Got A Bouquet Of Beauties For Yourself Or Someone You Love.
-            </p>
-          </div>
-          <div class="first-content-left-2">
-            <h2>Liên hệ</h2>
-            <ul>
-              <li>
-                <i class="fa-solid fa-phone fa-2xl"></i>
-                <p>0123-456-789</p>
-              </li>
-              <li>
-                <i class="fa-solid fa-mailbox fa-2xl"></i>
-                <p>support@bansach.com</p>
-              </li>
-              <li>
-                <i class="fa-solid fa-house fa-2xl"></i>
-                <p>Km10 Nguyễn Trãi, Hà Đông, Hà Nội</p>
-              </li>
-              <li>
-                <i class="fa-solid fa-clock fa-2xl"></i>
-                <p>Monday - Friday 10AM - 8PM</p>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="first-content-right">
-          <h2>Liên hệ trực tiếp</h2>
-          <form action="">
-            <div>
-              <label for="name">Tên:</label>
-              <input type="text" id="name" name="name" required />
-            </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liên hệ</title>
+  <link rel="shortcut icon" href="./assets/icon/Logo.svg" />
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="css/page/lienhe.css" />
+</head>
 
-            <div>
-              <label for="email">Email:</label>
-              <input type="email" id="email" name="email" required />
-            </div>
-            <div>
-              <label for="subject">Chủ đề:</label>
-              <input type="text" id="subject" name="subject" required />
-            </div>
-            <div>
-              <label for="message">Nội dung tin nhắn:</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="5"
-                required
-              ></textarea>
-            </div>
+<body>
+  <div class="nav--loading">
+    <img src="./assets/image/loading.gif" alt="LOADING">
+  </div>
+  <div id="nav"></div>
 
-            <button class="btn" type="submit">Gửi</button>
-          </form>
-        </div>
+  <div class="content">
+    <div class="wrapper">
+      <div class="main-label">
+        <h1>Liên hệ</h1>
+        <h3>
+          <a href="home.html">Trang chủ</a>
+          /
+          <a href="lienhe.html">Liên hệ</a>
+        </h3>
       </div>
     </div>
-    <div id="footer"></div>
-    <script>
-      const nav = document.getElementById("nav");
-      const footer = document.getElementById("footer");
-      fetch("nav.html")
-        .then((response) => response.text())
-        .then((html) => {
-          nav.innerHTML = html;
-        });
-      fetch("footer.html")
-        .then((response) => response.text())
-        .then((html) => {
-          footer.innerHTML = html;
-        });
-    </script>
-    <script src="js/main.js"></script>
-  </body>
+    <div class="first-content">
+      <div class="first-content-left">
+        <div class="first-content-left-1">
+          <h2>Giải đáp thắc mắc</h2>
+          <p>
+            We’re Talking About Clean Beauty Gift Sets, Of Course – And We’ve
+            Got A Bouquet Of Beauties For Yourself Or Someone You Love.
+          </p>
+        </div>
+        <div class="first-content-left-2">
+          <h2>Liên hệ</h2>
+          <ul>
+            <li>
+              <i class="fa-solid fa-phone fa-2xl"></i>
+              <p>0123-456-789</p>
+            </li>
+            <li>
+              <i class="fa-solid fa-mailbox fa-2xl"></i>
+              <p>support@bansach.com</p>
+            </li>
+            <li>
+              <i class="fa-solid fa-house fa-2xl"></i>
+              <p>Km10 Nguyễn Trãi, Hà Đông, Hà Nội</p>
+            </li>
+            <li>
+              <i class="fa-solid fa-clock fa-2xl"></i>
+              <p>Monday - Friday 10AM - 8PM</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="first-content-right">
+        <h2>Liên hệ trực tiếp</h2>
+        <form action="">
+          <div>
+            <label for="name">Tên:</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div>
+            <label for="subject">Chủ đề:</label>
+            <input type="text" id="subject" name="subject" required />
+          </div>
+          <div>
+            <label for="message">Nội dung tin nhắn:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+
+          <button class="btn" type="submit">Gửi</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div id="footer"></div>
+  <script src="./lib/Jquery/jquery364.js"></script>
+  <script>
+    const nav = document.getElementById("nav");
+    const footer = document.getElementById("footer");
+    fetch("nav.html")
+      .then((response) => response.text())
+      .then((html) => {
+        nav.innerHTML = html;
+      });
+    fetch("footer.html")
+      .then((response) => response.text())
+      .then((html) => {
+        footer.innerHTML = html;
+      });
+  </script>
+  <script src="js/main.js"></script>
+</body>
+
 </html>

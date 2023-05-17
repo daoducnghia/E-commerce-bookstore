@@ -1,55 +1,55 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./assets/icon/Logo.svg" />
-    <title>Bán sách - Quản lý khách hàng</title>
-    <link rel="stylesheet" href="./css/page/admin.css" />
-    <link rel="stylesheet" href="./css/page/qlkhachhang.css" />
-  </head>
 
-  <body>
-    <div class="header"></div>
-    <div class="content">
-      <div class="content--sidebar"></div>
-      <div class="content--main">
-        <div class="content--header">
-          <div class="content--header--title">Quản lý khách hàng</div>
-          <div class="content--header--search">
-            <div class="header--tool__search">
-              <input
-                type="text"
-                class="inpt inpt--icon inpt__rad4"
-                placeholder="Tìm theo tên khách hàng"
-                id="input-search-kh"
-              />
-              <div class="header--tool__search--icon">
-                <i class="fa-light fa-magnifying-glass"></i>
-              </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./assets/icon/Logo.svg" />
+  <title>Bán sách - Quản lý khách hàng</title>
+  <link rel="stylesheet" href="./css/page/admin.css" />
+  <link rel="stylesheet" href="./css/page/qlkhachhang.css" />
+</head>
+
+<body>
+  <div class="nav--loading">
+    <img src="./assets/image/loading.gif" alt="LOADING">
+  </div>
+  <div class="header"></div>
+  <div class="content">
+    <div class="content--sidebar"></div>
+    <div class="content--main">
+      <div class="content--header">
+        <div class="content--header--title">Quản lý khách hàng</div>
+        <div class="content--header--search">
+          <div class="header--tool__search">
+            <input type="text" class="inpt inpt--icon inpt__rad4" placeholder="Tìm theo tên khách hàng"
+              id="input-search-kh" />
+            <div class="header--tool__search--icon">
+              <i class="fa-light fa-magnifying-glass"></i>
             </div>
-          </div>
-          <div class="content--header--add">
-            <button class="btn btn__rad4" onclick="openPopup('popupAddClient')">
-              Thêm mới khách hàng
-            </button>
           </div>
         </div>
-        <div class="content--body">
-          <div class="content--body--header">
-            <div class="content--body--items">
-              <div class="content--body--item">Id</div>
-              <div class="content--body--item">Họ và tên</div>
-              <div class="content--body--item">Username</div>
-              <div class="content--body--item">Email</div>
-              <div class="content--body--item">Số điện thoại</div>
-              <!-- <div class="content--body--item">Địa chỉ</div> -->
-              <div class="content--body--item">Chức năng</div>
-            </div>
+        <div class="content--header--add">
+          <button class="btn btn__rad4" onclick="openPopup('popupAddClient')">
+            Thêm mới khách hàng
+          </button>
+        </div>
+      </div>
+      <div class="content--body">
+        <div class="content--body--header">
+          <div class="content--body--items">
+            <div class="content--body--item">Id</div>
+            <div class="content--body--item">Họ và tên</div>
+            <div class="content--body--item">Username</div>
+            <div class="content--body--item">Email</div>
+            <div class="content--body--item">Số điện thoại</div>
+            <!-- <div class="content--body--item">Địa chỉ</div> -->
+            <div class="content--body--item">Chức năng</div>
           </div>
-          <div id="content--body--tbody" class="content--body--tbody">
-            <!-- <div class="content--body--items">
+        </div>
+        <div id="content--body--tbody" class="content--body--tbody">
+          <!-- <div class="content--body--items">
               <div class="content--body--item">1</div>
               <div class="content--body--item">Nguyễn Văn A</div>
               <div class="content--body--item">nguyenkkk</div>
@@ -301,75 +301,41 @@
                 <button class="btn btn__gray">Khoá tài khoản</button>
               </div>
             </div> -->
-          </div>
         </div>
       </div>
     </div>
-    <div
-      class="popup"
-      id="popupAddClient"
-      style="display: none"
-      onclick="closePopup('popupAddClient')"
-    >
-      <div class="popup--board">
-        <input type="hidden" id="idKH" />
-        <div class="popup--header">Thông tin khách hàng</div>
-        <div class="popup--content">
+  </div>
+  <div class="popup" id="popupAddClient" style="display: none" onclick="closePopup('popupAddClient')">
+    <div class="popup--board">
+      <input type="hidden" id="idKH" />
+      <div class="popup--header">Thông tin khách hàng</div>
+      <div class="popup--content">
+        <div class="inputLabel">
+          <div class="inputLabel--label">Họ tên</div>
+          <input type="text" name="" id="name" class="inpt inpt__rad4 inpt__w100" placeholder="Họ tên khách hàng" />
+        </div>
+        <div class="popup--content--nav">
           <div class="inputLabel">
-            <div class="inputLabel--label">Họ tên</div>
-            <input
-              type="text"
-              name=""
-              id="name"
-              class="inpt inpt__rad4 inpt__w100"
-              placeholder="Họ tên khách hàng"
-            />
+            <div class="inputLabel--label">Email</div>
+            <input type="text" name="" id="email" class="inpt inpt__rad4 inpt__w100" placeholder="Email khách hàng" />
           </div>
-          <div class="popup--content--nav">
-            <div class="inputLabel">
-              <div class="inputLabel--label">Email</div>
-              <input
-                type="text"
-                name=""
-                id="email"
-                class="inpt inpt__rad4 inpt__w100"
-                placeholder="Email khách hàng"
-              />
-            </div>
-            <div class="inputLabel">
-              <div class="inputLabel--label">Số điện thoại</div>
-              <input
-                type="text"
-                name=""
-                id="phoneNumber"
-                class="inpt inpt__rad4 inpt__w100"
-                placeholder="Số điện thoại khách hàng"
-              />
-            </div>
+          <div class="inputLabel">
+            <div class="inputLabel--label">Số điện thoại</div>
+            <input type="text" name="" id="phoneNumber" class="inpt inpt__rad4 inpt__w100"
+              placeholder="Số điện thoại khách hàng" />
           </div>
-          <div class="popup--content--nav">
-            <div class="inputLabel">
-              <div class="inputLabel--label">Tên đăng nhập</div>
-              <input
-                type="text"
-                name=""
-                id="username"
-                class="inpt inpt__rad4 inpt__w100"
-                placeholder="Tên đăng nhập"
-              />
-            </div>
-            <div class="inputLabel">
-              <div class="inputLabel--label">Mật khẩu</div>
-              <input
-                type="password"
-                name=""
-                id="password"
-                class="inpt inpt__rad4 inpt__w100"
-                placeholder="Mật khẩu"
-              />
-            </div>
+        </div>
+        <div class="popup--content--nav">
+          <div class="inputLabel">
+            <div class="inputLabel--label">Tên đăng nhập</div>
+            <input type="text" name="" id="username" class="inpt inpt__rad4 inpt__w100" placeholder="Tên đăng nhập" />
           </div>
-          <!-- <div class="inputLabel">
+          <div class="inputLabel">
+            <div class="inputLabel--label">Mật khẩu</div>
+            <input type="password" name="" id="password" class="inpt inpt__rad4 inpt__w100" placeholder="Mật khẩu" />
+          </div>
+        </div>
+        <!-- <div class="inputLabel">
             <div class="inputLabel--label">Địa chỉ</div>
             <textarea
               name=""
@@ -378,21 +344,19 @@
               placeholder="Tỉnh/Thành phố, Quận/Huyện, Xã/Phường, địa chỉ chi tiết"
             ></textarea>
           </div> -->
-        </div>
-        <div class="popup--footer">
-          <div id="exception" style="color: red"></div>
-          <button
-            class="btn btn__gray btn__rad4"
-            onclick="closePopup('popupAddClient')"
-          >
-            Huỷ
-          </button>
-          <button class="btn btn__rad4" onclick="luuKH()">Lưu</button>
-        </div>
+      </div>
+      <div class="popup--footer">
+        <div id="exception" style="color: red"></div>
+        <button class="btn btn__gray btn__rad4" onclick="closePopup('popupAddClient')">
+          Huỷ
+        </button>
+        <button class="btn btn__rad4" onclick="luuKH()">Lưu</button>
       </div>
     </div>
-  </body>
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="./js/admin.js"></script>
-  <script src="./js/qlkhachhang.js"></script>
+  </div>
+</body>
+<script src="./lib/Jquery/jquery364.js"></script>
+<script src="./js/admin.js"></script>
+<script src="./js/qlkhachhang.js"></script>
+
 </html>

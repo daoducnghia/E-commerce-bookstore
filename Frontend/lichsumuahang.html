@@ -11,15 +11,18 @@
 </head>
 
 <body>
+  <div class="nav--loading">
+    <img src="./assets/image/loading.gif" alt="LOADING">
+  </div>
   <div id="headerP"></div>
   <div class="content">
     <div class="content--sidebar">
       <div class="content--sidebar--user">
         <div class="content--sidebar--user--img">
-          <img src="https://thuthuatnhanh.com/wp-content/uploads/2020/02/icon-be-ong-dang-yeu.jpg" alt="" />
+          <img src="https://png.pngtree.com/png-vector/20190704/ourlarge/pngtree-businessman-user-avatar-free-vector-png-image_1538405.jpg" alt="" />
         </div>
         <div class="content--sidebar--user--username font--heading__3">
-          nguyenkkk
+          
         </div>
       </div>
       <div class="content--sidebar--items">
@@ -44,7 +47,7 @@
         <div class="titleBar--item" id="titleBar--item__huy" onclick="viewOder('huy')">Đã huỷ</div>
       </div>
       <div class="content--main--search">
-        <input type="text" class="inpt inpt--icon" placeholder="Tìm kiếm đơn hàng theo mã đơn hàng"/>
+        <input type="text" class="inpt inpt--icon" placeholder="Tìm kiếm đơn hàng theo mã đơn hàng" />
         <div class="content--main--search--icon">
           <i class="fa-light fa-magnifying-glass"></i>
         </div>
@@ -149,7 +152,8 @@
               </div>
               <div class="inputLabel">
                 <div class="inputLabel--label">Nội dung</div>
-                <textarea name="" class="textfield textfield__w100 evaluate--item--main--content" placeholder="Hãy chia sẻ cảm nhận của bạn"></textarea>
+                <textarea name="" class="textfield textfield__w100 evaluate--item--main--content"
+                  placeholder="Hãy chia sẻ cảm nhận của bạn"></textarea>
               </div>
             </div>
           </div>
@@ -162,7 +166,7 @@
     </div>
   </div>
 </body>
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="./lib/Jquery/jquery364.js"></script>
 <script>
   $(function () {
     $("#headerP").load("nav.html");

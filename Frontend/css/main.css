@@ -472,7 +472,24 @@ big {
     height: 180px !important;
     width: 180px !important;
 }
-
+.nav--loading{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #f2f2f2;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav--loading img{
+    height: 80px;
+    width: 80px;
+}
 @media (max-width: 880px) {
 
     .footer-distributed {

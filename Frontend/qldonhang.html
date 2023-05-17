@@ -12,8 +12,11 @@
 </head>
 
 <body>
+    <div class="nav--loading">
+        <img src="./assets/image/loading.gif" alt="LOADING">
+    </div>
     <div class="header">
-        
+
     </div>
     <div class="content">
         <div class="content--sidebar">
@@ -23,7 +26,8 @@
                 <div class="content--header--title">Quản lý đơn hàng</div>
                 <div class="content--header--search">
                     <div class="header--tool__search">
-                        <input type="text" class="inpt inpt--icon inpt__rad4" placeholder="Tìm theo mã đơn hàng" id="inptSearchOrder"/>
+                        <input type="text" class="inpt inpt--icon inpt__rad4" placeholder="Tìm theo mã đơn hàng"
+                            id="inptSearchOrder" />
                         <div class="header--tool__search--icon">
                             <i class="fa-light fa-magnifying-glass"></i>
                         </div>
@@ -32,10 +36,11 @@
             </div>
             <div class="content--body">
                 <div class="content--body--title">
-                    <div class="content--body--title--item content--body--title--item__active" onclick="viewOrder(this,'chuaxacnhan')">Chưa xác nhận</div>
-                    <div class="content--body--title--item"onclick="viewOrder(this,'daxacnhan')">Đã xác nhận</div>
-                    <div class="content--body--title--item"onclick="viewOrder(this,'dahoanthanh')">Đã hoàn thành</div>
-                    <div class="content--body--title--item"onclick="viewOrder(this,'huy')">Đã huỷ</div>
+                    <div class="content--body--title--item content--body--title--item__active"
+                        onclick="viewOrder(this,'chuaxacnhan')">Chưa xác nhận</div>
+                    <div class="content--body--title--item" onclick="viewOrder(this,'daxacnhan')">Đã xác nhận</div>
+                    <div class="content--body--title--item" onclick="viewOrder(this,'dahoanthanh')">Đã hoàn thành</div>
+                    <div class="content--body--title--item" onclick="viewOrder(this,'huy')">Đã huỷ</div>
                 </div>
                 <div class="content--body--header">
                     <div class="content--body--items">
@@ -53,8 +58,10 @@
                     <div class="content--body--items">
                         <div class="content--body--item">1</div>
                         <div class="content--body--item">nguyenkkk</div>
-                        <div class="content--body--item">Nguyễn Văn A<br>0999888777<br>Nguyễn Văn Trỗi, Mộ Lao, Hà Đông, Hà Nội</div>
-                        <div class="content--body--item">Đắc nhân tâm X1<br>Vạn Nhân Ký - Noãn X2<br>Không Diệt Không Sinh Đừng Sợ Hãi (Tái Bản 2022) X1</div>
+                        <div class="content--body--item">Nguyễn Văn A<br>0999888777<br>Nguyễn Văn Trỗi, Mộ Lao, Hà Đông,
+                            Hà Nội</div>
+                        <div class="content--body--item">Đắc nhân tâm X1<br>Vạn Nhân Ký - Noãn X2<br>Không Diệt Không
+                            Sinh Đừng Sợ Hãi (Tái Bản 2022) X1</div>
                         <div class="content--body--item">150.000đ</div>
                         <div class="content--body--item">30.000đ</div>
                         <div class="content--body--item">Đã xác nhận</div>
@@ -67,20 +74,9 @@
             </div>
         </div>
     </div>
-    <!-- <div class="popup" style="display: none;" id="popupXacNhan" onclick="closePopup('popupXacNhan')">
-        <div class="popup--board">
-          <div class="popup--header">Thông tin vận chuyển</div>
-          <div class="popup--content">
-            
-          </div>
-          <div class="popup--footer">
-            <button class="btn btn__gray btn__rad4 " onclick="closePopup('popupXacNhan')">Huỷ</button>
-            <button class="btn btn__rad4" id="btnSaveEvaluate">Lưu</button>
-          </div>
-        </div>
-      </div> -->
 </body>
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="./lib/Jquery/jquery364.js"></script>
 <script src="./js/admin.js"></script>
 <script src="./js/qldonhang.js"></script>
+
 </html>

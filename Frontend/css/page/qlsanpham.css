@@ -45,3 +45,11 @@
     height: 600px;
     width: 800px;
 }
+.btn__cancel{
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 40px;
+    width: min-content;
+}

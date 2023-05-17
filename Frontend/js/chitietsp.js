@@ -125,24 +125,23 @@ window.addEventListener("load", function (event) {
               <div class="tong-quan-danh-gia">
                 <h2>`;
       if (avrPoint == "NaN") {
-        htmlDanhGia += 0;
+        htmlDanhGia += `Chưa có đánh giá`
       } else {
         htmlDanhGia += avrPoint;
-      }
-      htmlDanhGia +=
-        `/5 trên tổng ` +
-        result1.length +
-        ` đánh giá</h2>
+        htmlDanhGia +=
+          ` <i class="fa-solid fa-star text__s20" style="color: #ffbb00;"></i> (` +
+          result1.length +
+          ` đánh giá)</h2>
               </div>`;
-
+      }
       for (let x = 0; x < result1.length; x++) {
         var htmlStars = "";
         for (let star = 0; star < result1[x].point; star++) {
-          htmlStars += `<i class="fa-solid fa-star" style="color: #ff0000;"></i>`;
+          htmlStars += `<i class="fa-solid fa-star" style="color: #ffbb00;"></i>`;
         }
         if (result1[x].point < 5) {
           for (let star = result1[x].point; star < 5; star++) {
-            htmlStars += `<i class="star-danh-gia fa-regular fa-star" style="color: #ff0000"></i>`;
+            htmlStars += `<i class="star-danh-gia fa-regular fa-star" style="color: #ffbb00"></i>`;
           }
         }
         // htmlStars = "" + htmlStars + "";

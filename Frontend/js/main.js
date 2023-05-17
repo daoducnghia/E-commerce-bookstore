@@ -1,6 +1,7 @@
 const url = "http://localhost:8080";
 const tranportFee = 30000;
 window.addEventListener("load", function (event) {
+  document.querySelector(".nav--loading").style.display = "none";
   var username = localStorage.getItem("username");
 
   showCategory();

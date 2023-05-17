@@ -7,10 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" href="./assets/icon/Logo.svg" />
   <title>Chi tiết đơn hàng</title>
+  <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/page/chitietdonhang.css" />
 </head>
 
 <body>
+  <div class="nav--loading">
+    <img src="./assets/image/loading.gif" alt="LOADING">
+  </div>
   <div id="headerP"></div>
   <div class="content">
     <div class="content--title">Chi tiết đơn hàng</div>
@@ -114,7 +118,7 @@
 
   <div id="footerP"></div>
 </body>
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="./lib/Jquery/jquery364.js"></script>
 <script>
   $(function () {
     $("#headerP").load("nav.html");

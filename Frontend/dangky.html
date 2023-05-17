@@ -1,51 +1,54 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Đăng ký</title>
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <link rel="stylesheet" href="css/page/dangky.css" />
-  </head>
-  <body>
-    <div class="navbar">
-      <div class="navbar--logo"></div>
-    </div>
-    <div class="login-page">
-      <div class="form">
-        <form id="register-form" class="register-form">
-          <div id="register-label">
-            <label>Đăng ký</label>
-          </div>
-          <div id="register-name">
-            <label>Họ tên</label>
-            <input type="text" id="name" placeholder="Tên" required/>
-          </div>
-          <div id="register-username">
-            <label>Tên tài khoản</label>
-            <input type="text" id="username" placeholder="Tên tài khoản" required/>
-            <p id="username-err" style="display: none; color: crimson;">Tên tài khoản đã được sử dụng</p>
-          </div>
-          <div id="register-password">
-            <label>Mật khẩu</label>
-            <input type="password" id="password" placeholder="Mật khẩu" required/>
-          </div>
-          <div id="register-email">
-            <label>Email</labels>
-            <input type="text" id="email" placeholder="Địa chỉ email" required/>
-          </div>
-          <div id="register-number">
-            <label>Số điện thoại</label>
-            <input type="text" id="number" placeholder="Số điện thoại" required/>
-          </div>
 
-          <button type="submit" id="button">Đăng ký</button>
-          <p class="message">
-            Đã có tài khoản? <a href="./dangnhap.html">Đăng nhập</a>
-          </p>
-        </form>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đăng ký</title>
+  <link rel="stylesheet" href="css/page/dangky.css" />
+</head>
+
+<body>
+  <div class="navbar">
+    <div class="navbar--logo"></div>
+  </div>
+  <div class="login-page">
+    <div class="form">
+      <form id="register-form" class="register-form">
+        <div id="register-label">
+          <label>Đăng ký</label>
+        </div>
+        <div id="register-name">
+          <label>Họ tên</label>
+          <input type="text" id="name" placeholder="Tên" required />
+        </div>
+        <div id="register-username">
+          <label>Tên tài khoản</label>
+          <input type="text" id="username" placeholder="Tên tài khoản" required />
+          <p id="username-err" style="display: none; color: crimson;">Tên tài khoản đã được sử dụng</p>
+        </div>
+        <div id="register-password">
+          <label>Mật khẩu</label>
+          <input type="password" id="password" placeholder="Mật khẩu" required />
+        </div>
+        <div id="register-email">
+          <label>Email</labels>
+            <input type="text" id="email" placeholder="Địa chỉ email" required />
+        </div>
+        <div id="register-number">
+          <label>Số điện thoại</label>
+          <input type="text" id="number" placeholder="Số điện thoại" required />
+        </div>
+
+        <button type="submit" id="button">Đăng ký</button>
+        <p class="message">
+          Đã có tài khoản? <a href="./dangnhap.html">Đăng nhập</a>
+        </p>
+      </form>
+    </div>
+    <script src="./lib/Jquery/jquery364.js"></script>
     <script src="js/dangky.js"></script>
-  </body>
+</body>
+
 </html>

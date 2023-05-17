@@ -1,70 +1,77 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Giới thiệu</title>
-    <script src="lib/Jquery/jquery364.js"></script>
-    <link rel="shortcut icon" href="./assets/icon/Logo.svg" />
-    <link rel="stylesheet" href="css/page/gioithieu.css" />
-  </head>
-  <body>
-    <div id="nav"></div>
 
-    <div class="content">
-      <div class="wrapper">
-        <div class="main-label">
-          <h1>Giới thiệu</h1>
-          <h3>
-            <a href="home.html">Trang chủ</a>
-            /
-            <a href="gioithieu.html">Giới thiệu</a>
-          </h3>
-        </div>
-      </div>
-      <div class="first-content">
-        <div class="first-content-left">
-          <p>Từ nhà cung cấp sách lớn nhất Việt Nam</p>
-        </div>
-        <div class="first-content-right">
-          Chào mừng đến với nhà cung cấp sách của chúng tớ! Chúng tớ là một công
-          ty chuyên cung cấp sách với nhiều thể loại khác nhau, bao gồm tiểu
-          thuyết, kinh doanh, lịch sử, khoa học và nhiều hơn nữa. Chúng tớ cam
-          kết cung cấp cho khách hàng của mình những cuốn sách chất lượng. Với
-          đội ngũ nhân viên chuyên nghiệp, chúng tớ sẽ giúp bạn tìm kiếm cuốn
-          sách phù hợp nhất để đáp ứng nhu cầu của bạn. Hãy liên hệ với chúng tớ
-          để biết thêm thông tin về các sản phẩm và dịch vụ của chúng tớ!
-        </div>
-      </div>
-      <div class="second-content">
-        <div class="second-content-items">
-          <div class="second-content-item-number">100.000</div>
-          <div class="second-content-item-label">Khách hàng</div>
-        </div>
-        <div class="second-content-items">
-          <div class="second-content-item-number">1M</div>
-          <div class="second-content-item-label">Đơn hàng</div>
-        </div>
-        <div class="second-content-items">
-          <div class="second-content-item-number">10</div>
-          <div class="second-content-item-label">Giải thưởng</div>
-        </div>
-        <div class="second-content-items">
-          <div class="second-content-item-number">1000</div>
-          <div class="second-content-item-label">Nhân viên</div>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giới thiệu</title>
+  <link rel="shortcut icon" href="./assets/icon/Logo.svg" />
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="css/page/gioithieu.css" />
+</head>
+
+<body>
+  <div class="nav--loading">
+    <img src="./assets/image/loading.gif" alt="LOADING">
+  </div>
+  <div id="nav"></div>
+
+  <div class="content">
+    <div class="wrapper">
+      <div class="main-label">
+        <h1>Giới thiệu</h1>
+        <h3>
+          <a href="home.html">Trang chủ</a>
+          /
+          <a href="gioithieu.html">Giới thiệu</a>
+        </h3>
       </div>
     </div>
-    <div id="footer"></div>
-    <script>
-      $(function () {
-        $("#nav").load("nav.html");
-      });
-      $(function () {
-        $("#footer").load("footer.html");
-      });
-    </script>
-    <script src="js/main.js"></script>
-  </body>
+    <div class="first-content">
+      <div class="first-content-left">
+        <p>Từ nhà cung cấp sách lớn nhất Việt Nam</p>
+      </div>
+      <div class="first-content-right">
+        Chào mừng đến với nhà cung cấp sách của chúng tớ! Chúng tớ là một công
+        ty chuyên cung cấp sách với nhiều thể loại khác nhau, bao gồm tiểu
+        thuyết, kinh doanh, lịch sử, khoa học và nhiều hơn nữa. Chúng tớ cam
+        kết cung cấp cho khách hàng của mình những cuốn sách chất lượng. Với
+        đội ngũ nhân viên chuyên nghiệp, chúng tớ sẽ giúp bạn tìm kiếm cuốn
+        sách phù hợp nhất để đáp ứng nhu cầu của bạn. Hãy liên hệ với chúng tớ
+        để biết thêm thông tin về các sản phẩm và dịch vụ của chúng tớ!
+      </div>
+    </div>
+    <div class="second-content">
+      <div class="second-content-items">
+        <div class="second-content-item-number">100.000</div>
+        <div class="second-content-item-label">Khách hàng</div>
+      </div>
+      <div class="second-content-items">
+        <div class="second-content-item-number">1M</div>
+        <div class="second-content-item-label">Đơn hàng</div>
+      </div>
+      <div class="second-content-items">
+        <div class="second-content-item-number">10</div>
+        <div class="second-content-item-label">Giải thưởng</div>
+      </div>
+      <div class="second-content-items">
+        <div class="second-content-item-number">1000</div>
+        <div class="second-content-item-label">Nhân viên</div>
+      </div>
+    </div>
+  </div>
+  <div id="footer"></div>
+  <script src="./lib/Jquery/jquery364.js"></script>
+  <script>
+    $(function () {
+      $("#nav").load("nav.html");
+    });
+    $(function () {
+      $("#footer").load("footer.html");
+    });
+  </script>
+  <script src="js/main.js"></script>
+</body>
+
 </html>

@@ -7,10 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" href="./assets/icon/Logo.svg" />
   <title>BanSach - Đặt hàng</title>
+  <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/page/dathang.css" />
 </head>
 
 <body>
+  <div class="nav--loading">
+    <img src="./assets/image/loading.gif" alt="LOADING">
+  </div>
   <div id="headerP"></div>
   <div class="content">
     <div class="content--title">Đặt hàng</div>
@@ -244,7 +248,7 @@
   </div>
   <div id="footerP"></div>
 </body>
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="./lib/Jquery/jquery364.js"></script>
 <script>
   $(function () {
     $("#headerP").load("nav.html");

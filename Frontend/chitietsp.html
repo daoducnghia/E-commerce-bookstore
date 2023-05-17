@@ -1,235 +1,217 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chi tiết sản phẩm</title>
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="shortcut icon" href="./assets/icon/Logo.svg" />
-    <link rel="stylesheet" href="css/page/chititesp.css" />
-  </head>
-  <body>
-    <!-- HEADER -->
-    <div id="nav"></div>
-    <script>
-      $(function () {
-        $("#nav").load("nav.html");
-      });
-    </script>
-    <!-- END HEADER -->
 
-    <!-- CONTENT -->
-    <div class="content">
-      <div class="wrapper">
-        <h1>Chi tiết sản phẩm</h1>
-        <h3>
-          <a href="#">Trang chủ</a>
-          /
-          <a href="#">Sản phẩm</a>
-          /
-          <a href="#">Chi tiết sản phẩm</a>
-        </h3>
-        <div class="product">
-          <div class="small-container single-product">
-            <div id="row" class="row">
-              <div class="col-2">
-                <img
-                  src="assets/image/img1.jpg"
-                  alt=""
-                  width="100%"
-                  id="ProductImg"
-                />
-                <div class="small-img-row">
-                  <div class="small-img-col">
-                    <img
-                      src="assets/image/img1(1).jpg"
-                      alt=""
-                      class="small-img"
-                      width="100%"
-                    />
-                  </div>
-                  <div class="small-img-col">
-                    <img
-                      src="assets/image/img2(1).jpg"
-                      width="100%"
-                      alt=""
-                      class="small-img"
-                    />
-                  </div>
-                  <div class="small-img-col">
-                    <img
-                      src="assets/image/img3(1).jpg"
-                      width="100%"
-                      alt=""
-                      class="small-img"
-                    />
-                  </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chi tiết sản phẩm</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="shortcut icon" href="./assets/icon/Logo.svg" />
+  <link rel="stylesheet" href="css/page/chititesp.css" />
+</head>
+
+<body>
+  <div class="nav--loading">
+    <img src="./assets/image/loading.gif" alt="LOADING">
+  </div>
+  <!-- HEADER -->
+  <div id="nav"></div>
+  <!-- END HEADER -->
+
+  <!-- CONTENT -->
+  <div class="content">
+    <div class="wrapper">
+      <h1>Chi tiết sản phẩm</h1>
+      <h3>
+        <a href="#">Trang chủ</a>
+        /
+        <a href="#">Sản phẩm</a>
+        /
+        <a href="#">Chi tiết sản phẩm</a>
+      </h3>
+      <div class="product">
+        <div class="small-container single-product">
+          <div id="row" class="row">
+            <div class="col-2">
+              <img src="assets/image/img1.jpg" alt="" width="100%" id="ProductImg" />
+              <div class="small-img-row">
+                <div class="small-img-col">
+                  <img src="assets/image/img1(1).jpg" alt="" class="small-img" width="100%" />
                 </div>
-              </div>
-              <div class="col-2">
-                <h1 id="name">Trăm năm cô đơn</h1>
-                <h4 id="price">100.000 VNĐ</h4>
-                <input
-                  type="number"
-                  name=""
-                  id="input-number-product"
-                  value="1"
-                />
-                <a onclick="addToCartID()" class="btnA">Thêm vào giỏ hàng</a>
-                <h3>Thông tin sản phẩm</h3>
-                <table>
-                  <tr>
-                    <th style="width: 35%"></th>
-                    <th></th>
-                  </tr>
-                  <tr>
-                    <td>Công ty phát hành:</td>
-                    <td id="nha-phat-hanh">Nhã nam</td>
-                  </tr>
-                  <tr>
-                    <td>Ngày xuất bản:</td>
-                    <td id="ngay-xuat-ban">2018-08-10 14:03:30</td>
-                  </tr>
-                  <tr>
-                    <td>Kích thước:</td>
-                    <td id="kick-thuoc">15 x 24 cm</td>
-                  </tr>
-                  <tr>
-                    <td>Dịch Giả:</td>
-                    <td id="dich-gia">
-                      Nguyễn Trung Đức , Phạm Đình Lợi , Nguyễn Quốc Dũng
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Loại bìa:</td>
-                    <td id="bia">Bìa mềm</td>
-                  </tr>
-                  <tr>
-                    <td>Số trang:</td>
-                    <td id="so-trang">496</td>
-                  </tr>
-                </table>
+                <div class="small-img-col">
+                  <img src="assets/image/img2(1).jpg" width="100%" alt="" class="small-img" />
+                </div>
+                <div class="small-img-col">
+                  <img src="assets/image/img3(1).jpg" width="100%" alt="" class="small-img" />
+                </div>
               </div>
             </div>
-            <div id="description-product" class="description-product">
-              <hr />
-              <h1>Chi tiết sách</h1>
-              <p>
-                Trăm năm cô đơn (tiếng Tây Ban Nha: Cien años de soledad) là
-                cuốn tiểu thuyết nổi tiếng nhất của nhà văn người Colombia
-                Gabriel Garcia Marquez. Tác phẩm được nhà xuất bản Sudamericana
-                xuất bản lần đầu bằng tiếng Tây Ban Nha vào năm 1967 tại Buenos
-                Aires (Argentina). Đến năm 1970, truyện đã được in bằng tiếng
-                Tây Ban Nha hơn nửa triệu bản, chưa kể hai lần in ở Cuba là một
-                trăm nghìn bản. Khi đó còn có 17 hợp đồng xin phép tác giả được
-                dịch tác phẩm này ra các thứ tiếng khác.
-              </p>
-              <br />
-              <p>
-                Cho đến nay, tác phẩm đã chuyển dịch qua hơn 30 ngôn ngữ trên
-                thế giới trong đó có Việt Nam, được tặng giải Chianchiano của Ý,
-                được Pháp công nhận là cuốn sách hay nhất trong năm và được giới
-                phê bình văn học Mỹ đánh giá là một trong 12 cuốn sách hay nhất
-                trong thập niên 1960. Đây được coi là một kiệt tác của Gabriel
-                Garcia Marquez, cùng với những tác phẩm Ngài đại tá chờ thư (El
-                coronel no tiene quien le escriba, 1959), Mùa thu của ngài
-                trưởng lão (El otoño del patriarca, 1975), Trăm năm cô đơn đã
-                mang đến cho tác giả vinh dự đoạt giải Nobel Văn học vào năm
-                1982.
+            <div class="col-2">
+              <h1 id="name">Trăm năm cô đơn</h1>
+              <h4 id="price">100.000 VNĐ</h4>
+              <input type="number" name="" id="input-number-product" value="1" />
+              <a onclick="addToCartID()" class="btnA">Thêm vào giỏ hàng</a>
+              <h3>Thông tin sản phẩm</h3>
+              <table>
+                <tr>
+                  <th style="width: 35%"></th>
+                  <th></th>
+                </tr>
+                <tr>
+                  <td>Công ty phát hành:</td>
+                  <td id="nha-phat-hanh">Nhã nam</td>
+                </tr>
+                <tr>
+                  <td>Ngày xuất bản:</td>
+                  <td id="ngay-xuat-ban">2018-08-10 14:03:30</td>
+                </tr>
+                <tr>
+                  <td>Kích thước:</td>
+                  <td id="kick-thuoc">15 x 24 cm</td>
+                </tr>
+                <tr>
+                  <td>Dịch Giả:</td>
+                  <td id="dich-gia">
+                    Nguyễn Trung Đức , Phạm Đình Lợi , Nguyễn Quốc Dũng
+                  </td>
+                </tr>
+                <tr>
+                  <td>Loại bìa:</td>
+                  <td id="bia">Bìa mềm</td>
+                </tr>
+                <tr>
+                  <td>Số trang:</td>
+                  <td id="so-trang">496</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div id="description-product" class="description-product">
+            <hr />
+            <h1>Chi tiết sách</h1>
+            <p>
+              Trăm năm cô đơn (tiếng Tây Ban Nha: Cien años de soledad) là
+              cuốn tiểu thuyết nổi tiếng nhất của nhà văn người Colombia
+              Gabriel Garcia Marquez. Tác phẩm được nhà xuất bản Sudamericana
+              xuất bản lần đầu bằng tiếng Tây Ban Nha vào năm 1967 tại Buenos
+              Aires (Argentina). Đến năm 1970, truyện đã được in bằng tiếng
+              Tây Ban Nha hơn nửa triệu bản, chưa kể hai lần in ở Cuba là một
+              trăm nghìn bản. Khi đó còn có 17 hợp đồng xin phép tác giả được
+              dịch tác phẩm này ra các thứ tiếng khác.
+            </p>
+            <br />
+            <p>
+              Cho đến nay, tác phẩm đã chuyển dịch qua hơn 30 ngôn ngữ trên
+              thế giới trong đó có Việt Nam, được tặng giải Chianchiano của Ý,
+              được Pháp công nhận là cuốn sách hay nhất trong năm và được giới
+              phê bình văn học Mỹ đánh giá là một trong 12 cuốn sách hay nhất
+              trong thập niên 1960. Đây được coi là một kiệt tác của Gabriel
+              Garcia Marquez, cùng với những tác phẩm Ngài đại tá chờ thư (El
+              coronel no tiene quien le escriba, 1959), Mùa thu của ngài
+              trưởng lão (El otoño del patriarca, 1975), Trăm năm cô đơn đã
+              mang đến cho tác giả vinh dự đoạt giải Nobel Văn học vào năm
+              1982.
+            </p>
+          </div>
+          <div id="danhgia" class="danhgia">
+            <hr />
+            <h1>Đánh giá</h1>
+            <div class="tong-quan-danh-gia">
+              <h2>4.9 / 5</h2>
+            </div>
+
+            <div id="box-danh-gia" class="box-danh-gia">
+              <h6 class="name-danhgia">nghia123</h6>
+              <div class="stars">
+                <i class="star-danh-gia fa-regular fa-star"></i>
+                <i class="star-danh-gia fa-regular fa-star"></i>
+                <i class="star-danh-gia fa-regular fa-star"></i>
+                <i class="star-danh-gia fa-regular fa-star"></i>
+                <i class="star-danh-gia fa-regular fa-star"></i>
+              </div>
+              <p class="danh-gia">
+                Cuốn sách “Trăm Năm Cô Đơn” dày hơn 500 trang với nội dung kể
+                về dòng họ nhà Buendía với nhiều thế hệ. Thế hệ đầu tiên có 2
+                con người José Arcadio Buendía và Úrsula, là họ hàng thế nhưng
+                lại có mối quan hệ yêu đương, bất chấp sự phản đối của gia
+                đình mà đến với nhau rồi sinh ra những đứa trẻ có đuôi lợn.
               </p>
             </div>
-            <div id="danhgia" class="danhgia">
-              <hr />
-              <h1>Đánh giá</h1>
-              <div class="tong-quan-danh-gia">
-                <h2>4.9 / 5</h2>
+            <div class="box-danh-gia">
+              <h6 class="name-danhgia">anhba</h6>
+              <div class="stars">
+                <i class="star-danh-gia fa-regular fa-star"></i>
+                <i class="star-danh-gia fa-regular fa-star"></i>
+                <i class="star-danh-gia fa-regular fa-star"></i>
+                <i class="star-danh-gia fa-regular fa-star"></i>
+                <i class="star-danh-gia fa-regular fa-star"></i>
               </div>
-
-              <div id="box-danh-gia" class="box-danh-gia">
-                <h6 class="name-danhgia">nghia123</h6>
-                <div class="stars">
-                  <i class="star-danh-gia fa-regular fa-star"></i>
-                  <i class="star-danh-gia fa-regular fa-star"></i>
-                  <i class="star-danh-gia fa-regular fa-star"></i>
-                  <i class="star-danh-gia fa-regular fa-star"></i>
-                  <i class="star-danh-gia fa-regular fa-star"></i>
-                </div>
-                <p class="danh-gia">
-                  Cuốn sách “Trăm Năm Cô Đơn” dày hơn 500 trang với nội dung kể
-                  về dòng họ nhà Buendía với nhiều thế hệ. Thế hệ đầu tiên có 2
-                  con người José Arcadio Buendía và Úrsula, là họ hàng thế nhưng
-                  lại có mối quan hệ yêu đương, bất chấp sự phản đối của gia
-                  đình mà đến với nhau rồi sinh ra những đứa trẻ có đuôi lợn.
-                </p>
+              <p class="danh-gia">Rất là hay!</p>
+            </div>
+            <div class="box-danh-gia">
+              <h6 class="name-danhgia">toi</h6>
+              <div class="stars">
+                <i class="star-danh-gia fa-regular fa-star"></i>
+                <i class="star-danh-gia fa-regular fa-star"></i>
+                <i class="star-danh-gia fa-regular fa-star"></i>
+                <i class="star-danh-gia fa-regular fa-star"></i>
+                <i class="star-danh-gia fa-regular fa-star"></i>
               </div>
-              <div class="box-danh-gia">
-                <h6 class="name-danhgia">anhba</h6>
-                <div class="stars">
-                  <i class="star-danh-gia fa-regular fa-star"></i>
-                  <i class="star-danh-gia fa-regular fa-star"></i>
-                  <i class="star-danh-gia fa-regular fa-star"></i>
-                  <i class="star-danh-gia fa-regular fa-star"></i>
-                  <i class="star-danh-gia fa-regular fa-star"></i>
-                </div>
-                <p class="danh-gia">Rất là hay!</p>
+              <p class="danh-gia">Rất là hay!</p>
+            </div>
+            <div class="box-danh-gia">
+              <h6 class="name-danhgia">Hoang van a</h6>
+              <div class="stars">
+                <i class="star-danh-gia fa-regular fa-star"></i>
+                <i class="star-danh-gia fa-regular fa-star"></i>
+                <i class="star-danh-gia fa-regular fa-star"></i>
+                <i class="star-danh-gia fa-regular fa-star"></i>
+                <i class="star-danh-gia fa-regular fa-star"></i>
               </div>
-              <div class="box-danh-gia">
-                <h6 class="name-danhgia">toi</h6>
-                <div class="stars">
-                  <i class="star-danh-gia fa-regular fa-star"></i>
-                  <i class="star-danh-gia fa-regular fa-star"></i>
-                  <i class="star-danh-gia fa-regular fa-star"></i>
-                  <i class="star-danh-gia fa-regular fa-star"></i>
-                  <i class="star-danh-gia fa-regular fa-star"></i>
-                </div>
-                <p class="danh-gia">Rất là hay!</p>
-              </div>
-              <div class="box-danh-gia">
-                <h6 class="name-danhgia">Hoang van a</h6>
-                <div class="stars">
-                  <i class="star-danh-gia fa-regular fa-star"></i>
-                  <i class="star-danh-gia fa-regular fa-star"></i>
-                  <i class="star-danh-gia fa-regular fa-star"></i>
-                  <i class="star-danh-gia fa-regular fa-star"></i>
-                  <i class="star-danh-gia fa-regular fa-star"></i>
-                </div>
-                <p class="danh-gia">Rất là hay!</p>
-              </div>
+              <p class="danh-gia">Rất là hay!</p>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <script>
-      var ProductImg = document.getElementById("ProductImg");
-      var SmallImg = document.getElementsByClassName("small-img");
+  </div>
+  <script src="./lib/Jquery/jquery364.js"></script>
+  <script>
+    var ProductImg = document.getElementById("ProductImg");
+    var SmallImg = document.getElementsByClassName("small-img");
 
-      SmallImg[0].onclick = function () {
-        ProductImg.src = SmallImg[0].src;
-      };
-      SmallImg[1].onclick = function () {
-        ProductImg.src = SmallImg[1].src;
-      };
-      SmallImg[2].onclick = function () {
-        ProductImg.src = SmallImg[2].src;
-      };
+    SmallImg[0].onclick = function () {
+      ProductImg.src = SmallImg[0].src;
+    };
+    SmallImg[1].onclick = function () {
+      ProductImg.src = SmallImg[1].src;
+    };
+    SmallImg[2].onclick = function () {
+      ProductImg.src = SmallImg[2].src;
+    };
       // SmallImg[0].onclick = function(){
       //   ProductImg.src = SmallImg[3].src;
       // }
-    </script>
-    <!-- END CONTENT -->
+  </script>
+  <!-- END CONTENT -->
 
-    <!-- FOOTER -->
-    <div id="footer"></div>
-    <script>
-      $(function () {
-        $("#footer").load("footer.html");
-      });
-    </script>
-    <script src="js/main.js"></script>
-    <script src="js/chitietsp.js"></script>
-    <!-- END FOOTER -->
-  </body>
+  <!-- FOOTER -->
+  <div id="footer"></div>
+  <script>
+    $(function () {
+      $("#nav").load("nav.html");
+    });
+  </script>
+  <script>
+    $(function () {
+      $("#footer").load("footer.html");
+    });
+  </script>
+
+  <script src="js/main.js"></script>
+  <script src="js/chitietsp.js"></script>
+  <!-- END FOOTER -->
+</body>
+
 </html>

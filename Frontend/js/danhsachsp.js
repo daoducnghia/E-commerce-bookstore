@@ -188,10 +188,10 @@ function showProductFromList(result) {
     html += `<div class="content--product--item--price">` + formatMoneyVND(p.price) + `</div>
             <div class="content--product--item--point">`;
     for (var i = 0; i < Math.round(p.point); i++) {
-      html += `<i class="fa-light fa-star" style="color: #ffbb00;"></i>`
+      html += `<i class="fa-duotone fa-star" style="color: #ffbb00;"></i>`
     }
     for (var i = Math.round(p.point); i < 5; i++) {
-      html += `<i class="fa-light fa-star""></i>`
+      html += `<i class="fa-duotone fa-star"></i>`
     }
     html += `</div>
     <div class="content--product--item--btn">

@@ -1,3 +1,7 @@
+window.addEventListener("load", function () {
+  document.querySelector(".nav--loading").style.display = "none";
+});
+
 const url = "http://localhost:8080";
 var header = `<div class="header--logo">
 <div class="header--logo--icon"></div>

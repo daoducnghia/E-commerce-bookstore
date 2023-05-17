@@ -92,6 +92,10 @@ public class AdminController {
             productEntity.setProductDescription(product.getDescribe());
             productEntity.setNumberOfProduct(product.getQuantity());
 
+            if(product.getId() != 0 && product.getLinkImg().isEmpty()){
+                ProductEntity pe = productRepository.findById(product.getId()).get();
+                productEntity.setLinkImage(pe.getLinkImage());
+            }
             // xử lý publishing company
             PublishingCompanyEntity pC = publishingCoRepository.findAllByName(product.getNxb());
             if (pC == null) {

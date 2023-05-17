@@ -1,150 +1,125 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thông tin cá nhân</title>
-    <script src="./lib/Jquery/jquery364.js"></script>
-    <link rel="shortcut icon" href="./assets/icon/Logo.svg" />
-    <link rel="stylesheet" href="css/page/thongtincanhan.css" />
-  </head>
-  <body>
-    <div id="nav"></div>
-    <script>
-      $(function () {
-        $("#nav").load("nav.html");
-      });
-    </script>
 
-    <div class="content">
-      <div class="content--sidebar">
-        <div class="content--sidebar--user">
-          <div class="content--sidebar--user--img">
-            <img
-              src="https://thuthuatnhanh.com/wp-content/uploads/2020/02/icon-be-ong-dang-yeu.jpg"
-              alt=""
-            />
-          </div>
-          <div
-            id="username-left"
-            class="content--sidebar--user--username font--heading__3"
-          >
-            nguyenkkk
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thông tin cá nhân</title>
+  <link rel="shortcut icon" href="./assets/icon/Logo.svg" />
+  <link rel="stylesheet" href="css/page/thongtincanhan.css" />
+</head>
+
+<body>
+  <div class="nav--loading">
+    <img src="./assets/image/loading.gif" alt="LOADING">
+  </div>
+  <div id="nav"></div>
+  <div class="content">
+    <div class="content--sidebar">
+      <div class="content--sidebar--user">
+        <div class="content--sidebar--user--img">
+          <img src="https://png.pngtree.com/png-vector/20190704/ourlarge/pngtree-businessman-user-avatar-free-vector-png-image_1538405.jpg" alt="" />
         </div>
-        <div class="content--sidebar--items">
-          <div class="content--sidebar--item content--sidebar--item__active">
-            <a href=""><i class="fa-regular fa-user"></i>Tài khoản của tôi</a>
-          </div>
-          <div class="content--sidebar--item">
-            <a href="lichsumuahang.html"
-              ><i class="fa-regular fa-clipboard-list-check"></i>Đơn hàng</a
-            >
-          </div>
+        <div id="username-left" class="content--sidebar--user--username font--heading__3">
+          
         </div>
       </div>
-      <div class="content--main">
-        <div class="user-profile">
-          <div class="title">
-            <h2>Hồ sơ của tôi</h2>
-            <h3>Quản lý thông tin hồ sơ để bảo mật tài khoản</h3>
-            <hr />
+      <div class="content--sidebar--items">
+        <div class="content--sidebar--item content--sidebar--item__active">
+          <a href=""><i class="fa-regular fa-user"></i>Tài khoản của tôi</a>
+        </div>
+        <div class="content--sidebar--item">
+          <a href="lichsumuahang.html"><i class="fa-regular fa-clipboard-list-check"></i>Đơn hàng</a>
+        </div>
+      </div>
+    </div>
+    <div class="content--main">
+      <div class="user-profile">
+        <div class="title">
+          <h2>Hồ sơ của tôi</h2>
+          <h3>Quản lý thông tin hồ sơ để bảo mật tài khoản</h3>
+          <hr />
+        </div>
+        <div class="noidung-chinh">
+          <div class="noidung-text">
+            <form action="" id="form-quanlytt">
+              <table class="table-text">
+                <tr>
+                  <td class="td-label">
+                    <label for="">Tên đăng nhập</label>
+                  </td>
+                  <td class="td-input">
+                    <input type="text" name="" id="username" value="nguyenkkk" readonly />
+                  </td>
+                </tr>
+                <tr>
+                  <td class="td-label">
+                    <label for="">Mật khẩu</label>
+                  </td>
+                  <td class="td-input">
+                    <input type="password" name="" id="password" value="nguyenkkk" />
+                  </td>
+                </tr>
+                <tr>
+                  <td class="td-label">
+                    <label for="">Họ tên</label>
+                  </td>
+                  <td class="td-input">
+                    <input type="text" name="" id="name" value="Nguyen" />
+                  </td>
+                </tr>
+                <tr>
+                  <td class="td-label">
+                    <label for="">Email</label>
+                  </td>
+                  <td class="td-input">
+                    <input type="email" name="" id="email" value="nguyenkkk@gmail.com" />
+                  </td>
+                </tr>
+                <tr>
+                  <td class="td-label">
+                    <label for="">Số điện thoại</label>
+                  </td>
+                  <td class="td-input">
+                    <input type="text" name="" id="phoneNumber" value="0123456789" />
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>
+                    <button type="submit" class="save-profile btn">
+                      Lưu
+                    </button>
+                  </td>
+                </tr>
+              </table>
+            </form>
           </div>
-          <div class="noidung-chinh">
-            <div class="noidung-text">
-              <form action="" id="form-quanlytt">
-                <table class="table-text">
-                  <tr>
-                    <td class="td-label">
-                      <label for="">Tên đăng nhập</label>
-                    </td>
-                    <td class="td-input">
-                      <input
-                        type="text"
-                        name=""
-                        id="username"
-                        value="nguyenkkk"
-                        readonly
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="td-label">
-                      <label for="">Mật khẩu</label>
-                    </td>
-                    <td class="td-input">
-                      <input
-                        type="password"
-                        name=""
-                        id="password"
-                        value="nguyenkkk"
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="td-label">
-                      <label for="">Họ tên</label>
-                    </td>
-                    <td class="td-input">
-                      <input type="text" name="" id="name" value="Nguyen" />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="td-label">
-                      <label for="">Email</label>
-                    </td>
-                    <td class="td-input">
-                      <input
-                        type="email"
-                        name=""
-                        id="email"
-                        value="nguyenkkk@gmail.com"
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="td-label">
-                      <label for="">Số điện thoại</label>
-                    </td>
-                    <td class="td-input">
-                      <input
-                        type="text"
-                        name=""
-                        id="phoneNumber"
-                        value="0123456789"
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>
-                      <button type="submit" class="save-profile btn">
-                        Lưu
-                      </button>
-                    </td>
-                  </tr>
-                </table>
-              </form>
-            </div>
-            <div class="noidung-img">
-              <i class="fa-solid fa-user"></i>
-              <input type="file" name="user-ava" id="user-ava" />
-              <label for="user-ava" class="btn">Chọn ảnh</label>
-              <p>Dung lượng file tối đa 1MB</p>
-            </div>
+          <div class="noidung-img">
+            <i class="fa-solid fa-user"></i>
+            <input type="file" name="user-ava" id="user-ava" />
+            <label for="user-ava" class="btn">Chọn ảnh</label>
+            <p>Dung lượng file tối đa 1MB</p>
           </div>
         </div>
       </div>
     </div>
-    <script></script>
-    <div id="footer"></div>
-    <script>
-      $(function () {
-        $("#footer").load("footer.html");
-      });
-    </script>
-    <script src="js/main.js"></script>
-    <script src="js/qlthongtincanhan.js"></script>
-  </body>
+  </div>
+  <script src="./lib/Jquery/jquery364.js"></script>
+  <script>
+    $(function () {
+      $("#nav").load("nav.html");
+    });
+  </script>
+  <div id="footer"></div>
+  <script>
+    $(function () {
+      $("#footer").load("footer.html");
+    });
+  </script>
+  <script src="js/main.js"></script>
+  <script src="js/qlthongtincanhan.js"></script>
+</body>
+
 </html>
