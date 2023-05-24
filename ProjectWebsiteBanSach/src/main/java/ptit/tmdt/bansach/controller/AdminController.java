@@ -3,6 +3,8 @@ package ptit.tmdt.bansach.controller;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +21,7 @@ import ptit.tmdt.bansach.entity.CategoryEntity;
 import ptit.tmdt.bansach.entity.LanguageEntity;
 import ptit.tmdt.bansach.entity.OrderEntity;
 import ptit.tmdt.bansach.entity.ProductEntity;
+import ptit.tmdt.bansach.entity.PromotionDetailEntity;
 import ptit.tmdt.bansach.entity.PublishingCompanyEntity;
 import ptit.tmdt.bansach.entity.UserEntity;
 import ptit.tmdt.bansach.repository.AccountRepository;
@@ -29,6 +32,7 @@ import ptit.tmdt.bansach.repository.LanguageRepository;
 import ptit.tmdt.bansach.repository.OrderDetailRepository;
 import ptit.tmdt.bansach.repository.OrderRepository;
 import ptit.tmdt.bansach.repository.ProductRepository;
+import ptit.tmdt.bansach.repository.PromotionDetailRepository;
 import ptit.tmdt.bansach.repository.PublishingCoRepository;
 import ptit.tmdt.bansach.repository.UserRepository;
 
@@ -62,8 +66,12 @@ public class AdminController {
 
     @Autowired
     OrderRepository orderRepository;
+
     @Autowired
     OrderDetailRepository orderDetailRepository;
+
+    @Autowired
+    PromotionDetailRepository promotionDetailRepository;
 
     @GetMapping("/showAllProduct")
     public List<ProductEntity> showAllProduct() {
@@ -80,62 +88,159 @@ public class AdminController {
     @PostMapping("/addProduct")
     public String addProduct(@RequestBody ProductFull product) {
         try {
-            ProductEntity productEntity = new ProductEntity();
-            productEntity.setProductId(product.getId());
-            productEntity.setProductName(product.getName());
-            productEntity.setLinkImage(product.getLinkImg());
-            productEntity.setPrice(product.getPrice());
-            productEntity.setProductSize(product.getSize());
-            productEntity.setTranslator(product.getTranslator());
-            productEntity.setPublicationDate(product.getDateRelease());
-            productEntity.setNumbersOfPages(product.getPage());
-            productEntity.setProductDescription(product.getDescribe());
-            productEntity.setNumberOfProduct(product.getQuantity());
+            // tim kiem neu product name da co thi la chuc nang sua
+            // neu la rong thi la chuc nang them moi
 
-            if(product.getId() != 0 && product.getLinkImg().isEmpty()){
-                ProductEntity pe = productRepository.findById(product.getId()).get();
-                productEntity.setLinkImage(pe.getLinkImage());
-            }
-            // xử lý publishing company
-            PublishingCompanyEntity pC = publishingCoRepository.findAllByName(product.getNxb());
-            if (pC == null) {
-                PublishingCompanyEntity pc_save = new PublishingCompanyEntity();
-                pc_save.setPublishingCompanyName(product.getNxb());
-                publishingCoRepository.save(pc_save);
-            }
-            productEntity.setPublishingCompany(publishingCoRepository.findAllByName(product.getNxb()));
+            if (productRepository.findByProductId(product.getId()) != null) {
+                ProductEntity productEntity = new ProductEntity();
+                productEntity.setProductId(product.getId());
+                productEntity.setProductName(product.getName());
+                productEntity.setLinkImage(product.getLinkImg());
+                productEntity.setPrice(product.getPrice());
+                productEntity.setProductSize(product.getSize());
+                productEntity.setTranslator(product.getTranslator());
+                productEntity.setPublicationDate(product.getDateRelease());
+                productEntity.setNumbersOfPages(product.getPage());
+                productEntity.setProductDescription(product.getDescribe());
+                productEntity.setNumberOfProduct(product.getQuantity());
 
-            // xử lý category
-            CategoryEntity cate = categoryRepository.findAllByName(product.getCategory());
-            productEntity.setCategory(cate);
-
-            // xử lý language
-            LanguageEntity lang = languageRepository.findAllByName(product.getLanguage());
-            productEntity.setLanguage(lang);
-
-            productRepository.save(productEntity);
-
-            ProductEntity prdct = productRepository.findByNameLatest(productEntity.getProductName());
-            // xử lý author
-            String[] lAuthor = product.getAuthors().trim().split(";");
-            System.out.println(lAuthor[0]);
-            for (String x : lAuthor) {
-                // check author
-                AuthorEntity aue = authorRepository.findAllByName(x);
-                if (aue == null) {
-                    AuthorEntity aue1 = new AuthorEntity();
-                    aue1.setAuthorName(x);
-                    authorRepository.save(aue1);
-                    System.out.println("author saved");
+                if (product.getId() != 0 && product.getLinkImg().isEmpty()) {
+                    ProductEntity pe = productRepository.findById(product.getId()).get();
+                    productEntity.setLinkImage(pe.getLinkImage());
                 }
-                AuthorEntity authorEntity = authorRepository.findAllByName(x);
-                AuthorDetailEntity ade = new AuthorDetailEntity();
-                ade.setAuthor(authorEntity);
-                ade.setProduct(prdct);
-                authorDetailRepository.save(ade);
-            }
+                // xử lý publishing company
+                PublishingCompanyEntity pC = publishingCoRepository.findAllByName(product.getNxb());
+                if (pC == null) {
+                    PublishingCompanyEntity pc_save = new PublishingCompanyEntity();
+                    pc_save.setPublishingCompanyName(product.getNxb());
+                    publishingCoRepository.save(pc_save);
+                }
+                productEntity.setPublishingCompany(publishingCoRepository.findAllByName(product.getNxb()));
 
-            return "Trong try";
+                // xử lý category
+                CategoryEntity cate = categoryRepository.findAllByName(product.getCategory());
+                productEntity.setCategory(cate);
+
+                // xử lý language
+                LanguageEntity lang = languageRepository.findAllByName(product.getLanguage());
+                productEntity.setLanguage(lang);
+
+                productRepository.save(productEntity);
+
+                // ProductEntity prdct =
+                // productRepository.findByNameLatest(productEntity.getProductName());
+
+                // xử lý author
+                // authorDetailRepository.deleteAllByProductId(product.getId());
+
+                // xoá hết trong author detail
+                List<AuthorDetailEntity> lade = (List<AuthorDetailEntity>) authorDetailRepository
+                        .findAllByProductId(product.getId());
+                if (!lade.isEmpty()) {
+                    for (AuthorDetailEntity x : lade) {
+                        authorDetailRepository.delete(x);
+                    }
+                }
+
+                String[] lAuthor = product.getAuthors().trim().split(";");
+
+                for (String x : lAuthor) {
+                    x = x.trim();
+                    // kiem tra author da co trong cssl chua
+                    AuthorEntity aue = authorRepository.findByName(x);
+                    AuthorEntity aue_save = new AuthorEntity();
+                    if (aue == null) {
+                        // neu co thi luu moi vao bang author
+                        AuthorEntity aue1 = new AuthorEntity();
+                        aue1.setAuthorName(x);
+                        authorRepository.save(aue1);
+
+                        // Lưu author vào product vào bảng author detail
+                        aue_save = authorRepository.findByName(x);
+                        AuthorDetailEntity ade = new AuthorDetailEntity();
+                        ade.setAuthor(aue_save);
+                        ade.setProduct(productEntity);
+                        authorDetailRepository.save(ade);
+                    } else {
+                        // nếu có rồi thì lấy cái author đó ra rồi lưu vào trong bảng a-detail với ...
+                        aue_save = aue;
+                        AuthorDetailEntity ade = new AuthorDetailEntity();
+                        ade.setAuthor(aue_save);
+                        ade.setProduct(productEntity);
+                        authorDetailRepository.save(ade);
+                    }
+
+                }
+                return "Sua duoc";
+            } else {
+                ProductEntity productEntity = new ProductEntity();
+                productEntity.setProductId(product.getId());
+                productEntity.setProductName(product.getName());
+                productEntity.setLinkImage(product.getLinkImg());
+                productEntity.setPrice(product.getPrice());
+                productEntity.setProductSize(product.getSize());
+                productEntity.setTranslator(product.getTranslator());
+                productEntity.setPublicationDate(product.getDateRelease());
+                productEntity.setNumbersOfPages(product.getPage());
+                productEntity.setProductDescription(product.getDescribe());
+                productEntity.setNumberOfProduct(product.getQuantity());
+
+                if (product.getId() != 0 && product.getLinkImg().isEmpty()) {
+                    ProductEntity pe = productRepository.findById(product.getId()).get();
+                    productEntity.setLinkImage(pe.getLinkImage());
+                }
+                // xử lý publishing company
+                PublishingCompanyEntity pC = publishingCoRepository.findAllByName(product.getNxb());
+                if (pC == null) {
+                    PublishingCompanyEntity pc_save = new PublishingCompanyEntity();
+                    pc_save.setPublishingCompanyName(product.getNxb());
+                    publishingCoRepository.save(pc_save);
+                }
+                productEntity.setPublishingCompany(publishingCoRepository.findAllByName(product.getNxb()));
+
+                // xử lý category
+                CategoryEntity cate = categoryRepository.findAllByName(product.getCategory());
+                productEntity.setCategory(cate);
+
+                // xử lý language
+                LanguageEntity lang = languageRepository.findAllByName(product.getLanguage());
+                productEntity.setLanguage(lang);
+
+                productRepository.save(productEntity);
+
+                // xử lý author
+
+                String[] lAuthor = product.getAuthors().trim().split(";");
+
+                for (String x : lAuthor) {
+                    x = x.trim();
+                    // kiem tra author da co trong cssl chua
+                    AuthorEntity aue = authorRepository.findByName(x);
+                    AuthorEntity aue_save = new AuthorEntity();
+                    if (aue == null) {
+                        // neu co thi luu moi vao bang author
+                        AuthorEntity aue1 = new AuthorEntity();
+                        aue1.setAuthorName(x);
+                        authorRepository.save(aue1);
+
+                        // Lưu author vào product vào bảng author detail
+                        aue_save = authorRepository.findByName(x);
+                        AuthorDetailEntity ade = new AuthorDetailEntity();
+                        ade.setAuthor(aue_save);
+                        ade.setProduct(productEntity);
+                        authorDetailRepository.save(ade);
+                    } else {
+                        // nếu có rồi thì lấy cái author đó ra rồi lưu vào trong bảng a-detail với ...
+                        aue_save = aue;
+                        AuthorDetailEntity ade = new AuthorDetailEntity();
+                        ade.setAuthor(aue_save);
+                        ade.setProduct(productEntity);
+                        authorDetailRepository.save(ade);
+
+                    }
+                }
+                return "Them duoc";
+            }
         } catch (Exception e) {
             // TODO: handle exception
             System.out.println(e);
@@ -222,13 +327,41 @@ public class AdminController {
     @GetMapping("/deleteProduct")
     public String delProduct(@RequestParam Integer id) {
         try {
-            productRepository.deleteById(id);
+            // update lang, cate, publishing comp
+            ProductEntity pe = productRepository.findByProductId(id);
+
+            pe.setCategory(null);
+            pe.setLanguage(null);
+            pe.setPublishingCompany(null);
+            productRepository.save(pe);
+
+            // if (productRepository.findByProductId(id).getCategory() == null) {
+            // return "Xoa lang thanh cong";
+            // }
+
+            // delete from promotion_detail
+            List<PromotionDetailEntity> pde = (List<PromotionDetailEntity>) promotionDetailRepository
+                    .findAllByProduct(pe);
+            if (pde != null) {
+                promotionDetailRepository.deleteAll(pde);
+                // return "xoa promo";
+            }
+
+            // delete from author_detail
+            List<AuthorDetailEntity> ade = (List<AuthorDetailEntity>) authorDetailRepository.findAllByProduct(pe);
+            if (ade != null) {
+                authorDetailRepository.deleteAll(ade);
+                // return "xoa autho";
+            }
+
+            // delete final
+            productRepository.delete(pe);
             return "Xoá thành công";
         } catch (Exception e) {
             // TODO: handle exception
             System.out.println(e);
         }
-        return null;
+        return "Khong lam gi";
     }
 
     // ----------------------------QL_KHACH_HANG----------------------------------------------

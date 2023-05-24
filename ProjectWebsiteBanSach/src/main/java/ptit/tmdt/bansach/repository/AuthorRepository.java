@@ -12,8 +12,13 @@ import ptit.tmdt.bansach.entity.AuthorEntity;
 public interface AuthorRepository extends JpaRepository<AuthorEntity, Integer> {
 
     @Query(value = "select * from database_bansach_pthttmdt_btl.author where author_name = ?", nativeQuery = true)
-    AuthorEntity findAllByName(String x);
+    List<AuthorEntity> findAllByName(String x);
 
     @Query(value = "SELECT a.* FROM database_bansach_pthttmdt_btl.author_detail ad, author a WHERE product_id = ? and ad.author_id = a.author_id", nativeQuery = true)
     List<AuthorEntity> findAuthorsByProductId(Integer id);
+
+    @Query(value = "select * from database_bansach_pthttmdt_btl.author where author_name = ? limit 1", nativeQuery = true)
+    AuthorEntity findByName(String x);
+
+    // AuthorEntity findByAuthor(AuthorEntity aue1);
 }

@@ -152,8 +152,31 @@ window.addEventListener("load", function (event) {
       .catch((error) => console.log("error", error));
   }
 
-  // JS thêm sản phẩm
+  //Nút thêm sản phẩm (reset các thành phần về trống)
+  var buttonThem = document.getElementById("button-them");
+  buttonThem.addEventListener("click", function (event) {
+    event.preventDefault();
 
+    document.getElementById("idProduct").value = null;
+    var selectBoxL = document.getElementById("dd-lang");
+    selectBoxL.selectedIndex = 0;
+
+    var selectBoxC = document.getElementById("dd-category");
+    selectBoxC.selectedIndex = 0;
+
+    document.getElementById("name").value = "";
+    document.getElementById("price").value = "";
+    document.getElementById("authors").value = "";
+    document.getElementById("trans").value = "";
+    document.getElementById("nxb").value = "";
+    document.getElementById("page").value = "";
+    document.getElementById("size").value = "";
+    document.getElementById("date").value = "";
+    document.getElementById("quant").value = "";
+    document.getElementById("describe").value = "";
+  });
+
+  // Lưu sản phẩm
   var form = document.getElementById("form-add");
 
   form.addEventListener("submit", function (event) {
@@ -213,7 +236,7 @@ window.addEventListener("load", function (event) {
       fetch("http://localhost:8080/api/addProduct", requestOptions)
         .then((response) => response.text())
         .then((result) => {
-          if (result == "Trong try") {
+          if (result == "Sua duoc" || result == "Them duoc") {
             window.location.reload();
           }
         })
@@ -253,12 +276,13 @@ window.addEventListener("load", function (event) {
         fetch("http://localhost:8080/api/addProduct", requestOptions)
           .then((response) => response.text())
           .then((result) => {
-            if (result == "Trong try") {
+            if (result == "Sua duoc" || result == "Them duoc") {
               window.location.reload();
             }
           })
           .catch((error) => console.log("error", error));
       };
+      // closePopup("popupAddProduct");
     }
   });
 
@@ -313,11 +337,4 @@ function xoaSP(id) {
       window.location.reload();
     })
     .catch((error) => console.log("error", error));
-}
-
-function suasanpham(idP) {
-  openPopup("popupAddProduct");
-  //Lấy thông tin sản phẩm theo id hiện lên popup
-
-  //Lưu lại thông tin sp vừa sửa
 }
