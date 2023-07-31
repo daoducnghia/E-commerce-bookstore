@@ -29,9 +29,10 @@
    - Java
    - Framework Springboot
 6. Người đóng góp
-   -  Đào Đức Nghĩa
+   -  Đào Đức Nghĩa 
    -  Đỗ Văn Quang
-7. Một số hình ảnh Project
+7. Mọi góp ý xin hãy liên hệ qua email: nghiadd.work@gmail.com
+8. Một số hình ảnh Project
    - Trang chủ
       ![image](https://github.com/daoducnghia/E-commerce-bookstore/assets/93426925/8f1291bc-ee44-4a0d-95ce-5e048858d1c8)
    - Đăng nhập
